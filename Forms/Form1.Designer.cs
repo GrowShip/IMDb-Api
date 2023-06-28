@@ -55,6 +55,7 @@
             YyFromText = new TextBox();
             label6 = new Label();
             button1 = new Button();
+            scndForm = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -217,11 +218,19 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click_1;
             // 
+            // scndForm
+            // 
+            resources.ApplyResources(scndForm, "scndForm");
+            scndForm.Name = "scndForm";
+            scndForm.UseVisualStyleBackColor = true;
+            scndForm.Click += scndForm_Click;
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
+            Controls.Add(scndForm);
             Controls.Add(button1);
             Controls.Add(label6);
             Controls.Add(YyFromText);
@@ -283,5 +292,6 @@
         private TextBox YyFromText;
         private Label label6;
         private Button button1;
+        private Button scndForm;
     }
 }

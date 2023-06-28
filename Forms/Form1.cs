@@ -10,7 +10,9 @@ using System.Net;
 using System.Security.Policy;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using JR.Utils.GUI.Forms;
 using LicenseContext = OfficeOpenXml.LicenseContext;
+using OfficeOpenXml.DataValidation;
 
 namespace IMDbApi
 {
@@ -139,17 +141,17 @@ namespace IMDbApi
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 var i = listBox1.SelectedIndex;
-                label2.Text = $"Type: {activeJson.Results[i].Type} \n" +
-                              $"Title: {activeJson.Results[i].Title} \n" +
+                label2.Text = $"Type:   {activeJson.Results[i].Type} \n" +
+                              $"Title:  {activeJson.Results[i].Title} \n" +
                               $"Rating: {activeJson.Results[i].ContentRating} \n" +
                               $"Genres: {activeJson.Results[i].Genres} \n" +
-                              $"IMDB rating: {activeJson.Results[i].IMDbRating} \n" +
-                              $"Release date: {activeJson.Results[i].ReleaseDate} \n" +
+                              $"Describtion:     {activeJson.Results[i].Description} \n" +
+                              $"Release date:    {activeJson.Results[i].ReleaseDate} \n" +
                               $"Release country: {activeJson.Results[i].LocationSearch}";
                 label3.Text = activeJson.Results[i].Plot;
                 linkLabel1.Text = activeJson.Results[i].Image;
@@ -169,7 +171,7 @@ namespace IMDbApi
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(MmFromText.Text) || string.IsNullOrEmpty(YyFromText.Text) || string.IsNullOrEmpty(MmToText.Text) || string.IsNullOrEmpty(YyToText.Text))
             {
@@ -178,7 +180,8 @@ namespace IMDbApi
             }
             // &release_date=2023-04-01,2023-06-01
             sameJson = false;
-            Window_Loaded(sender, e, comboBox1.SelectedValue.ToString());
+            string countryLang = comboBox1.SelectedValue.ToString();
+            Window_Loaded(sender, e, countryLang);
         }
 
         private async void Window_Loaded(object sender, EventArgs e, string language)
@@ -393,7 +396,11 @@ namespace IMDbApi
             SaveJson(JsonConvert.SerializeObject(savedJson));
             if (!string.IsNullOrEmpty(sameFilms))
             {
-                MessageBox.Show("‘ильмы которые уже добавленны ранее:\n" + sameFilms);
+                //MessageBox.Show("‘ильмы которые уже добавленны ранее:\n" + sameFilms.Substring(0,sameFilms.Length - 1));
+                var answer = FlexibleMessageBox.Show("‘ильмы которые уже были добавленны ранее: " + sameFilms.Substring(0, sameFilms.Length - 1),
+                                        "ќбновить метаданные?",
+                                        buttons: MessageBoxButtons.YesNo);
+                //TODO : дописать обновление уже внесенных до этого тайтлов
             }
             MessageBox.Show("ƒобавлено");
         }
@@ -413,9 +420,9 @@ namespace IMDbApi
                 {
                     string.Concat(savedJson.Results[indexO].LocationSearch, "/" + a.LocationSearch);
                 }
-                sameFilm = "\n" + a.Title;
+                sameFilm = "\n" + a.Id + "_" + a.Title + ";";
             }
-            else sameFilm = "\n" + a.Title;
+            else sameFilm = "\n" + a.Id + "_" + a.Title + ";";
             return sameFilm;
         }
 
@@ -502,7 +509,7 @@ namespace IMDbApi
             }
         }
 
-        private async void SearchTitAdditionalInfoAdd(JsonData item)
+        private void SearchTitAdditionalInfoAdd(JsonData item)
         {
             var indexO = savedJson.Results.FindIndex(f => f.Id == item.Id);
             if (indexO == -1)
@@ -550,6 +557,13 @@ namespace IMDbApi
 
                 throw;
             }
+        }
+
+        private void scndForm_Click(object sender, EventArgs e)
+        {
+            Forms.Form2 fr2 = new Forms.Form2();
+            fr2.Show();
+            fr2.Location = new Point(fr2.Left = this.Right + SystemInformation.BorderSize.Width, this.Location.Y);
         }
     }
 }
