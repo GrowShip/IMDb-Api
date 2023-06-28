@@ -1,0 +1,56 @@
+{
+  "queryString": "?title=Harry%20Potter%20and%20the%20Deathly%20Hallows:%20Part%202",
+  "results": [
+    {
+      "id": "tt1201607",
+      "image": "https://m.media-amazon.com/images/M/MV5BMGVmMWNiMDktYjQ0Mi00MWIxLTk0N2UtN2ZlYTdkN2IzNDNlXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_Ratio0.6837_AL_.jpg",
+      "title": "Harry Potter and the Deathly Hallows: Part 2",
+      "description": "(2011)",
+      "runtimeStr": "130 min",
+      "genres": "Adventure, Family, Fantasy",
+      "genreList": [
+        {
+          "key": "Adventure",
+          "value": "Adventure"
+        },
+        {
+          "key": "Family",
+          "value": "Family"
+        },
+        {
+          "key": "Fantasy",
+          "value": "Fantasy"
+        }
+      ],
+      "contentRating": "PG-13",
+      "imDbRating": "8.1",
+      "imDbRatingVotes": "897094",
+      "metacriticRating": "85",
+      "plot": "Harry, Ron, and Hermione search for Voldemort's remaining Horcruxes in their effort to destroy the Dark Lord as the final battle rages on at Hogwarts.",
+      "stars": "David Yates, Daniel Radcliffe, Emma Watson, Rupert Grint, Michael Gambon",
+      "starList": [
+        {
+          "id": "tt1201607",
+          "name": "David Yates"
+        },
+        {
+          "id": "tt1201607",
+          "name": "Daniel Radcliffe"
+        },
+        {
+          "id": "tt1201607",
+          "name": "Emma Watson"
+        },
+        {
+          "id": "tt1201607",
+          "name": "Rupert Grint"
+        },
+        {
+          "id": "tt1201607",
+          "name": "Michael Gambon"
+        }
+      ]
+    }
+  ],
+  "errorMessage": null
+}
