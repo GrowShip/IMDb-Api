@@ -45,7 +45,6 @@
             button3 = new Button();
             ArchiveSearchCheckBox = new CheckBox();
             AllAddCheckBox = new CheckBox();
-            progressBar1 = new ProgressBar();
             OnlyNewCheckBox = new CheckBox();
             SearchTit = new Button();
             label5 = new Label();
@@ -54,7 +53,11 @@
             CmngSoonBtn = new Button();
             dateFrom = new MaskedTextBox();
             dateTo = new MaskedTextBox();
+            panel1 = new Panel();
+            btnTabSearch = new Button();
+            blackBorder = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -156,12 +159,6 @@
             AllAddCheckBox.Name = "AllAddCheckBox";
             AllAddCheckBox.UseVisualStyleBackColor = true;
             // 
-            // progressBar1
-            // 
-            progressBar1.BackColor = SystemColors.ActiveCaption;
-            resources.ApplyResources(progressBar1, "progressBar1");
-            progressBar1.Name = "progressBar1";
-            // 
             // OnlyNewCheckBox
             // 
             resources.ApplyResources(OnlyNewCheckBox, "OnlyNewCheckBox");
@@ -211,11 +208,36 @@
             dateTo.Name = "dateTo";
             dateTo.ValidatingType = typeof(DateTime);
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(18, 18, 18);
+            panel1.Controls.Add(btnTabSearch);
+            resources.ApplyResources(panel1, "panel1");
+            panel1.Name = "panel1";
+            // 
+            // btnTabSearch
+            // 
+            btnTabSearch.FlatAppearance.BorderColor = Color.FromArgb(18, 18, 18);
+            btnTabSearch.FlatAppearance.MouseDownBackColor = Color.FromArgb(48, 48, 48);
+            btnTabSearch.FlatAppearance.MouseOverBackColor = Color.FromArgb(25, 25, 25);
+            resources.ApplyResources(btnTabSearch, "btnTabSearch");
+            btnTabSearch.ForeColor = SystemColors.ControlLightLight;
+            btnTabSearch.Name = "btnTabSearch";
+            btnTabSearch.UseVisualStyleBackColor = true;
+            // 
+            // blackBorder
+            // 
+            blackBorder.BackColor = Color.FromArgb(18, 18, 18);
+            resources.ApplyResources(blackBorder, "blackBorder");
+            blackBorder.Name = "blackBorder";
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
+            Controls.Add(blackBorder);
+            Controls.Add(panel1);
             Controls.Add(dateTo);
             Controls.Add(dateFrom);
             Controls.Add(CmngSoonBtn);
@@ -224,7 +246,6 @@
             Controls.Add(label5);
             Controls.Add(SearchTit);
             Controls.Add(OnlyNewCheckBox);
-            Controls.Add(progressBar1);
             Controls.Add(AllAddCheckBox);
             Controls.Add(ArchiveSearchCheckBox);
             Controls.Add(button3);
@@ -244,6 +265,7 @@
             Name = "Form1";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -266,15 +288,16 @@
         private Button button3;
         private CheckBox ArchiveSearchCheckBox;
         private CheckBox AllAddCheckBox;
-        private ProgressBar progressBar1;
         private CheckBox OnlyNewCheckBox;
         private Button SearchTit;
         private Label label5;
         private Label label6;
-        private Button button1;
+        private Button btnTabSearch;
         private Button scndForm;
         private Button CmngSoonBtn;
         private MaskedTextBox dateFrom;
         private MaskedTextBox dateTo;
+        private Panel panel1;
+        private Panel blackBorder;
     }
 }

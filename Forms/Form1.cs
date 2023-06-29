@@ -58,6 +58,8 @@ namespace IMDbApi
             savedJson = HardTool.GetSavedJson();
         }
 
+        #region Global variables
+
         public WebProxy WebProxy { get; }
         private ApiLib _api;
         //private TMDbLib.Client.TMDbClient _apiTMDB;
@@ -73,6 +75,8 @@ namespace IMDbApi
         //private string UpComingUrl = $"https://imdb-api.com/en/API/ComingSoon/{KeysAccess.GetRandomValue()}";
         //private const string apiUrl = "https://imdb-api.com/ru/API/ComingSoon/k_yl5q767w";
         //private const string apiUrl = "https://imdb-api.com/ru/API/ComingSoon/k_pj17x8n5";
+        #endregion
+
 
         /// <summary>
         /// Заполнение списка стран
@@ -137,7 +141,7 @@ namespace IMDbApi
             string countryLang = comboBox1.SelectedValue.ToString();
             Window_Loaded(sender, e, countryLang, fromD, toD);
         }
-        
+
         private async void Window_Loaded(object sender, EventArgs e, string language, string[] fromD, string[] toD)
         {
             try
@@ -155,7 +159,7 @@ namespace IMDbApi
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
-        
+
         private async Task<FilmData> GetReleaseTitles(string uriDate, string language)
         {
 
@@ -240,7 +244,7 @@ namespace IMDbApi
             }
             MessageBox.Show("Добавлено");
         }
-        
+
         private string AddNewItemToJson(JsonData a)
         {
             string sameFilm = "";
@@ -354,7 +358,7 @@ namespace IMDbApi
                 throw;
             }
         }
-        
+
         private async Task<NewMovieData> ComingSoonAsync()
         {
             HttpClient client = new HttpClient();
@@ -370,8 +374,6 @@ namespace IMDbApi
                 };
             }
         }
-
-
 
         /// <summary>
         /// Добавляем инфо в тайтл
@@ -405,7 +407,7 @@ namespace IMDbApi
                 throw;
             }
         }
-        
+
         private void SearchTitAdditionalInfoAdd(JsonData item)
         {
             var indexO = savedJson.Results.FindIndex(f => f.Id == item.Id);
