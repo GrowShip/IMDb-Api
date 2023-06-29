@@ -54,7 +54,6 @@
             MmToText = new TextBox();
             YyFromText = new TextBox();
             label6 = new Label();
-            button1 = new Button();
             scndForm = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -210,13 +209,6 @@
             // 
             resources.ApplyResources(label6, "label6");
             label6.Name = "label6";
-            // 
-            // button1
-            // 
-            resources.ApplyResources(button1, "button1");
-            button1.Name = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_1;
             // 
             // scndForm
             // 

@@ -29,7 +29,7 @@ namespace IMDbApi
             InitializeComponent();
             FillInCountry();
             _api = new ApiLib(KeysAccess.GetRandomValue());
-            _apiTMDB = new TMDbLib.Client.TMDbClient(KeysAccess.GetKeyTMDB());
+            //_apiTMDB = new TMDbLib.Client.TMDbClient(KeysAccess.GetKeyTMDB());
         }
 
         /// <summary>
@@ -57,12 +57,12 @@ namespace IMDbApi
             tipsForm.SetToolTip(YyFromText, "Год начала интервала");
             tipsForm.SetToolTip(MmToText, "Месяц конца интервала");
             tipsForm.SetToolTip(YyToText, "Год конца интервала");
-            GetSavedJson();
+            savedJson = HardTool.GetSavedJson();
         }
 
         public WebProxy WebProxy { get; }
         private ApiLib _api;
-        private TMDbLib.Client.TMDbClient _apiTMDB;
+        //private TMDbLib.Client.TMDbClient _apiTMDB;
         private string releases;
         private FilmData activeJson;
         private List<string> newAddedJson = new List<string>();
@@ -121,6 +121,83 @@ namespace IMDbApi
         }
 
         /// <summary>
+        /// Осуществляет поиск по странам и датам
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(MmFromText.Text) || string.IsNullOrEmpty(YyFromText.Text) || string.IsNullOrEmpty(MmToText.Text) || string.IsNullOrEmpty(YyToText.Text))
+            {
+                MessageBox.Show("Не введены даты для поиска релизов");
+                return;
+            }
+            // &release_date=2023-04-01,2023-06-01
+            sameJson = false;
+            string countryLang = comboBox1.SelectedValue.ToString();
+            Window_Loaded(sender, e, countryLang);
+        }
+        
+        private void button3_Click(object sender, EventArgs e)
+        {
+            HardTool.SaveJson(JsonConvert.SerializeObject(savedJson));
+            ExcelPlace.SaveReleasesToExcel(savedJson, OnlyNewCheckBox.Checked, newAddedJson);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string sameFilms = "";
+            savedJson = HardTool.GetSavedJson();
+            if (AllAddCheckBox.Checked && !sameJson)
+            {
+                foreach (var el in activeJson.Results)
+                {
+                    sameFilms += AddNewItemToJson(el);
+                }
+            }
+            else if (!sameJson)
+            {
+                //Прописать логику добавления в excel и файл json
+                var y = activeJson.Results[listBox1.SelectedIndex];
+                sameFilms += AddNewItemToJson(y);
+            }
+            else
+            {
+                MessageBox.Show("Ты хочешь добавить уже добавленное?");
+                return;
+            }
+            HardTool.SaveJson(JsonConvert.SerializeObject(savedJson));
+            if (!string.IsNullOrEmpty(sameFilms))
+            {
+                //MessageBox.Show("Фильмы которые уже добавленны ранее:\n" + sameFilms.Substring(0,sameFilms.Length - 1));
+                var answer = FlexibleMessageBox.Show("Фильмы которые уже были добавленны ранее: " + sameFilms.Substring(0, sameFilms.Length - 1),
+                                        "Обновить метаданные?",
+                                        buttons: MessageBoxButtons.YesNo);
+                //TODO : дописать обновление уже внесенных до этого тайтлов
+            }
+            MessageBox.Show("Добавлено");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            //прописать логику отображения всех фалов олда
+            sameJson = true;
+            savedJson = HardTool.GetSavedJson();
+            activeJson = savedJson;
+
+            try
+            {
+                listBox1.DataSource = savedJson.Results;
+                listBox1.DisplayMember = "Title";
+                listBox1.ValueMember = "Id";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+        }
+
+        /// <summary>
         /// Поиск по архиву ДЖИСОНА
         /// </summary>
         /// <param name="title"></param>
@@ -128,7 +205,7 @@ namespace IMDbApi
         {
             activeJson = new FilmData();
             activeJson.Results = new List<JsonData>();
-            GetSavedJson();
+            savedJson = HardTool.GetSavedJson();
             List<JsonData> ab = savedJson.Results.FindAll(f => f.Title.Contains(title, StringComparison.CurrentCultureIgnoreCase));
             foreach (var elem in ab)
             {
@@ -164,24 +241,6 @@ namespace IMDbApi
                     ErrorMessage = ex.Message
                 };
             }
-        }
-
-        /// <summary>
-        /// Осуществляет поиск по странам и датам
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(MmFromText.Text) || string.IsNullOrEmpty(YyFromText.Text) || string.IsNullOrEmpty(MmToText.Text) || string.IsNullOrEmpty(YyToText.Text))
-            {
-                MessageBox.Show("Не введены даты для поиска релизов");
-                return;
-            }
-            // &release_date=2023-04-01,2023-06-01
-            sameJson = false;
-            string countryLang = comboBox1.SelectedValue.ToString();
-            Window_Loaded(sender, e, countryLang);
         }
 
         private async void Window_Loaded(object sender, EventArgs e, string language)
@@ -250,160 +309,7 @@ namespace IMDbApi
                     ErrorMessage = ex.Message
                 };
             }
-        }
-
-        private void SaveReleasesToExcel()
-        {
-            SaveJson(JsonConvert.SerializeObject(savedJson));
-
-            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-            // Create a new Excel package
-            using (ExcelPackage package = new ExcelPackage())
-            {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("All");
-
-                // Set column headers
-                worksheet.Cells[1, 1].Value = "Type";
-                worksheet.Cells[1, 2].Value = "Title";
-                worksheet.Cells[1, 4].Value = "Genre";
-                worksheet.Cells[1, 5].Value = "Country";
-                worksheet.Cells[1, 6].Value = "Year";
-                worksheet.Cells[1, 7].Value = "Rating IMDB";
-                worksheet.Cells[1, 10].Value = "Release Date";
-                worksheet.Cells[1, 11].Value = "Release Country";
-                worksheet.Cells[1, 12].Value = "Snopsys";
-                worksheet.Cells[1, 13].Value = "Id";
-                worksheet.Cells[1, 14].Value = "Runtime";
-                worksheet.Cells[1, 15].Value = "Description";
-                worksheet.Cells[1, 16].Value = "Directors";
-                worksheet.Cells[1, 17].Value = "Stars";
-
-                // Parse the JSON response and populate the Excel worksheet
-                // Replace this code with your own JSON parsing logic
-                // Here, we assume the JSON response is an array of objects,
-                // each representing a release with 'name', 'year', 'synopsis', and 'other' properties
-
-                //AdvancedSearchData releases = JsonConvert.DeserializeObject<AdvancedSearchData>(responseJson);
-                int row = 2;
-                if (OnlyNewCheckBox.Checked)
-                {
-                    try
-                    {
-                        foreach (var release in newAddedJson)
-                        {
-                            worksheet.Cells[row, 1].Value = savedJson.Results.Find(f => f.Id == release).Type;
-                            worksheet.Cells[row, 2].Value = savedJson.Results.Find(f => f.Id == release).Title;
-                            worksheet.Cells[row, 4].Value = savedJson.Results.Find(f => f.Id == release).Genres;
-                            worksheet.Cells[row, 5].Value = savedJson.Results.Find(f => f.Id == release).LocationSearch;
-                            worksheet.Cells[row, 6].Value = savedJson.Results.Find(f => f.Id == release).Year;
-                            worksheet.Cells[row, 7].Value = savedJson.Results.Find(f => f.Id == release).IMDbRating;
-                            worksheet.Cells[row, 10].Value = savedJson.Results.Find(f => f.Id == release).ReleaseDate;
-                            worksheet.Cells[row, 11].Value = savedJson.Results.Find(f => f.Id == release).Countries;
-                            worksheet.Cells[row, 12].Value = savedJson.Results.Find(f => f.Id == release).Plot;
-                            worksheet.Cells[row, 13].Value = savedJson.Results.Find(f => f.Id == release).Id;
-                            worksheet.Cells[row, 14].Value = savedJson.Results.Find(f => f.Id == release).RuntimeStr;
-                            worksheet.Cells[row, 15].Value = savedJson.Results.Find(f => f.Id == release).Description;
-                            worksheet.Cells[row, 16].Value = savedJson.Results.Find(f => f.Id == release).Directors;
-                            worksheet.Cells[row, 17].Value = savedJson.Results.Find(f => f.Id == release).Stars;
-                            row++;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Я не смог добавить: \r" + ex.Message);
-                        throw;
-                    }
-                }
-                else
-                {
-                    foreach (var release in savedJson.Results)
-                    {
-
-                        worksheet.Cells[row, 1].Value = release.Type;
-                        worksheet.Cells[row, 2].Value = release.Title;
-                        worksheet.Cells[row, 4].Value = release.Genres;
-                        worksheet.Cells[row, 5].Value = release.LocationSearch;
-                        worksheet.Cells[row, 6].Value = release.Year;
-                        worksheet.Cells[row, 7].Value = release.IMDbRating;
-                        worksheet.Cells[row, 10].Value = release.ReleaseDate;
-                        worksheet.Cells[row, 11].Value = release.Countries;
-                        worksheet.Cells[row, 12].Value = release.Plot;
-                        worksheet.Cells[row, 13].Value = release.Id;
-                        worksheet.Cells[row, 14].Value = release.RuntimeStr;
-                        worksheet.Cells[row, 15].Value = release.Description;
-                        worksheet.Cells[row, 17].Value = release.Stars;
-                        row++;
-                    }
-                }
-
-
-                // Save the Excel file
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "Excel Files|*.xlsx";
-                saveFileDialog.Title = "Save Releases";
-                saveFileDialog.ShowDialog();
-
-                if (!string.IsNullOrWhiteSpace(saveFileDialog.FileName))
-                {
-                    FileInfo file = new FileInfo(saveFileDialog.FileName);
-                    package.SaveAs(file);
-                    MessageBox.Show("Releases saved successfully!");
-                }
-            }
-        }
-
-        public static void SaveJson(string json)
-        {
-            try
-            {
-                File.WriteAllText(@"JSON\file.json", json);
-                Console.WriteLine("JSON file saved successfully!");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error saving JSON file: {ex.Message}");
-            }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            SaveJson(JsonConvert.SerializeObject(savedJson));
-            SaveReleasesToExcel();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            string sameFilms = "";
-            GetSavedJson();
-            if (AllAddCheckBox.Checked && !sameJson)
-            {
-                foreach (var el in activeJson.Results)
-                {
-                    sameFilms += AddNewItemToJson(el);
-                }
-            }
-            else if (!sameJson)
-            {
-                //Прописать логику добавления в excel и файл json
-                var y = activeJson.Results[listBox1.SelectedIndex];
-                sameFilms += AddNewItemToJson(y);
-            }
-            else
-            {
-                MessageBox.Show("Ты хочешь добавить уже добавленное?");
-                return;
-            }
-            SaveJson(JsonConvert.SerializeObject(savedJson));
-            if (!string.IsNullOrEmpty(sameFilms))
-            {
-                //MessageBox.Show("Фильмы которые уже добавленны ранее:\n" + sameFilms.Substring(0,sameFilms.Length - 1));
-                var answer = FlexibleMessageBox.Show("Фильмы которые уже были добавленны ранее: " + sameFilms.Substring(0, sameFilms.Length - 1),
-                                        "Обновить метаданные?",
-                                        buttons: MessageBoxButtons.YesNo);
-                //TODO : дописать обновление уже внесенных до этого тайтлов
-            }
-            MessageBox.Show("Добавлено");
-        }
+        }     
 
         private string AddNewItemToJson(JsonData a)
         {
@@ -426,59 +332,9 @@ namespace IMDbApi
             return sameFilm;
         }
 
-        private void GetSavedJson()
-        {
-            string json = "";
-            if (File.Exists(@"JSON\file.json"))
-            {
-                json = File.ReadAllText(@"JSON\file.json");
-            }
-            else
-            {
-                string path = @"JSON";
-                if (!Directory.Exists(path))
-                {
-                    DirectoryInfo di = Directory.CreateDirectory(path);
-                    di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
-                }
-                MessageBox.Show("Архивного файла нет");
-            }
-
-            //SaveReleasesToExcel(json);
-            if (!string.IsNullOrEmpty(json))
-            {
-                savedJson = JsonConvert.DeserializeObject<FilmData>(json);
-            }
-            else
-            {
-                savedJson = new FilmData();
-                savedJson.Results = new List<JsonData>();
-            }
-
-        }
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Clipboard.SetText(linkLabel1.Text);
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            //прописать логику отображения всех фалов олда
-            sameJson = true;
-            GetSavedJson();
-            activeJson = savedJson;
-
-            try
-            {
-                listBox1.DataSource = savedJson.Results;
-                listBox1.DisplayMember = "Title";
-                listBox1.ValueMember = "Id";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}");
-            }
         }
 
         private async void SearchTit_Click(object sender, EventArgs e)
@@ -528,7 +384,7 @@ namespace IMDbApi
                 savedJson.Results[indexO].Languages = item.Languages;
             }
 
-            SaveJson(JsonConvert.SerializeObject(savedJson));
+           HardTool.SaveJson(JsonConvert.SerializeObject(savedJson));
         }
 
         private void MmFromText_KeyPress(object sender, KeyPressEventArgs e)
@@ -538,24 +394,6 @@ namespace IMDbApi
             if (!Char.IsDigit(number))
             {
                 e.Handled = true;
-            }
-        }
-
-        private async void button1_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                var release = JsonConvert.DeserializeObject<NewMovieData>(await ApiUtils.GetStringAsync(UpComingUrl));
-                activeJson = Converter.NewMovieToData(release);
-
-                listBox1.DataSource = activeJson.Results;
-                listBox1.DisplayMember = "Title";
-                listBox1.ValueMember = "Id";
-            }
-            catch (Exception)
-            {
-
-                throw;
             }
         }
 
