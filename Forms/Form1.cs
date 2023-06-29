@@ -16,7 +16,7 @@ using OfficeOpenXml.DataValidation;
 
 namespace IMDbApi
 {
-    //Non-commercial WPG to get new releases and other information using IMDB APi
+    //Non-commercial WinForms to get new releases and other information using IMDB APi
     //https://imdb-api.com/API/AdvancedSearch/
     //title_type=tv_movie,tv_series,tv_episode,documentary,video&
     //release_date=2023-04-10,2023-06-10&
@@ -53,10 +53,8 @@ namespace IMDbApi
             tipsForm.SetToolTip(ArchiveSearchCheckBox, "Неохоидмо для поиска тайтла в архиве");
             tipsForm.SetToolTip(SearchTit, "Добавляет тип, год, дату релиза, языки, режиссера и другое для выбранного тайтла");
             tipsForm.SetToolTip(SearchButton, "Кнопка для поиска по IMDB или архиву");
-            tipsForm.SetToolTip(MmFromText, "Месяц начала интервала");
-            tipsForm.SetToolTip(YyFromText, "Год начала интервала");
-            tipsForm.SetToolTip(MmToText, "Месяц конца интервала");
-            tipsForm.SetToolTip(YyToText, "Год конца интервала");
+            tipsForm.SetToolTip(dateFrom, "Дата начала интервала");
+            tipsForm.SetToolTip(dateTo, "Дата конечная интервала");
             savedJson = HardTool.GetSavedJson();
         }
 
@@ -71,8 +69,8 @@ namespace IMDbApi
 
         private string apiUrlForNew = $"https://imdb-api.com/API/AdvancedSearch/{KeysAccess.GetRandomValue()}/?title_type=tv_movie,tv_series,tv_episode,documentary,video";
         private string TitleUrl = $"https://imdb-api.com/en/API/Title/{KeysAccess.GetRandomValue()}/";
-        private string UpComingUrl = $"https://imdb-api.com/en/API/ComingSoon/{KeysAccess.GetRandomValue()}";
 
+        //private string UpComingUrl = $"https://imdb-api.com/en/API/ComingSoon/{KeysAccess.GetRandomValue()}";
         //private const string apiUrl = "https://imdb-api.com/ru/API/ComingSoon/k_yl5q767w";
         //private const string apiUrl = "https://imdb-api.com/ru/API/ComingSoon/k_pj17x8n5";
 
@@ -127,7 +125,9 @@ namespace IMDbApi
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(MmFromText.Text) || string.IsNullOrEmpty(YyFromText.Text) || string.IsNullOrEmpty(MmToText.Text) || string.IsNullOrEmpty(YyToText.Text))
+            var fromD = dateFrom.Text.Split(".");
+            var toD = dateTo.Text.Split(".");
+            if (string.IsNullOrEmpty(fromD[2]) || string.IsNullOrEmpty(fromD[1]) || string.IsNullOrEmpty(toD[2]) || string.IsNullOrEmpty(toD[1]))
             {
                 MessageBox.Show("Не введены даты для поиска релизов");
                 return;
@@ -135,15 +135,77 @@ namespace IMDbApi
             // &release_date=2023-04-01,2023-06-01
             sameJson = false;
             string countryLang = comboBox1.SelectedValue.ToString();
-            Window_Loaded(sender, e, countryLang);
+            Window_Loaded(sender, e, countryLang, fromD, toD);
         }
         
+        private async void Window_Loaded(object sender, EventArgs e, string language, string[] fromD, string[] toD)
+        {
+            try
+            {
+                string uriDate = $"&release_date={fromD[2]}-{fromD[1]}-10,{toD[2]}-{toD[1]}-10";
+
+                activeJson = await GetReleaseTitles(uriDate, language);
+                // Bind the titles to the ListBox control
+                listBox1.DataSource = activeJson.Results;
+                listBox1.DisplayMember = "Title";
+                listBox1.ValueMember = "Id";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+        }
+        
+        private async Task<FilmData> GetReleaseTitles(string uriDate, string language)
+        {
+
+            using (HttpClient client = new HttpClient())
+            {
+                //HttpResponseMessage response = await client.GetAsync(apiUrl+"ru");
+
+                //if (response.IsSuccessStatusCode)
+                try
+                {
+                    //string responseJson = await response.Content.ReadAsStringAsync();
+
+                    // Parse the JSON response
+                    releases = await client.GetStringAsync(apiUrlForNew + uriDate + "&countries=" + language);
+
+                    //SaveReleasesToExcel(releases);
+                    var a = JsonConvert.DeserializeObject<FilmData>(releases);
+                    //JsonConvert.DeserializeObject<AdvancedSearchData>(releases);
+                    foreach (var item in a.Results)
+                    {
+                        item.LocationSearch = Language.countryCodeDictionary[language];
+                    }
+                    return a;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}");
+                    return new FilmData();
+                    //MessageBox.Show("Failed to retrieve release information. Please try again.");
+                }
+                //return new AdvancedSearchData();
+            }
+        }
+
+        /// <summary>
+        /// Реализует сохранение мета сессии или всех в файл EXCEL
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
             HardTool.SaveJson(JsonConvert.SerializeObject(savedJson));
             ExcelPlace.SaveReleasesToExcel(savedJson, OnlyNewCheckBox.Checked, newAddedJson);
         }
 
+        /// <summary>
+        /// Добавляет тайтл в БД, если выбрано "все", то добавляет все
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
             string sameFilms = "";
@@ -163,9 +225,10 @@ namespace IMDbApi
             }
             else
             {
-                MessageBox.Show("Ты хочешь добавить уже добавленное?");
+                MessageBox.Show("Ты хочешь добавить уже добавленное?", "Зачем?");
                 return;
             }
+
             HardTool.SaveJson(JsonConvert.SerializeObject(savedJson));
             if (!string.IsNullOrEmpty(sameFilms))
             {
@@ -177,7 +240,33 @@ namespace IMDbApi
             }
             MessageBox.Show("Добавлено");
         }
+        
+        private string AddNewItemToJson(JsonData a)
+        {
+            string sameFilm = "";
+            int indexO = savedJson.Results.FindIndex(f => f.Id == a.Id);
+            if (indexO == -1)
+            {
+                savedJson.Results.Add(a);
+                newAddedJson.Add(a.Id);
+            }
+            else if (!string.IsNullOrEmpty(a.LocationSearch))
+            {
+                if (!savedJson.Results[indexO].LocationSearch.Contains(a.LocationSearch))
+                {
+                    string.Concat(savedJson.Results[indexO].LocationSearch, "/" + a.LocationSearch);
+                }
+                sameFilm = "\n" + a.Id + "_" + a.Title + ";";
+            }
+            else sameFilm = "\n" + a.Id + "_" + a.Title + ";";
+            return sameFilm;
+        }
 
+        /// <summary>
+        /// Дает возможность посмотреть на архив
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button5_Click(object sender, EventArgs e)
         {
             //прописать логику отображения всех фалов олда
@@ -243,64 +332,35 @@ namespace IMDbApi
             }
         }
 
-        private async void Window_Loaded(object sender, EventArgs e, string language)
+        /// <summary>
+        /// Получение из категории coming soon
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void CmngSoonBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                string uriDate = $"&release_date={YyFromText.Text}-{MmFromText.Text}-10,{YyToText.Text}-{MmToText.Text}-10";
+                var release = await ComingSoonAsync();
+                activeJson = Converter.NewMovieToData(release);
 
-                activeJson = await GetReleaseTitles(uriDate, language);
-                // Bind the titles to the ListBox control
                 listBox1.DataSource = activeJson.Results;
                 listBox1.DisplayMember = "Title";
                 listBox1.ValueMember = "Id";
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}");
+
+                throw;
             }
         }
-
-        private async Task<FilmData> GetReleaseTitles(string uriDate, string language)
-        {
-
-            using (HttpClient client = new HttpClient())
-            {
-                //HttpResponseMessage response = await client.GetAsync(apiUrl+"ru");
-
-                //if (response.IsSuccessStatusCode)
-                try
-                {
-                    //string responseJson = await response.Content.ReadAsStringAsync();
-
-                    // Parse the JSON response
-                    releases = await client.GetStringAsync(apiUrlForNew + uriDate + "&countries=" + language);
-
-                    //SaveReleasesToExcel(releases);
-                    var a = JsonConvert.DeserializeObject<FilmData>(releases);
-                    //JsonConvert.DeserializeObject<AdvancedSearchData>(releases);
-                    foreach (var item in a.Results)
-                    {
-                        item.LocationSearch = Language.countryCodeDictionary[language];
-                    }
-                    return a;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred: {ex.Message}");
-                    return new FilmData();
-                    //MessageBox.Show("Failed to retrieve release information. Please try again.");
-                }
-                //return new AdvancedSearchData();
-            }
-        }
-
-        public async Task<NewMovieData> ComingSoonAsync()
+        
+        private async Task<NewMovieData> ComingSoonAsync()
         {
             HttpClient client = new HttpClient();
             try
             {
-                return await ApiUtils.GetObjectAsync<NewMovieData>(JsonConvert.DeserializeObject<string>(await client.GetStringAsync(apiUrlForNew)));
+                return await _api.ComingSoonAsync();
             }
             catch (Exception ex)
             {
@@ -309,34 +369,15 @@ namespace IMDbApi
                     ErrorMessage = ex.Message
                 };
             }
-        }     
-
-        private string AddNewItemToJson(JsonData a)
-        {
-            string sameFilm = "";
-            int indexO = savedJson.Results.FindIndex(f => f.Id == a.Id);
-            if (indexO == -1)
-            {
-                savedJson.Results.Add(a);
-                newAddedJson.Add(a.Id);
-            }
-            else if (!string.IsNullOrEmpty(a.LocationSearch))
-            {
-                if (!savedJson.Results[indexO].LocationSearch.Contains(a.LocationSearch))
-                {
-                    string.Concat(savedJson.Results[indexO].LocationSearch, "/" + a.LocationSearch);
-                }
-                sameFilm = "\n" + a.Id + "_" + a.Title + ";";
-            }
-            else sameFilm = "\n" + a.Id + "_" + a.Title + ";";
-            return sameFilm;
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Clipboard.SetText(linkLabel1.Text);
-        }
 
+
+        /// <summary>
+        /// Добавляем инфо в тайтл
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void SearchTit_Click(object sender, EventArgs e)
         {
             try
@@ -364,7 +405,7 @@ namespace IMDbApi
                 throw;
             }
         }
-
+        
         private void SearchTitAdditionalInfoAdd(JsonData item)
         {
             var indexO = savedJson.Results.FindIndex(f => f.Id == item.Id);
@@ -384,24 +425,30 @@ namespace IMDbApi
                 savedJson.Results[indexO].Languages = item.Languages;
             }
 
-           HardTool.SaveJson(JsonConvert.SerializeObject(savedJson));
+            HardTool.SaveJson(JsonConvert.SerializeObject(savedJson));
         }
 
-        private void MmFromText_KeyPress(object sender, KeyPressEventArgs e)
+        /// <summary>
+        /// Копирует ссылку
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            char number = e.KeyChar;
-
-            if (!Char.IsDigit(number))
-            {
-                e.Handled = true;
-            }
+            Clipboard.SetText(linkLabel1.Text);
         }
 
+        /// <summary>
+        /// Вторая формы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void scndForm_Click(object sender, EventArgs e)
         {
             Forms.Form2 fr2 = new Forms.Form2();
             fr2.Show();
             fr2.Location = new Point(fr2.Left = this.Right + SystemInformation.BorderSize.Width, this.Location.Y);
         }
+
     }
 }

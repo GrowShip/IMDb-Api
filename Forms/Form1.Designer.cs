@@ -49,12 +49,11 @@
             OnlyNewCheckBox = new CheckBox();
             SearchTit = new Button();
             label5 = new Label();
-            MmFromText = new TextBox();
-            YyToText = new TextBox();
-            MmToText = new TextBox();
-            YyFromText = new TextBox();
             label6 = new Label();
             scndForm = new Button();
+            CmngSoonBtn = new Button();
+            dateFrom = new MaskedTextBox();
+            dateTo = new MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -181,30 +180,6 @@
             resources.ApplyResources(label5, "label5");
             label5.Name = "label5";
             // 
-            // MmFromText
-            // 
-            resources.ApplyResources(MmFromText, "MmFromText");
-            MmFromText.Name = "MmFromText";
-            MmFromText.KeyPress += MmFromText_KeyPress;
-            // 
-            // YyToText
-            // 
-            resources.ApplyResources(YyToText, "YyToText");
-            YyToText.Name = "YyToText";
-            YyToText.KeyPress += MmFromText_KeyPress;
-            // 
-            // MmToText
-            // 
-            resources.ApplyResources(MmToText, "MmToText");
-            MmToText.Name = "MmToText";
-            MmToText.KeyPress += MmFromText_KeyPress;
-            // 
-            // YyFromText
-            // 
-            resources.ApplyResources(YyFromText, "YyFromText");
-            YyFromText.Name = "YyFromText";
-            YyFromText.KeyPress += MmFromText_KeyPress;
-            // 
             // label6
             // 
             resources.ApplyResources(label6, "label6");
@@ -217,18 +192,35 @@
             scndForm.UseVisualStyleBackColor = true;
             scndForm.Click += scndForm_Click;
             // 
+            // CmngSoonBtn
+            // 
+            resources.ApplyResources(CmngSoonBtn, "CmngSoonBtn");
+            CmngSoonBtn.Name = "CmngSoonBtn";
+            CmngSoonBtn.UseVisualStyleBackColor = true;
+            CmngSoonBtn.Click += CmngSoonBtn_Click;
+            // 
+            // dateFrom
+            // 
+            resources.ApplyResources(dateFrom, "dateFrom");
+            dateFrom.Name = "dateFrom";
+            dateFrom.ValidatingType = typeof(DateTime);
+            // 
+            // dateTo
+            // 
+            resources.ApplyResources(dateTo, "dateTo");
+            dateTo.Name = "dateTo";
+            dateTo.ValidatingType = typeof(DateTime);
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
+            Controls.Add(dateTo);
+            Controls.Add(dateFrom);
+            Controls.Add(CmngSoonBtn);
             Controls.Add(scndForm);
-            Controls.Add(button1);
             Controls.Add(label6);
-            Controls.Add(YyFromText);
-            Controls.Add(MmToText);
-            Controls.Add(YyToText);
-            Controls.Add(MmFromText);
             Controls.Add(label5);
             Controls.Add(SearchTit);
             Controls.Add(OnlyNewCheckBox);
@@ -278,12 +270,11 @@
         private CheckBox OnlyNewCheckBox;
         private Button SearchTit;
         private Label label5;
-        private TextBox MmFromText;
-        private TextBox YyToText;
-        private TextBox MmToText;
-        private TextBox YyFromText;
         private Label label6;
         private Button button1;
         private Button scndForm;
+        private Button CmngSoonBtn;
+        private MaskedTextBox dateFrom;
+        private MaskedTextBox dateTo;
     }
 }

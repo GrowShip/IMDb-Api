@@ -144,7 +144,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>24</value>
   </data>
   <data name="SearchButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 29</value>
@@ -168,7 +168,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;SearchButton.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>23</value>
   </data>
   <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>101, 27</value>
@@ -189,7 +189,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>22</value>
   </data>
   <data name="listBox1.ItemHeight" type="System.Int32, mscorlib">
     <value>15</value>
@@ -217,7 +217,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;listBox1.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>21</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 55</value>
@@ -241,7 +241,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>20</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -274,7 +274,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>19</value>
   </data>
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
     <value>597, 323</value>
@@ -298,7 +298,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>18</value>
   </data>
   <data name="button4.Location" type="System.Drawing.Point, System.Drawing">
     <value>794, 29</value>
@@ -322,7 +322,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button4.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>17</value>
   </data>
   <data name="linkLabel1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -342,9 +342,6 @@
   <data name="linkLabel1.Text" xml:space="preserve">
     <value>-</value>
   </data>
-  <data name="linkLabel1.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="&gt;&gt;linkLabel1.Name" xml:space="preserve">
     <value>linkLabel1</value>
   </data>
@@ -355,7 +352,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;linkLabel1.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>16</value>
   </data>
   <data name="button5.Location" type="System.Drawing.Point, System.Drawing">
     <value>548, 29</value>
@@ -379,7 +376,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button5.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>15</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -409,7 +406,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>14</value>
   </data>
   <data name="comboBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>479, 323</value>
@@ -430,7 +427,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox1.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>13</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -457,7 +454,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>12</value>
   </data>
   <data name="button3.Location" type="System.Drawing.Point, System.Drawing">
     <value>795, 408</value>
@@ -481,7 +478,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button3.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>11</value>
   </data>
   <data name="ArchiveSearchCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -511,7 +508,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ArchiveSearchCheckBox.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>10</value>
   </data>
   <data name="AllAddCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -541,7 +538,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;AllAddCheckBox.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>9</value>
   </data>
   <data name="progressBar1.Location" type="System.Drawing.Point, System.Drawing">
     <value>101, 50</value>
@@ -562,7 +559,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;progressBar1.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>8</value>
   </data>
   <data name="OnlyNewCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -592,7 +589,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;OnlyNewCheckBox.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>7</value>
   </data>
   <data name="SearchTit.Location" type="System.Drawing.Point, System.Drawing">
     <value>795, 322</value>
@@ -616,7 +613,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;SearchTit.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>6</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -643,109 +640,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="MmFromText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>508, 355</value>
-  </data>
-  <data name="MmFromText.MaxLength" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="MmFromText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 23</value>
-  </data>
-  <data name="MmFromText.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="&gt;&gt;MmFromText.Name" xml:space="preserve">
-    <value>MmFromText</value>
-  </data>
-  <data name="&gt;&gt;MmFromText.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MmFromText.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;MmFromText.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="YyToText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>627, 355</value>
-  </data>
-  <data name="YyToText.MaxLength" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="YyToText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 23</value>
-  </data>
-  <data name="YyToText.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="&gt;&gt;YyToText.Name" xml:space="preserve">
-    <value>YyToText</value>
-  </data>
-  <data name="&gt;&gt;YyToText.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;YyToText.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;YyToText.ZOrder" xml:space="preserve">
     <value>5</value>
-  </data>
-  <data name="MmToText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>597, 355</value>
-  </data>
-  <data name="MmToText.MaxLength" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="MmToText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 23</value>
-  </data>
-  <data name="MmToText.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="&gt;&gt;MmToText.Name" xml:space="preserve">
-    <value>MmToText</value>
-  </data>
-  <data name="&gt;&gt;MmToText.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MmToText.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;MmToText.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="YyFromText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>537, 355</value>
-  </data>
-  <data name="YyFromText.MaxLength" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="YyFromText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 23</value>
-  </data>
-  <data name="YyFromText.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="&gt;&gt;YyFromText.Name" xml:space="preserve">
-    <value>YyFromText</value>
-  </data>
-  <data name="&gt;&gt;YyFromText.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;YyFromText.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;YyFromText.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>579, 358</value>
+    <value>578, 358</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>12, 15</value>
@@ -766,31 +667,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>629, 29</value>
-  </data>
-  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="button1.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="button1.Text" xml:space="preserve">
-    <value>UpComing</value>
-  </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
-  </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="scndForm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="scndForm.Location" type="System.Drawing.Point, System.Drawing">
     <value>796, 362</value>
@@ -802,7 +682,7 @@
     <value>29</value>
   </data>
   <data name="scndForm.Text" xml:space="preserve">
-    <value>Sn form</value>
+    <value>JSON</value>
   </data>
   <data name="&gt;&gt;scndForm.Name" xml:space="preserve">
     <value>scndForm</value>
@@ -814,6 +694,84 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;scndForm.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="CmngSoonBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>636, 29</value>
+  </data>
+  <data name="CmngSoonBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 22</value>
+  </data>
+  <data name="CmngSoonBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="CmngSoonBtn.Text" xml:space="preserve">
+    <value>Coming soon</value>
+  </data>
+  <data name="&gt;&gt;CmngSoonBtn.Name" xml:space="preserve">
+    <value>CmngSoonBtn</value>
+  </data>
+  <data name="&gt;&gt;CmngSoonBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CmngSoonBtn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CmngSoonBtn.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="dateFrom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>508, 355</value>
+  </data>
+  <data name="dateFrom.Mask" xml:space="preserve">
+    <value>00/00/0000</value>
+  </data>
+  <data name="dateFrom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 23</value>
+  </data>
+  <data name="dateFrom.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="dateFrom.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;dateFrom.Name" xml:space="preserve">
+    <value>dateFrom</value>
+  </data>
+  <data name="&gt;&gt;dateFrom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MaskedTextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dateFrom.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dateFrom.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="dateTo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>594, 355</value>
+  </data>
+  <data name="dateTo.Mask" xml:space="preserve">
+    <value>00/00/0000</value>
+  </data>
+  <data name="dateTo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 23</value>
+  </data>
+  <data name="dateTo.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="dateTo.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;dateTo.Name" xml:space="preserve">
+    <value>dateTo</value>
+  </data>
+  <data name="&gt;&gt;dateTo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MaskedTextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dateTo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dateTo.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
