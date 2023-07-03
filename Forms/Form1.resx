@@ -126,7 +126,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnClose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>943, 11</value>
+    <value>956, 11</value>
   </data>
   <data name="btnClose.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 41</value>
@@ -163,7 +163,7 @@
     <value>0</value>
   </data>
   <data name="btnTabSearch.Text" xml:space="preserve">
-    <value>Search</value>
+    <value>IMDb</value>
   </data>
   <data name="&gt;&gt;btnTabSearch.Name" xml:space="preserve">
     <value>btnTabSearch</value>
@@ -184,7 +184,7 @@
     <value>0, 0</value>
   </data>
   <data name="panelMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1003, 57</value>
+    <value>1016, 57</value>
   </data>
   <data name="panelMenu.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
@@ -201,6 +201,9 @@
   <data name="&gt;&gt;panelMenu.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="deskPanel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
   <data name="deskPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -208,7 +211,7 @@
     <value>0, 57</value>
   </data>
   <data name="deskPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1003, 466</value>
+    <value>1016, 513</value>
   </data>
   <data name="deskPanel.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
@@ -232,10 +235,13 @@
     <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1003, 523</value>
+    <value>1016, 570</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1032, 609</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

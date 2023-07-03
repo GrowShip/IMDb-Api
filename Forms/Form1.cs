@@ -48,7 +48,13 @@ namespace IMDbApi
 
         private void btnTabSearch_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.SearchForm(), sender);
+            Dictionary<string, int> data = new Dictionary<string, int>();
+            data.Add("x", this.Location.X);
+            data.Add("y", this.Location.Y);
+            data.Add("width", this.Width);
+            data.Add("height", this.Height);
+            var a = this.Location;
+            OpenChildForm(new Forms.SearchForm(data), sender);
         }
 
         private void btnClose_Click(object sender, EventArgs e)

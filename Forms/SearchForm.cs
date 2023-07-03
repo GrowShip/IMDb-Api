@@ -26,9 +26,14 @@ namespace IMDbApi.Forms
     //languages=eu,ca,zh,eo,fr,de,hi,ko,kvk,ru,rsl,es,ssp,ta,te,tr
     public partial class SearchForm : Form
     {
-        public SearchForm()
+        public readonly Dictionary<string, int> locationForm = new Dictionary<string, int>();
+        public static SearchForm instance;
+
+        public SearchForm(Dictionary<string, int> data)
         {
+            locationForm = data;
             InitializeComponent();
+            instance = this;
             FillInCountry();
             _api = new ApiLib(KeysAccess.GetRandomValue());
             //_apiTMDB = new TMDbLib.Client.TMDbClient(KeysAccess.GetKeyTMDB());
@@ -139,6 +144,8 @@ namespace IMDbApi.Forms
 
             //api.SearchMovieAsync("expression");
             //ai.SearchSeriesAsync("expression");
+
+            UpdateListOfMeta(activeJson);
 
             listBox1.DataSource = activeJson.Results;
             listBox1.DisplayMember = "Title";
@@ -301,16 +308,7 @@ namespace IMDbApi.Forms
             savedJson = HardTool.GetSavedJson();
             activeJson = savedJson;
 
-            try
-            {
-                listBox1.DataSource = savedJson.Results;
-                listBox1.DisplayMember = "Title";
-                listBox1.ValueMember = "Id";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}");
-            }
+            UpdateListOfMeta(activeJson);
         }
 
         /// <summary>
@@ -339,13 +337,20 @@ namespace IMDbApi.Forms
             try
             {
                 var i = listBox1.SelectedIndex;
-                label2.Text = $"Type:   {activeJson.Results[i].Type} \n" +
-                              $"Title:  {activeJson.Results[i].Title} \n" +
-                              $"Rating: {activeJson.Results[i].ContentRating} \n" +
-                              $"Genres: {activeJson.Results[i].Genres} \n" +
-                              $"Describtion:     {activeJson.Results[i].Description} \n" +
-                              $"Release date:    {activeJson.Results[i].ReleaseDate} \n" +
-                              $"Release country: {activeJson.Results[i].LocationSearch}";
+                label2.Text = $"ID:             {activeJson.Results[i].Id}\n" +
+                              $"Title:          {activeJson.Results[i].Title}\n" +
+                              $"Type:           {activeJson.Results[i].Type}\n" +
+                              $"Year:           {activeJson.Results[i].Year}\n" +
+                              $"Release date:   {activeJson.Results[i].ReleaseDate}\n" +
+                              $"RunTime Mins:   {activeJson.Results[i].RuntimeStr}\n" +
+                              $"Rating:         {activeJson.Results[i].IMDbRating}\n" +
+                              $"Genres:         {activeJson.Results[i].Genres}\n" +
+                              $"Languages:      {activeJson.Results[i].Languages}\n" +
+                              $"Countries of orgin: {activeJson.Results[i].Countries}\n" +
+                              $"Describtion:    {activeJson.Results[i].Description}\n" +
+                              $"Release country:{activeJson.Results[i].LocationSearch}\n" +
+                              $"Directors:      {activeJson.Results[i].Directors}\n" +
+                              $"Stars:          {activeJson.Results[i].Stars}";
                 label3.Text = activeJson.Results[i].Plot;
                 linkLabel1.Text = activeJson.Results[i].Image;
                 pictureBox1.ImageLocation = activeJson.Results[i].Image;
@@ -470,11 +475,44 @@ namespace IMDbApi.Forms
         /// <param name="e"></param>
         private void scndForm_Click(object sender, EventArgs e)
         {
-            Forms.Form2 fr2 = new Forms.Form2();
+
+            Form2 fr2 = new Form2();
             fr2.Show();
-            fr2.Location = new Point(fr2.Left = this.Right + SystemInformation.BorderSize.Width, this.Location.Y);
+
+            fr2.Location = new Point(fr2.Left = locationForm["x"] + locationForm["width"] + SystemInformation.BorderSize.Width, locationForm["y"]);
         }
 
+        public void ChangeSourceList(string path)
+        {
+            activeJson = JsonConvert.DeserializeObject<FilmData>(File.ReadAllText(path));
 
+            UpdateListOfMeta(activeJson);
+        }
+
+        private void UpdateListOfMeta(FilmData jsonnn)
+        {
+            try
+            {
+                listBox1.DataSource = jsonnn.Results;
+                listBox1.DisplayMember = "Title";
+                listBox1.ValueMember = "Id";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+        }
+
+        private void btnClearAchive_Click(object sender, EventArgs e)
+        {
+            var a = MessageBox.Show("Точно архивировать рабочую смету?", "Архивация", MessageBoxButtons.OKCancel);
+            if (a == DialogResult.OK)
+            {
+                HardTool.MakeAnArchive();
+            }
+            savedJson = HardTool.GetSavedJson();
+            activeJson = savedJson;
+            UpdateListOfMeta(activeJson);
+        }
     }
 }

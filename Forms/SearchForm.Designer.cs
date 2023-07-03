@@ -53,7 +53,10 @@
             CmngSoonBtn = new Button();
             dateFrom = new MaskedTextBox();
             dateTo = new MaskedTextBox();
+            panel1 = new Panel();
+            btnClearAchive = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -77,8 +80,8 @@
             // 
             // listBox1
             // 
-            listBox1.FormattingEnabled = true;
             resources.ApplyResources(listBox1, "listBox1");
+            listBox1.FormattingEnabled = true;
             listBox1.Name = "listBox1";
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
@@ -95,8 +98,8 @@
             // 
             // button2
             // 
-            button2.BackColor = SystemColors.ActiveCaption;
             resources.ApplyResources(button2, "button2");
+            button2.BackColor = SystemColors.ActiveCaption;
             button2.ForeColor = SystemColors.ButtonHighlight;
             button2.Name = "button2";
             button2.UseVisualStyleBackColor = false;
@@ -104,8 +107,8 @@
             // 
             // button4
             // 
-            button4.BackColor = SystemColors.ActiveCaption;
             resources.ApplyResources(button4, "button4");
+            button4.BackColor = SystemColors.ActiveCaption;
             button4.ForeColor = SystemColors.ButtonHighlight;
             button4.Name = "button4";
             button4.UseVisualStyleBackColor = false;
@@ -120,8 +123,8 @@
             // 
             // button5
             // 
-            button5.BackColor = SystemColors.ActiveCaption;
             resources.ApplyResources(button5, "button5");
+            button5.BackColor = SystemColors.ActiveCaption;
             button5.ForeColor = SystemColors.ButtonHighlight;
             button5.Name = "button5";
             button5.UseVisualStyleBackColor = false;
@@ -134,8 +137,8 @@
             // 
             // comboBox1
             // 
-            comboBox1.FormattingEnabled = true;
             resources.ApplyResources(comboBox1, "comboBox1");
+            comboBox1.FormattingEnabled = true;
             comboBox1.Name = "comboBox1";
             // 
             // label4
@@ -145,8 +148,8 @@
             // 
             // button3
             // 
-            button3.BackColor = SystemColors.ActiveCaption;
             resources.ApplyResources(button3, "button3");
+            button3.BackColor = SystemColors.ActiveCaption;
             button3.ForeColor = SystemColors.ButtonHighlight;
             button3.Name = "button3";
             button3.UseVisualStyleBackColor = false;
@@ -172,8 +175,8 @@
             // 
             // SearchTit
             // 
-            SearchTit.BackColor = SystemColors.ActiveCaption;
             resources.ApplyResources(SearchTit, "SearchTit");
+            SearchTit.BackColor = SystemColors.ActiveCaption;
             SearchTit.ForeColor = SystemColors.ButtonHighlight;
             SearchTit.Name = "SearchTit";
             SearchTit.UseVisualStyleBackColor = false;
@@ -191,8 +194,8 @@
             // 
             // scndForm
             // 
-            scndForm.BackColor = SystemColors.ActiveCaption;
             resources.ApplyResources(scndForm, "scndForm");
+            scndForm.BackColor = SystemColors.ActiveCaption;
             scndForm.ForeColor = SystemColors.ButtonHighlight;
             scndForm.Name = "scndForm";
             scndForm.UseVisualStyleBackColor = false;
@@ -200,8 +203,8 @@
             // 
             // CmngSoonBtn
             // 
-            CmngSoonBtn.BackColor = SystemColors.ActiveCaption;
             resources.ApplyResources(CmngSoonBtn, "CmngSoonBtn");
+            CmngSoonBtn.BackColor = SystemColors.ActiveCaption;
             CmngSoonBtn.ForeColor = SystemColors.ButtonHighlight;
             CmngSoonBtn.Name = "CmngSoonBtn";
             CmngSoonBtn.UseVisualStyleBackColor = false;
@@ -219,29 +222,46 @@
             dateTo.Name = "dateTo";
             dateTo.ValidatingType = typeof(DateTime);
             // 
+            // panel1
+            // 
+            resources.ApplyResources(panel1, "panel1");
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(dateTo);
+            panel1.Controls.Add(dateFrom);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(comboBox1);
+            panel1.Controls.Add(button2);
+            panel1.Name = "panel1";
+            // 
+            // btnClearAchive
+            // 
+            resources.ApplyResources(btnClearAchive, "btnClearAchive");
+            btnClearAchive.BackColor = SystemColors.ActiveCaption;
+            btnClearAchive.ForeColor = SystemColors.ControlLightLight;
+            btnClearAchive.Name = "btnClearAchive";
+            btnClearAchive.UseVisualStyleBackColor = false;
+            btnClearAchive.Click += btnClearAchive_Click;
+            // 
             // SearchForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            Controls.Add(dateTo);
-            Controls.Add(dateFrom);
+            Controls.Add(btnClearAchive);
+            Controls.Add(panel1);
             Controls.Add(CmngSoonBtn);
             Controls.Add(scndForm);
-            Controls.Add(label6);
-            Controls.Add(label5);
             Controls.Add(SearchTit);
             Controls.Add(OnlyNewCheckBox);
             Controls.Add(AllAddCheckBox);
             Controls.Add(ArchiveSearchCheckBox);
             Controls.Add(button3);
-            Controls.Add(label4);
-            Controls.Add(comboBox1);
             Controls.Add(label3);
             Controls.Add(button5);
             Controls.Add(linkLabel1);
             Controls.Add(button4);
-            Controls.Add(button2);
             Controls.Add(label2);
             Controls.Add(pictureBox1);
             Controls.Add(listBox1);
@@ -251,6 +271,8 @@
             Name = "SearchForm";
             Load += SearchForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -281,5 +303,7 @@
         private Button CmngSoonBtn;
         private MaskedTextBox dateFrom;
         private MaskedTextBox dateTo;
+        private Panel panel1;
+        private Button btnClearAchive;
     }
 }

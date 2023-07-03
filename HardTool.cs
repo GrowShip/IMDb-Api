@@ -31,7 +31,16 @@ namespace IMDbApi
                     DirectoryInfo di = Directory.CreateDirectory(path);
                     di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
                 }
-                MessageBox.Show("Архивного файла нет");
+
+                var a = MessageBox.Show("Создать архивный файл?","Архивного файла нет",MessageBoxButtons.YesNo);
+                
+                if (a == DialogResult.Yes)
+                {
+                    FilmData filmData = new FilmData();
+                    filmData.Results = new List<JsonData>();
+
+                    SaveJson(JsonConvert.SerializeObject(filmData));
+                }
             }
 
             if (!string.IsNullOrEmpty(json))
@@ -58,6 +67,19 @@ namespace IMDbApi
                 Console.WriteLine($"Error saving JSON file: {ex.Message}");
             }
         }
+
+        public static void MakeAnArchive()
+        {
+            var oldNameFullPath = AppDomain.CurrentDomain.BaseDirectory + @"JSON\file.json";
+            var newNameFullPath = AppDomain.CurrentDomain.BaseDirectory + $"JSON\\{DateTime.Now.ToShortDateString()}.json";
+            if (File.Exists(newNameFullPath))
+            {
+                File.Delete(newNameFullPath);
+            }
+            File.Move(oldNameFullPath,newNameFullPath);
+        }
+
+        public static void 
     }
 
     internal class ExcelPlace

@@ -38,7 +38,7 @@
             // 
             // panelMenu
             // 
-            panelMenu.BackColor = Color.FromArgb(18, 18, 18);
+            panelMenu.BackColor = Color.FromArgb(12, 12, 12);
             panelMenu.Controls.Add(btnClose);
             panelMenu.Controls.Add(btnTabSearch);
             resources.ApplyResources(panelMenu, "panelMenu");
@@ -68,7 +68,7 @@
             // 
             // deskPanel
             // 
-            deskPanel.BackColor = Color.FromArgb(18, 18, 18);
+            deskPanel.BackColor = Color.FromArgb(12, 12, 12);
             resources.ApplyResources(deskPanel, "deskPanel");
             deskPanel.Name = "deskPanel";
             // 
