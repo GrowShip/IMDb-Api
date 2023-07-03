@@ -63,9 +63,11 @@
             // 
             // SearchButton
             // 
+            SearchButton.BackColor = SystemColors.ActiveCaption;
             resources.ApplyResources(SearchButton, "SearchButton");
+            SearchButton.ForeColor = SystemColors.ButtonHighlight;
             SearchButton.Name = "SearchButton";
-            SearchButton.UseVisualStyleBackColor = true;
+            SearchButton.UseVisualStyleBackColor = false;
             SearchButton.Click += button1_Click;
             // 
             // textBox1
@@ -93,16 +95,20 @@
             // 
             // button2
             // 
+            button2.BackColor = SystemColors.ActiveCaption;
             resources.ApplyResources(button2, "button2");
+            button2.ForeColor = SystemColors.ButtonHighlight;
             button2.Name = "button2";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // button4
             // 
+            button4.BackColor = SystemColors.ActiveCaption;
             resources.ApplyResources(button4, "button4");
+            button4.ForeColor = SystemColors.ButtonHighlight;
             button4.Name = "button4";
-            button4.UseVisualStyleBackColor = true;
+            button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
             // linkLabel1
@@ -114,8 +120,9 @@
             // 
             // button5
             // 
-            button5.BackColor = SystemColors.ControlLight;
+            button5.BackColor = SystemColors.ActiveCaption;
             resources.ApplyResources(button5, "button5");
+            button5.ForeColor = SystemColors.ButtonHighlight;
             button5.Name = "button5";
             button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click;
@@ -138,9 +145,11 @@
             // 
             // button3
             // 
+            button3.BackColor = SystemColors.ActiveCaption;
             resources.ApplyResources(button3, "button3");
+            button3.ForeColor = SystemColors.ButtonHighlight;
             button3.Name = "button3";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
             // ArchiveSearchCheckBox
@@ -163,9 +172,11 @@
             // 
             // SearchTit
             // 
+            SearchTit.BackColor = SystemColors.ActiveCaption;
             resources.ApplyResources(SearchTit, "SearchTit");
+            SearchTit.ForeColor = SystemColors.ButtonHighlight;
             SearchTit.Name = "SearchTit";
-            SearchTit.UseVisualStyleBackColor = true;
+            SearchTit.UseVisualStyleBackColor = false;
             SearchTit.Click += SearchTit_Click;
             // 
             // label5
@@ -180,16 +191,20 @@
             // 
             // scndForm
             // 
+            scndForm.BackColor = SystemColors.ActiveCaption;
             resources.ApplyResources(scndForm, "scndForm");
+            scndForm.ForeColor = SystemColors.ButtonHighlight;
             scndForm.Name = "scndForm";
-            scndForm.UseVisualStyleBackColor = true;
+            scndForm.UseVisualStyleBackColor = false;
             scndForm.Click += scndForm_Click;
             // 
             // CmngSoonBtn
             // 
+            CmngSoonBtn.BackColor = SystemColors.ActiveCaption;
             resources.ApplyResources(CmngSoonBtn, "CmngSoonBtn");
+            CmngSoonBtn.ForeColor = SystemColors.ButtonHighlight;
             CmngSoonBtn.Name = "CmngSoonBtn";
-            CmngSoonBtn.UseVisualStyleBackColor = true;
+            CmngSoonBtn.UseVisualStyleBackColor = false;
             CmngSoonBtn.Click += CmngSoonBtn_Click;
             // 
             // dateFrom

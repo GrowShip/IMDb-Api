@@ -88,12 +88,16 @@ namespace IMDbApi.Forms
                 {
                     Button btn = (Button)btns;
                     btn.BackColor = ThemeColour.PrimaryColor;
-                    btn.ForeColor = Color.Black;
+                    btn.ForeColor = Color.White;
                     btn.FlatAppearance.BorderColor = ThemeColour.SecondaryColor;
                 }
             }
+            ArchiveSearchCheckBox.ForeColor = ThemeColour.SecondaryColor;
+            label1.ForeColor = ThemeColour.PrimaryColor;
+            AllAddCheckBox.ForeColor = ThemeColour.SecondaryColor;
             label4.ForeColor = ThemeColour.SecondaryColor;
             label5.ForeColor = ThemeColour.PrimaryColor;
+            OnlyNewCheckBox.ForeColor = ThemeColour.SecondaryColor;
         }
 
 

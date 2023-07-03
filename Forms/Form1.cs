@@ -84,7 +84,7 @@ namespace IMDbApi
                     currentButton = (Button)btnSender;
                     currentButton.BackColor = color;
                     currentButton.ForeColor = Color.White;
-                    currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     panelMenu.BackColor = color;
                     //panelLogo.BackColor = ThemeColour.ChangeColorBrightness(color, -0.3);
                     ThemeColour.PrimaryColor = color;
@@ -102,7 +102,7 @@ namespace IMDbApi
                 {
                     previousBtn.BackColor = Color.FromArgb(12, 12, 12);
                     previousBtn.ForeColor = Color.Gainsboro;
-                    previousBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    previousBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 }
             }
         }
@@ -139,5 +139,43 @@ namespace IMDbApi
         }
 
         #endregion
+
+        /// <summary>
+        /// Устаглвка фона при наведение на поиск IMDB
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTabSearch_MouseEnter(object sender, EventArgs e)
+        {
+            try
+            {
+                deskPanel.BackgroundImage = Image.FromFile(@"media\imdb\IMDbFull.png");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            //"C:\Users\Shipitsyn\Documents\Visual Studio 2022\IMDbApi\Add\IMDbFull.png"
+        }
+
+        /// <summary>
+        /// Clean backGroundImage when cursor leave from imdb search button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTabSearch_MouseLeave(object sender, EventArgs e)
+        {
+            try
+            {
+                deskPanel.BackgroundImage = null;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

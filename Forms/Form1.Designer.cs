@@ -63,9 +63,12 @@
             btnTabSearch.Name = "btnTabSearch";
             btnTabSearch.UseVisualStyleBackColor = true;
             btnTabSearch.Click += btnTabSearch_Click;
+            btnTabSearch.MouseEnter += btnTabSearch_MouseEnter;
+            btnTabSearch.MouseLeave += btnTabSearch_MouseLeave;
             // 
             // deskPanel
             // 
+            deskPanel.BackColor = Color.FromArgb(18, 18, 18);
             resources.ApplyResources(deskPanel, "deskPanel");
             deskPanel.Name = "deskPanel";
             // 
