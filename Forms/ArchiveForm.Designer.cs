@@ -1,6 +1,6 @@
 ﻿namespace IMDbApi.Forms
 {
-    partial class Form2
+    partial class ArchiveForm
     {
         /// <summary>
         /// Required designer variable.

@@ -478,12 +478,12 @@ namespace IMDbApi.Forms
         {
             if (activeForm2 == null)
             {
-                activeForm2 = new Form2();
+                activeForm2 = new ArchiveForm();
                 activeForm2.Show();
 
                 activeForm2.Location = new Point(activeForm2.Left = locationForm["x"] + locationForm["width"] + SystemInformation.BorderSize.Width, locationForm["y"]);
             }
-            else Form2.instance.UpdateList();
+            else ArchiveForm.instance.UpdateList();
         }
 
         public void ChangeSourceList(string path)
@@ -517,7 +517,7 @@ namespace IMDbApi.Forms
             savedJson = HardTool.GetSavedJson();
             activeJson = savedJson;
             UpdateListOfMeta(activeJson);
-            if (activeForm2 != null) Form2.instance.UpdateList();
+            if (activeForm2 != null) ArchiveForm.instance.UpdateList();
         }
 
         /// <summary>

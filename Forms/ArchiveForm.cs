@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace IMDbApi.Forms
 {
-    public partial class Form2 : Form
+    public partial class ArchiveForm : Form
     {
         /// <summary>
         /// Массив с файлове в корневой папке
@@ -20,9 +20,9 @@ namespace IMDbApi.Forms
         /// <summary>
         /// Необходимо для управления формой из вне
         /// </summary>
-        public static Form2 instance;
+        public static ArchiveForm instance;
 
-        public Form2()
+        public ArchiveForm()
         {
             InitializeComponent();
             instance = this;

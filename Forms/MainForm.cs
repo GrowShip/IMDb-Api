@@ -24,9 +24,9 @@ namespace IMDbApi
     //release_date=2023-04-10,2023-06-10&
     //countries=af&
     //languages=eu,ca,zh,eo,fr,de,hi,ko,kvk,ru,rsl,es,ssp,ta,te,tr
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
