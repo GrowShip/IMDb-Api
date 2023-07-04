@@ -76,6 +76,7 @@ namespace IMDbApi.Forms
         private List<string> newAddedJson = new List<string>();
         private FilmData savedJson;
         private Boolean sameJson;
+        public Form activeForm2;
 
         private string apiUrlForNew = $"https://imdb-api.com/API/AdvancedSearch/{KeysAccess.GetRandomValue()}/?title_type=tv_movie,tv_series,tv_episode,documentary,video";
         private string TitleUrl = $"https://imdb-api.com/en/API/Title/{KeysAccess.GetRandomValue()}/";
@@ -475,11 +476,14 @@ namespace IMDbApi.Forms
         /// <param name="e"></param>
         private void scndForm_Click(object sender, EventArgs e)
         {
+            if (activeForm2 == null)
+            {
+                activeForm2 = new Form2();
+                activeForm2.Show();
 
-            Form2 fr2 = new Form2();
-            fr2.Show();
-
-            fr2.Location = new Point(fr2.Left = locationForm["x"] + locationForm["width"] + SystemInformation.BorderSize.Width, locationForm["y"]);
+                activeForm2.Location = new Point(activeForm2.Left = locationForm["x"] + locationForm["width"] + SystemInformation.BorderSize.Width, locationForm["y"]);
+            }
+            else Form2.instance.UpdateList();
         }
 
         public void ChangeSourceList(string path)
@@ -513,6 +517,15 @@ namespace IMDbApi.Forms
             savedJson = HardTool.GetSavedJson();
             activeJson = savedJson;
             UpdateListOfMeta(activeJson);
+            if (activeForm2 != null) Form2.instance.UpdateList();
+        }
+
+        /// <summary>
+        /// Для обновления функции добавления
+        /// </summary>
+        public void UpdateSameJson(bool availible)
+        {
+            sameJson = availible;
         }
     }
 }

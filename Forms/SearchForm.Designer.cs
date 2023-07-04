@@ -35,28 +35,26 @@
             listBox1 = new ListBox();
             pictureBox1 = new PictureBox();
             label2 = new Label();
-            button2 = new Button();
             button4 = new Button();
             linkLabel1 = new LinkLabel();
             button5 = new Button();
             label3 = new Label();
-            comboBox1 = new ComboBox();
-            label4 = new Label();
             button3 = new Button();
             ArchiveSearchCheckBox = new CheckBox();
             AllAddCheckBox = new CheckBox();
             OnlyNewCheckBox = new CheckBox();
             SearchTit = new Button();
-            label5 = new Label();
-            label6 = new Label();
             scndForm = new Button();
             CmngSoonBtn = new Button();
+            btnClearAchive = new Button();
+            button2 = new Button();
+            comboBox1 = new ComboBox();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
             dateFrom = new MaskedTextBox();
             dateTo = new MaskedTextBox();
-            panel1 = new Panel();
-            btnClearAchive = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -96,15 +94,6 @@
             resources.ApplyResources(label2, "label2");
             label2.Name = "label2";
             // 
-            // button2
-            // 
-            resources.ApplyResources(button2, "button2");
-            button2.BackColor = SystemColors.ActiveCaption;
-            button2.ForeColor = SystemColors.ButtonHighlight;
-            button2.Name = "button2";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
-            // 
             // button4
             // 
             resources.ApplyResources(button4, "button4");
@@ -134,17 +123,6 @@
             // 
             resources.ApplyResources(label3, "label3");
             label3.Name = "label3";
-            // 
-            // comboBox1
-            // 
-            resources.ApplyResources(comboBox1, "comboBox1");
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Name = "comboBox1";
-            // 
-            // label4
-            // 
-            resources.ApplyResources(label4, "label4");
-            label4.Name = "label4";
             // 
             // button3
             // 
@@ -182,16 +160,6 @@
             SearchTit.UseVisualStyleBackColor = false;
             SearchTit.Click += SearchTit_Click;
             // 
-            // label5
-            // 
-            resources.ApplyResources(label5, "label5");
-            label5.Name = "label5";
-            // 
-            // label6
-            // 
-            resources.ApplyResources(label6, "label6");
-            label6.Name = "label6";
-            // 
             // scndForm
             // 
             resources.ApplyResources(scndForm, "scndForm");
@@ -210,6 +178,45 @@
             CmngSoonBtn.UseVisualStyleBackColor = false;
             CmngSoonBtn.Click += CmngSoonBtn_Click;
             // 
+            // btnClearAchive
+            // 
+            resources.ApplyResources(btnClearAchive, "btnClearAchive");
+            btnClearAchive.BackColor = SystemColors.ActiveCaption;
+            btnClearAchive.ForeColor = SystemColors.ControlLightLight;
+            btnClearAchive.Name = "btnClearAchive";
+            btnClearAchive.UseVisualStyleBackColor = false;
+            btnClearAchive.Click += btnClearAchive_Click;
+            // 
+            // button2
+            // 
+            button2.BackColor = SystemColors.ActiveCaption;
+            resources.ApplyResources(button2, "button2");
+            button2.ForeColor = SystemColors.ButtonHighlight;
+            button2.Name = "button2";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            resources.ApplyResources(comboBox1, "comboBox1");
+            comboBox1.Name = "comboBox1";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(label4, "label4");
+            label4.Name = "label4";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(label5, "label5");
+            label5.Name = "label5";
+            // 
+            // label6
+            // 
+            resources.ApplyResources(label6, "label6");
+            label6.Name = "label6";
+            // 
             // dateFrom
             // 
             resources.ApplyResources(dateFrom, "dateFrom");
@@ -222,38 +229,22 @@
             dateTo.Name = "dateTo";
             dateTo.ValidatingType = typeof(DateTime);
             // 
-            // panel1
-            // 
-            resources.ApplyResources(panel1, "panel1");
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(dateTo);
-            panel1.Controls.Add(dateFrom);
-            panel1.Controls.Add(label6);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(comboBox1);
-            panel1.Controls.Add(button2);
-            panel1.Name = "panel1";
-            // 
-            // btnClearAchive
-            // 
-            resources.ApplyResources(btnClearAchive, "btnClearAchive");
-            btnClearAchive.BackColor = SystemColors.ActiveCaption;
-            btnClearAchive.ForeColor = SystemColors.ControlLightLight;
-            btnClearAchive.Name = "btnClearAchive";
-            btnClearAchive.UseVisualStyleBackColor = false;
-            btnClearAchive.Click += btnClearAchive_Click;
-            // 
             // SearchForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
+            Controls.Add(dateTo);
             Controls.Add(btnClearAchive);
-            Controls.Add(panel1);
+            Controls.Add(dateFrom);
+            Controls.Add(label6);
             Controls.Add(CmngSoonBtn);
+            Controls.Add(label5);
+            Controls.Add(label4);
             Controls.Add(scndForm);
+            Controls.Add(comboBox1);
             Controls.Add(SearchTit);
+            Controls.Add(button2);
             Controls.Add(OnlyNewCheckBox);
             Controls.Add(AllAddCheckBox);
             Controls.Add(ArchiveSearchCheckBox);
@@ -271,8 +262,6 @@
             Name = "SearchForm";
             Load += SearchForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -285,25 +274,24 @@
         private ListBox listBox1;
         private PictureBox pictureBox1;
         private Label label2;
-        private Button button2;
         private Button button4;
         private LinkLabel linkLabel1;
         private Button button5;
         private Label label3;
-        private ComboBox comboBox1;
-        private Label label4;
         private Button button3;
         private CheckBox ArchiveSearchCheckBox;
         private CheckBox AllAddCheckBox;
         private CheckBox OnlyNewCheckBox;
         private Button SearchTit;
-        private Label label5;
-        private Label label6;
         private Button scndForm;
         private Button CmngSoonBtn;
+        private Button btnClearAchive;
+        private Button button2;
+        private ComboBox comboBox1;
+        private Label label4;
+        private Label label5;
+        private Label label6;
         private MaskedTextBox dateFrom;
         private MaskedTextBox dateTo;
-        private Panel panel1;
-        private Button btnClearAchive;
     }
 }

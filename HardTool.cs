@@ -72,14 +72,17 @@ namespace IMDbApi
         {
             var oldNameFullPath = AppDomain.CurrentDomain.BaseDirectory + @"JSON\file.json";
             var newNameFullPath = AppDomain.CurrentDomain.BaseDirectory + $"JSON\\{DateTime.Now.ToShortDateString()}.json";
-            if (File.Exists(newNameFullPath))
-            {
-                File.Delete(newNameFullPath);
-            }
+            RemoveAnArchive(newNameFullPath);
             File.Move(oldNameFullPath,newNameFullPath);
         }
 
-        public static void 
+        public static void RemoveAnArchive(string path)
+        {
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+        }
     }
 
     internal class ExcelPlace
@@ -168,6 +171,7 @@ namespace IMDbApi
                         worksheet.Cells[row, 13].Value = release.Id;
                         worksheet.Cells[row, 14].Value = release.RuntimeStr;
                         worksheet.Cells[row, 15].Value = release.Description;
+                        worksheet.Cells[row, 16].Value = release.Directors;
                         worksheet.Cells[row, 17].Value = release.Stars;
                         row++;
                     }
