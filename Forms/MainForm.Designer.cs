@@ -1,4 +1,4 @@
-﻿namespace IMDbApi
+﻿namespace MediaApi
 {
     partial class MainForm
     {
@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             panelMenu = new Panel();
+            btnKinopoisk = new Button();
             btnClose = new Button();
             btnTabSearch = new Button();
             deskPanel = new Panel();
@@ -39,15 +40,28 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.FromArgb(12, 12, 12);
+            panelMenu.Controls.Add(btnKinopoisk);
             panelMenu.Controls.Add(btnClose);
             panelMenu.Controls.Add(btnTabSearch);
             resources.ApplyResources(panelMenu, "panelMenu");
             panelMenu.Name = "panelMenu";
             // 
+            // btnKinopoisk
+            // 
+            btnKinopoisk.FlatAppearance.BorderColor = Color.FromArgb(18, 18, 18);
+            btnKinopoisk.FlatAppearance.MouseDownBackColor = Color.FromArgb(48, 48, 48);
+            btnKinopoisk.FlatAppearance.MouseOverBackColor = Color.FromArgb(25, 25, 25);
+            resources.ApplyResources(btnKinopoisk, "btnKinopoisk");
+            btnKinopoisk.ForeColor = SystemColors.ControlLightLight;
+            btnKinopoisk.Name = "btnKinopoisk";
+            btnKinopoisk.UseVisualStyleBackColor = true;
+            btnKinopoisk.MouseEnter += btnKinopoisk_MouseEnter;
+            btnKinopoisk.MouseLeave += btnKinopoisk_MouseLeave;
+            // 
             // btnClose
             // 
             resources.ApplyResources(btnClose, "btnClose");
-            btnClose.ForeColor = Color.FromArgb(12, 12, 12);
+            btnClose.ForeColor = Color.FromArgb(25, 25, 25);
             btnClose.Image = Properties.Resources.cross_out__2_;
             btnClose.Name = "btnClose";
             btnClose.UseVisualStyleBackColor = true;
@@ -72,14 +86,14 @@
             resources.ApplyResources(deskPanel, "deskPanel");
             deskPanel.Name = "deskPanel";
             // 
-            // Form1
+            // MainForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             Controls.Add(deskPanel);
             Controls.Add(panelMenu);
-            Name = "Form1";
+            Name = "MainForm";
             Load += Form1_Load;
             panelMenu.ResumeLayout(false);
             ResumeLayout(false);
@@ -90,5 +104,6 @@
         private Panel panelMenu;
         private Button btnClose;
         private Panel deskPanel;
+        private Button btnKinopoisk;
     }
 }

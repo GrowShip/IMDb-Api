@@ -118,20 +118,53 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnKinopoisk.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnKinopoisk.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13pt</value>
+  </data>
+  <data name="btnKinopoisk.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKinopoisk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>232, 0</value>
+  </data>
+  <data name="btnKinopoisk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>226, 57</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnKinopoisk.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnKinopoisk.Text" xml:space="preserve">
+    <value>KinoPoisk</value>
+  </data>
+  <data name="&gt;&gt;btnKinopoisk.Name" xml:space="preserve">
+    <value>btnKinopoisk</value>
+  </data>
+  <data name="&gt;&gt;btnKinopoisk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnKinopoisk.Parent" xml:space="preserve">
+    <value>panelMenu</value>
+  </data>
+  <data name="&gt;&gt;btnKinopoisk.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="btnClose.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
   <data name="btnClose.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnClose.Location" type="System.Drawing.Point, System.Drawing">
     <value>965, 10</value>
   </data>
   <data name="btnClose.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 38</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnClose.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
@@ -145,7 +178,7 @@
     <value>panelMenu</value>
   </data>
   <data name="&gt;&gt;btnClose.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="btnTabSearch.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -175,7 +208,7 @@
     <value>panelMenu</value>
   </data>
   <data name="&gt;&gt;btnTabSearch.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="panelMenu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>

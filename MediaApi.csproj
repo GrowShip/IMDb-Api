@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Forms\SearchForm.cs">
+    <Compile Update="Forms\IMDbSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Properties\Resources.Designer.cs">

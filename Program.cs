@@ -1,4 +1,4 @@
-namespace IMDbApi
+namespace MediaApi
 {
     internal static class Program
     {

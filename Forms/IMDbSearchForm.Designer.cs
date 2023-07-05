@@ -1,6 +1,6 @@
-﻿namespace IMDbApi.Forms
+﻿namespace MediaApi.Forms
 {
-    partial class SearchForm
+    partial class IMDbSearchForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IMDbSearchForm));
             label1 = new Label();
             SearchButton = new Button();
             textBox1 = new TextBox();

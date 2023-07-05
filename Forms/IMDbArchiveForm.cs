@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IMDbApi.Forms
+namespace MediaApi.Forms
 {
-    public partial class ArchiveForm : Form
+    public partial class IMDbArchiveForm : Form
     {
         /// <summary>
         /// Массив с файлове в корневой папке
@@ -20,9 +20,9 @@ namespace IMDbApi.Forms
         /// <summary>
         /// Необходимо для управления формой из вне
         /// </summary>
-        public static ArchiveForm instance;
+        public static IMDbArchiveForm instance;
 
-        public ArchiveForm()
+        public IMDbArchiveForm()
         {
             InitializeComponent();
             instance = this;
@@ -67,7 +67,7 @@ namespace IMDbApi.Forms
         /// <param name="e"></param>
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            SearchForm.instance.activeForm2 = null;
+            IMDbSearchForm.instance.activeForm2 = null;
             this.Close();
         }
 
@@ -80,9 +80,9 @@ namespace IMDbApi.Forms
         {
             var indexList = listBoxJson.SelectedIndex;
             if (listBoxJson.Items[indexList].ToString() == "file.json")
-                                SearchForm.instance.UpdateSameJson(true);
-            else SearchForm.instance.UpdateSameJson(false);
-            SearchForm.instance.ChangeSourceList(dirs[indexList]);
+                                IMDbSearchForm.instance.UpdateSameJson(true);
+            else IMDbSearchForm.instance.UpdateSameJson(false);
+            IMDbSearchForm.instance.ChangeSourceList(dirs[indexList]);
             
         }
 

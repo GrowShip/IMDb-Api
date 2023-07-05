@@ -16,7 +16,7 @@ using LicenseContext = OfficeOpenXml.LicenseContext;
 using OfficeOpenXml.DataValidation;
 using Button = System.Windows.Forms.Button;
 
-namespace IMDbApi
+namespace MediaApi
 {
     //Non-commercial WinForms to get new releases and other information using IMDB APi
     //https://imdb-api.com/API/AdvancedSearch/
@@ -48,13 +48,14 @@ namespace IMDbApi
 
         private void btnTabSearch_Click(object sender, EventArgs e)
         {
-            Dictionary<string, int> data = new Dictionary<string, int>();
-            data.Add("x", this.Location.X);
-            data.Add("y", this.Location.Y);
-            data.Add("width", this.Width);
-            data.Add("height", this.Height);
-            var a = this.Location;
-            OpenChildForm(new Forms.SearchForm(data), sender);
+            Dictionary<string, int> data = new Dictionary<string, int>
+            {
+                { "x", this.Location.X },
+                { "y", this.Location.Y },
+                { "width", this.Width },
+                { "height", this.Height }
+            };
+            OpenChildForm(new Forms.IMDbSearchForm(data), sender);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -182,6 +183,24 @@ namespace IMDbApi
 
                 throw;
             }
+        }
+
+        private void btnKinopoisk_MouseEnter(object sender, EventArgs e)
+        {
+            try
+            {
+                deskPanel.BackgroundImage = Image.FromFile(@"media\kinopoisk\KinopoiskFull.png");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnKinopoisk_MouseLeave(object sender, EventArgs e)
+        {
+            btnTabSearch_MouseLeave(sender, e);
         }
     }
 }

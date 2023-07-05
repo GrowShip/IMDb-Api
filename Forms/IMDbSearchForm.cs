@@ -16,7 +16,7 @@ using LicenseContext = OfficeOpenXml.LicenseContext;
 using OfficeOpenXml.DataValidation;
 using Button = System.Windows.Forms.Button;
 
-namespace IMDbApi.Forms
+namespace MediaApi.Forms
 {
     //Non-commercial WinForms to get new releases and other information using IMDB APi
     //https://imdb-api.com/API/AdvancedSearch/
@@ -24,12 +24,12 @@ namespace IMDbApi.Forms
     //release_date=2023-04-10,2023-06-10&
     //countries=af&
     //languages=eu,ca,zh,eo,fr,de,hi,ko,kvk,ru,rsl,es,ssp,ta,te,tr
-    public partial class SearchForm : Form
+    public partial class IMDbSearchForm : Form
     {
         public readonly Dictionary<string, int> locationForm = new Dictionary<string, int>();
-        public static SearchForm instance;
+        public static IMDbSearchForm instance;
 
-        public SearchForm(Dictionary<string, int> data)
+        public IMDbSearchForm(Dictionary<string, int> data)
         {
             locationForm = data;
             InitializeComponent();
@@ -478,12 +478,12 @@ namespace IMDbApi.Forms
         {
             if (activeForm2 == null)
             {
-                activeForm2 = new ArchiveForm();
+                activeForm2 = new IMDbArchiveForm();
                 activeForm2.Show();
 
                 activeForm2.Location = new Point(activeForm2.Left = locationForm["x"] + locationForm["width"] + SystemInformation.BorderSize.Width, locationForm["y"]);
             }
-            else ArchiveForm.instance.UpdateList();
+            else IMDbArchiveForm.instance.UpdateList();
         }
 
         public void ChangeSourceList(string path)
@@ -517,7 +517,7 @@ namespace IMDbApi.Forms
             savedJson = HardTool.GetSavedJson();
             activeJson = savedJson;
             UpdateListOfMeta(activeJson);
-            if (activeForm2 != null) ArchiveForm.instance.UpdateList();
+            if (activeForm2 != null) IMDbArchiveForm.instance.UpdateList();
         }
 
         /// <summary>
