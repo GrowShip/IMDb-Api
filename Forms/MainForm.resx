@@ -160,7 +160,7 @@
     <value>Flat</value>
   </data>
   <data name="btnClose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>965, 10</value>
+    <value>912, 10</value>
   </data>
   <data name="btnClose.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 38</value>
@@ -180,34 +180,34 @@
   <data name="&gt;&gt;btnClose.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="btnTabSearch.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnIMDb.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnTabSearch.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnIMDb.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 13pt</value>
   </data>
-  <data name="btnTabSearch.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnIMDb.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="btnTabSearch.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnIMDb.Size" type="System.Drawing.Size, System.Drawing">
     <value>226, 57</value>
   </data>
-  <data name="btnTabSearch.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnIMDb.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="btnTabSearch.Text" xml:space="preserve">
+  <data name="btnIMDb.Text" xml:space="preserve">
     <value>IMDb</value>
   </data>
-  <data name="&gt;&gt;btnTabSearch.Name" xml:space="preserve">
-    <value>btnTabSearch</value>
+  <data name="&gt;&gt;btnIMDb.Name" xml:space="preserve">
+    <value>btnIMDb</value>
   </data>
-  <data name="&gt;&gt;btnTabSearch.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnIMDb.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnTabSearch.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnIMDb.Parent" xml:space="preserve">
     <value>panelMenu</value>
   </data>
-  <data name="&gt;&gt;btnTabSearch.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnIMDb.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="panelMenu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -217,7 +217,7 @@
     <value>0, 0</value>
   </data>
   <data name="panelMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1016, 57</value>
+    <value>963, 57</value>
   </data>
   <data name="panelMenu.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
@@ -243,11 +243,8 @@
   <data name="deskPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 57</value>
   </data>
-  <data name="deskPanel.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>870, 500</value>
-  </data>
   <data name="deskPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1016, 554</value>
+    <value>963, 498</value>
   </data>
   <data name="deskPanel.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
@@ -271,13 +268,13 @@
     <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1016, 611</value>
+    <value>963, 555</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10pt</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>1032, 650</value>
+    <value>979, 594</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

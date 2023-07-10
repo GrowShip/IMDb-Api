@@ -63,7 +63,7 @@ namespace MediaApi.Forms
             tipsForm.SetToolTip(SearchButton, "Кнопка для поиска по IMDB или архиву");
             tipsForm.SetToolTip(dateFrom, "Дата начала интервала");
             tipsForm.SetToolTip(dateTo, "Дата конечная интервала");
-            savedJson = HardTool.GetSavedJson();
+            savedJson = HardTool.GetSavedJson("imdb");
         }
 
         #region Global variables
@@ -99,7 +99,6 @@ namespace MediaApi.Forms
                 }
             }
             ArchiveSearchCheckBox.ForeColor = ThemeColour.SecondaryColor;
-            label1.ForeColor = ThemeColour.PrimaryColor;
             AllAddCheckBox.ForeColor = ThemeColour.SecondaryColor;
             label4.ForeColor = ThemeColour.SecondaryColor;
             label5.ForeColor = ThemeColour.PrimaryColor;
@@ -232,7 +231,7 @@ namespace MediaApi.Forms
         /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
-            HardTool.SaveJson(JsonConvert.SerializeObject(savedJson));
+            HardTool.SaveJson(JsonConvert.SerializeObject(savedJson), "imdb");
             ExcelPlace.SaveReleasesToExcel(savedJson, OnlyNewCheckBox.Checked, newAddedJson);
         }
 
@@ -244,7 +243,7 @@ namespace MediaApi.Forms
         private void button4_Click(object sender, EventArgs e)
         {
             string sameFilms = "";
-            savedJson = HardTool.GetSavedJson();
+            savedJson = HardTool.GetSavedJson("imdb");
             if (AllAddCheckBox.Checked && !sameJson)
             {
                 foreach (var el in activeJson.Results)
@@ -264,7 +263,7 @@ namespace MediaApi.Forms
                 return;
             }
 
-            HardTool.SaveJson(JsonConvert.SerializeObject(savedJson));
+            HardTool.SaveJson(JsonConvert.SerializeObject(savedJson), "imdb");
             if (!string.IsNullOrEmpty(sameFilms))
             {
                 //MessageBox.Show("Фильмы которые уже добавленны ранее:\n" + sameFilms.Substring(0,sameFilms.Length - 1));
@@ -279,7 +278,16 @@ namespace MediaApi.Forms
         private string AddNewItemToJson(JsonData a)
         {
             string sameFilm = "";
-            int indexO = savedJson.Results.FindIndex(f => f.Id == a.Id);
+            int indexO;
+
+            if (savedJson.Results == null)
+            {
+                savedJson.Results = new List<JsonData>();
+                indexO = -1;
+            }
+            else indexO = savedJson.Results.FindIndex(f => f.Id == a.Id);
+
+
             if (indexO == -1)
             {
                 savedJson.Results.Add(a);
@@ -306,7 +314,7 @@ namespace MediaApi.Forms
         {
             //прописать логику отображения всех фалов олда
             sameJson = true;
-            savedJson = HardTool.GetSavedJson();
+            savedJson = HardTool.GetSavedJson("imdb");
             activeJson = savedJson;
 
             UpdateListOfMeta(activeJson);
@@ -320,7 +328,7 @@ namespace MediaApi.Forms
         {
             activeJson = new FilmData();
             activeJson.Results = new List<JsonData>();
-            savedJson = HardTool.GetSavedJson();
+            savedJson = HardTool.GetSavedJson("imdb");
             List<JsonData> ab = savedJson.Results.FindAll(f => f.Title.Contains(title, StringComparison.CurrentCultureIgnoreCase));
             foreach (var elem in ab)
             {
@@ -456,7 +464,7 @@ namespace MediaApi.Forms
                 savedJson.Results[indexO].Languages = item.Languages;
             }
 
-            HardTool.SaveJson(JsonConvert.SerializeObject(savedJson));
+            HardTool.SaveJson(JsonConvert.SerializeObject(savedJson), "imdb");
         }
 
         /// <summary>
@@ -484,6 +492,7 @@ namespace MediaApi.Forms
                 activeForm2.Location = new Point(activeForm2.Left = locationForm["x"] + locationForm["width"] + SystemInformation.BorderSize.Width, locationForm["y"]);
             }
             else IMDbArchiveForm.instance.UpdateList();
+            
         }
 
         public void ChangeSourceList(string path)
@@ -512,9 +521,9 @@ namespace MediaApi.Forms
             var a = MessageBox.Show("Точно архивировать рабочую смету?", "Архивация", MessageBoxButtons.OKCancel);
             if (a == DialogResult.OK)
             {
-                HardTool.MakeAnArchive();
+                HardTool.MakeAnArchive("imdb");
             }
-            savedJson = HardTool.GetSavedJson();
+            savedJson = HardTool.GetSavedJson("imdb");
             activeJson = savedJson;
             UpdateListOfMeta(activeJson);
             if (activeForm2 != null) IMDbArchiveForm.instance.UpdateList();
@@ -526,6 +535,17 @@ namespace MediaApi.Forms
         public void UpdateSameJson(bool availible)
         {
             sameJson = availible;
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox1.Text))
+                textBox1.Text = "Поиск (only in Eng)";
         }
     }
 }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IMDbSearchForm));
-            label1 = new Label();
             SearchButton = new Button();
             textBox1 = new TextBox();
             listBox1 = new ListBox();
@@ -57,15 +56,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // label1
-            // 
-            resources.ApplyResources(label1, "label1");
-            label1.Name = "label1";
-            // 
             // SearchButton
             // 
-            SearchButton.BackColor = SystemColors.ActiveCaption;
             resources.ApplyResources(SearchButton, "SearchButton");
+            SearchButton.BackColor = SystemColors.ActiveCaption;
             SearchButton.ForeColor = SystemColors.ButtonHighlight;
             SearchButton.Name = "SearchButton";
             SearchButton.UseVisualStyleBackColor = false;
@@ -75,16 +69,21 @@
             // 
             resources.ApplyResources(textBox1, "textBox1");
             textBox1.Name = "textBox1";
+            textBox1.Enter += textBox1_Enter;
+            textBox1.Leave += textBox1_Leave;
             // 
             // listBox1
             // 
             resources.ApplyResources(listBox1, "listBox1");
+            listBox1.BackColor = SystemColors.MenuBar;
+            listBox1.BorderStyle = BorderStyle.None;
             listBox1.FormattingEnabled = true;
             listBox1.Name = "listBox1";
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // pictureBox1
             // 
+            pictureBox1.BackColor = SystemColors.ButtonFace;
             resources.ApplyResources(pictureBox1, "pictureBox1");
             pictureBox1.Name = "pictureBox1";
             pictureBox1.TabStop = false;
@@ -92,6 +91,7 @@
             // label2
             // 
             resources.ApplyResources(label2, "label2");
+            label2.BackColor = SystemColors.ButtonFace;
             label2.Name = "label2";
             // 
             // button4
@@ -106,6 +106,7 @@
             // linkLabel1
             // 
             resources.ApplyResources(linkLabel1, "linkLabel1");
+            linkLabel1.BackColor = SystemColors.ControlLight;
             linkLabel1.Name = "linkLabel1";
             linkLabel1.TabStop = true;
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
@@ -122,6 +123,7 @@
             // label3
             // 
             resources.ApplyResources(label3, "label3");
+            label3.BackColor = SystemColors.ButtonFace;
             label3.Name = "label3";
             // 
             // button3
@@ -189,8 +191,8 @@
             // 
             // button2
             // 
-            button2.BackColor = SystemColors.ActiveCaption;
             resources.ApplyResources(button2, "button2");
+            button2.BackColor = SystemColors.ActiveCaption;
             button2.ForeColor = SystemColors.ButtonHighlight;
             button2.Name = "button2";
             button2.UseVisualStyleBackColor = false;
@@ -198,8 +200,8 @@
             // 
             // comboBox1
             // 
-            comboBox1.FormattingEnabled = true;
             resources.ApplyResources(comboBox1, "comboBox1");
+            comboBox1.FormattingEnabled = true;
             comboBox1.Name = "comboBox1";
             // 
             // label4
@@ -229,7 +231,7 @@
             dateTo.Name = "dateTo";
             dateTo.ValidatingType = typeof(DateTime);
             // 
-            // SearchForm
+            // IMDbSearchForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
@@ -258,8 +260,7 @@
             Controls.Add(listBox1);
             Controls.Add(textBox1);
             Controls.Add(SearchButton);
-            Controls.Add(label1);
-            Name = "SearchForm";
+            Name = "IMDbSearchForm";
             Load += SearchForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -267,8 +268,6 @@
         }
 
         #endregion
-
-        private Label label1;
         private Button SearchButton;
         private TextBox textBox1;
         private ListBox listBox1;

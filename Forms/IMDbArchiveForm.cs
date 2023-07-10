@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,7 +17,12 @@ namespace MediaApi.Forms
         /// Массив с файлове в корневой папке
         /// </summary>
         private string[] dirs;
-        
+
+        //[DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        //private extern static void ReleaseCapture();
+        //[DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        //private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
         /// <summary>
         /// Необходимо для управления формой из вне
         /// </summary>
@@ -28,6 +34,7 @@ namespace MediaApi.Forms
             instance = this;
             LoadTheme();
             LoadForm();
+            this.ControlBox = false;
         }
 
         /// <summary>
@@ -80,10 +87,10 @@ namespace MediaApi.Forms
         {
             var indexList = listBoxJson.SelectedIndex;
             if (listBoxJson.Items[indexList].ToString() == "file.json")
-                                IMDbSearchForm.instance.UpdateSameJson(true);
+                IMDbSearchForm.instance.UpdateSameJson(true);
             else IMDbSearchForm.instance.UpdateSameJson(false);
             IMDbSearchForm.instance.ChangeSourceList(dirs[indexList]);
-            
+
         }
 
         private void LoadTheme()
@@ -104,7 +111,7 @@ namespace MediaApi.Forms
 
         private void GetFilesInArchives()
         {
-            dirs = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + @"\JSON",
+            dirs = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + @"\JSON\imdb",
                                                "*.json",
                                                SearchOption.TopDirectoryOnly);
         }

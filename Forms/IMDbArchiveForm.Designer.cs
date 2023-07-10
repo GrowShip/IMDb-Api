@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IMDbArchiveForm));
             btnReturn = new Button();
             pnlArchive = new Panel();
             lblArchive = new Label();
@@ -40,7 +41,7 @@
             // 
             // btnReturn
             // 
-            btnReturn.Location = new Point(273, 527);
+            btnReturn.Location = new Point(273, 518);
             btnReturn.Name = "btnReturn";
             btnReturn.Size = new Size(108, 31);
             btnReturn.TabIndex = 0;
@@ -116,20 +117,21 @@
             infoLbl.TabIndex = 5;
             infoLbl.Text = "file.json - основной файл для работы приложения";
             // 
-            // Form2
+            // IMDbArchiveForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(393, 570);
+            ClientSize = new Size(393, 561);
             Controls.Add(infoLbl);
             Controls.Add(btnRemoveJson);
             Controls.Add(btnUseJson);
             Controls.Add(listBoxJson);
             Controls.Add(pnlArchive);
             Controls.Add(btnReturn);
-            MaximumSize = new Size(409, 609);
-            MinimumSize = new Size(409, 609);
-            Name = "Form2";
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximumSize = new Size(409, 600);
+            MinimumSize = new Size(409, 600);
+            Name = "IMDbArchiveForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Form2";
             pnlArchive.ResumeLayout(false);

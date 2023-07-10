@@ -15,6 +15,7 @@ using JR.Utils.GUI.Forms;
 using LicenseContext = OfficeOpenXml.LicenseContext;
 using OfficeOpenXml.DataValidation;
 using Button = System.Windows.Forms.Button;
+using MediaApi.Forms;
 
 namespace MediaApi
 {
@@ -46,8 +47,12 @@ namespace MediaApi
         private int tempIndex;
         private Form activeForm;
 
-        private void btnTabSearch_Click(object sender, EventArgs e)
+        private void btnIMDb_Click(object sender, EventArgs e)
         {
+            if (IMDbSearchForm.instance != null && IMDbSearchForm.instance.activeForm2 != null)
+                IMDbSearchForm.instance.activeForm2.Close();
+            if (activeForm != null)
+                activeForm.Close();
             Dictionary<string, int> data = new Dictionary<string, int>
             {
                 { "x", this.Location.X },
@@ -58,8 +63,15 @@ namespace MediaApi
             OpenChildForm(new Forms.IMDbSearchForm(data), sender);
         }
 
+        private void btnKinopoisk_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Forms.KPSearchForm(), sender);
+        }
+        
         private void btnClose_Click(object sender, EventArgs e)
         {
+            if (IMDbSearchForm.instance.activeForm2 != null)
+                IMDbSearchForm.instance.activeForm2.Close();
             if (activeForm != null)
                 activeForm.Close();
             Reset();
@@ -202,5 +214,6 @@ namespace MediaApi
         {
             btnTabSearch_MouseLeave(sender, e);
         }
+
     }
 }

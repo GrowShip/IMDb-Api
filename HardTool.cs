@@ -10,22 +10,28 @@ namespace MediaApi
 {
     internal class HardTool
     {
-        public static FilmData GetSavedJson()
+        public static FilmData GetSavedJson(string system)
         {
-            return GetSavedJsonMethod();
+            return GetSavedJsonMethod(system);
         }
 
-        private static FilmData GetSavedJsonMethod()
+        private static FilmData GetSavedJsonMethod(string system)
         {
             FilmData savedJson;
             string json = "";
-            if (File.Exists(@"JSON\file.json"))
+            if (File.Exists($"JSON\\{system}\\file.json"))
             {
-                json = File.ReadAllText(@"JSON\file.json");
+                json = File.ReadAllText($"JSON\\{system}\\file.json");
             }
             else
             {
                 string path = @"JSON";
+                if (!Directory.Exists(path))
+                {
+                    DirectoryInfo di = Directory.CreateDirectory(path);
+                    di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
+                }
+                path = @"JSON\" + system;
                 if (!Directory.Exists(path))
                 {
                     DirectoryInfo di = Directory.CreateDirectory(path);
@@ -37,9 +43,9 @@ namespace MediaApi
                 if (a == DialogResult.Yes)
                 {
                     FilmData filmData = new FilmData();
-                    filmData.Results = new List<JsonData>();
+                    //filmData.Results = new List<JsonData>();
 
-                    SaveJson(JsonConvert.SerializeObject(filmData));
+                    SaveJson(JsonConvert.SerializeObject(filmData), system);
                 }
             }
 
@@ -55,11 +61,11 @@ namespace MediaApi
             return savedJson;
         }
 
-        public static void SaveJson(string json)
+        public static void SaveJson(string json, string system)
         {
             try
             {
-                File.WriteAllText(@"JSON\file.json", json);
+                File.WriteAllText($"JSON\\{system}\\file.json", json);
                 Console.WriteLine("JSON file saved successfully!");
             }
             catch (Exception ex)
@@ -68,10 +74,10 @@ namespace MediaApi
             }
         }
 
-        public static void MakeAnArchive()
+        public static void MakeAnArchive(string system)
         {
-            var oldNameFullPath = AppDomain.CurrentDomain.BaseDirectory + @"JSON\file.json";
-            var newNameFullPath = AppDomain.CurrentDomain.BaseDirectory + $"JSON\\{DateTime.Now.ToShortDateString()}.json";
+            var oldNameFullPath = AppDomain.CurrentDomain.BaseDirectory + $"JSON\\{system}\\file.json";
+            var newNameFullPath = AppDomain.CurrentDomain.BaseDirectory + $"JSON\\{system}\\{DateTime.Now.ToShortDateString()}.json";
             RemoveAnArchive(newNameFullPath);
             File.Move(oldNameFullPath,newNameFullPath);
         }
@@ -82,6 +88,11 @@ namespace MediaApi
             {
                 File.Delete(path);
             }
+        }
+
+        public static void AddToActiveJson(List <FilmData> title)
+        {
+
         }
     }
 
@@ -94,7 +105,7 @@ namespace MediaApi
 
         private static void SaveReleasesToExceMethod(FilmData savedJson, bool onlyNewCheckBox, List<string> newAddedJson)
         {
-            HardTool.SaveJson(JsonConvert.SerializeObject(savedJson));
+            HardTool.SaveJson(JsonConvert.SerializeObject(savedJson), "imdb");
 
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             // Create a new Excel package

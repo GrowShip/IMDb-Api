@@ -32,7 +32,7 @@
             panelMenu = new Panel();
             btnKinopoisk = new Button();
             btnClose = new Button();
-            btnTabSearch = new Button();
+            btnIMDb = new Button();
             deskPanel = new Panel();
             panelMenu.SuspendLayout();
             SuspendLayout();
@@ -42,7 +42,7 @@
             panelMenu.BackColor = Color.FromArgb(12, 12, 12);
             panelMenu.Controls.Add(btnKinopoisk);
             panelMenu.Controls.Add(btnClose);
-            panelMenu.Controls.Add(btnTabSearch);
+            panelMenu.Controls.Add(btnIMDb);
             resources.ApplyResources(panelMenu, "panelMenu");
             panelMenu.Name = "panelMenu";
             // 
@@ -55,6 +55,7 @@
             btnKinopoisk.ForeColor = SystemColors.ControlLightLight;
             btnKinopoisk.Name = "btnKinopoisk";
             btnKinopoisk.UseVisualStyleBackColor = true;
+            btnKinopoisk.Click += btnKinopoisk_Click;
             btnKinopoisk.MouseEnter += btnKinopoisk_MouseEnter;
             btnKinopoisk.MouseLeave += btnKinopoisk_MouseLeave;
             // 
@@ -67,18 +68,18 @@
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;
             // 
-            // btnTabSearch
+            // btnIMDb
             // 
-            btnTabSearch.FlatAppearance.BorderColor = Color.FromArgb(18, 18, 18);
-            btnTabSearch.FlatAppearance.MouseDownBackColor = Color.FromArgb(48, 48, 48);
-            btnTabSearch.FlatAppearance.MouseOverBackColor = Color.FromArgb(25, 25, 25);
-            resources.ApplyResources(btnTabSearch, "btnTabSearch");
-            btnTabSearch.ForeColor = SystemColors.ControlLightLight;
-            btnTabSearch.Name = "btnTabSearch";
-            btnTabSearch.UseVisualStyleBackColor = true;
-            btnTabSearch.Click += btnTabSearch_Click;
-            btnTabSearch.MouseEnter += btnTabSearch_MouseEnter;
-            btnTabSearch.MouseLeave += btnTabSearch_MouseLeave;
+            btnIMDb.FlatAppearance.BorderColor = Color.FromArgb(18, 18, 18);
+            btnIMDb.FlatAppearance.MouseDownBackColor = Color.FromArgb(48, 48, 48);
+            btnIMDb.FlatAppearance.MouseOverBackColor = Color.FromArgb(25, 25, 25);
+            resources.ApplyResources(btnIMDb, "btnIMDb");
+            btnIMDb.ForeColor = SystemColors.ControlLightLight;
+            btnIMDb.Name = "btnIMDb";
+            btnIMDb.UseVisualStyleBackColor = true;
+            btnIMDb.Click += btnIMDb_Click;
+            btnIMDb.MouseEnter += btnTabSearch_MouseEnter;
+            btnIMDb.MouseLeave += btnTabSearch_MouseLeave;
             // 
             // deskPanel
             // 
@@ -100,7 +101,7 @@
         }
 
         #endregion
-        private Button btnTabSearch;
+        private Button btnIMDb;
         private Panel panelMenu;
         private Button btnClose;
         private Panel deskPanel;
