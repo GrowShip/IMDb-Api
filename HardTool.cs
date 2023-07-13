@@ -3,6 +3,8 @@ using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -204,5 +206,32 @@ namespace MediaApi
             }
         }
 
+    }
+
+    internal class Requests
+    {
+        /// <summary>
+        /// Get запрос для api шек
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <param name="apiKey"></param>
+        /// <returns>В формате строки json</returns>
+        public static string GET(Uri uri,string apiKey)
+        {
+            var requ = WebRequest.Create(uri);
+
+            requ.ContentType = "application/json";
+            requ.Headers["X-API-KEY"] = apiKey;
+            requ.Method = "GET";
+
+            string result;
+
+            using (var stream = new StreamReader(requ.GetResponse().GetResponseStream()))
+            {
+                result = stream.ReadToEnd();
+            }
+
+            return result;
+        }
     }
 }

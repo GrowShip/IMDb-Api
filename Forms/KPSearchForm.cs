@@ -5,9 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
 
 namespace MediaApi.Forms
 {
@@ -16,7 +18,13 @@ namespace MediaApi.Forms
         public KPSearchForm()
         {
             InitializeComponent();
+
+        }
+
+        private void KPSearchForm_Load(object sender, EventArgs e)
+        {
             LoadForm();
+            textSearch.PlaceholderText = "КиноПоиск";
         }
 
         private void LoadForm()
@@ -49,5 +57,44 @@ namespace MediaApi.Forms
                 Clipboard.SetText(lblSynopsis.Text);
             }
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textSearch.Text) ||
+                textSearch.Text.Equals("КиноПоиск", StringComparison.CurrentCultureIgnoreCase))
+                MessageBox.Show("Введите что-то в поиске");
+        }
+
     }
+
+    internal partial class UrlMaker
+    {
+        public string CreateUrlv1(string typeSearch)
+        {
+            /// https://api.kinopoisk.dev
+            /// 
+            ///
+
+            return "";
+        }
+        public string CreateUrlv2(string typeSearch)
+        {
+            ///
+            ///
+            ///
+
+            return "";
+        }
+
+        public string GetNewReleasesUri(string year, string month)
+        {
+            return string.Format("https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year={0}&month={2}", year, month);
+        }
+
+        public string GetSearchUri(string keyWord)
+        {
+            return string.Format("https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword={0}&page=1", keyWord);
+        }
+    }
+
 }

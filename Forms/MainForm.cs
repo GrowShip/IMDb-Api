@@ -70,8 +70,6 @@ namespace MediaApi
         
         private void btnClose_Click(object sender, EventArgs e)
         {
-            if (IMDbSearchForm.instance.activeForm2 != null)
-                IMDbSearchForm.instance.activeForm2.Close();
             if (activeForm != null)
                 activeForm.Close();
             Reset();

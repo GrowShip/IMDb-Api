@@ -48,6 +48,7 @@ namespace MediaApi.Forms
         {
             System.Windows.Forms.ToolTip tipsForm = new System.Windows.Forms.ToolTip();
             LoadTheme();
+            textBox1.PlaceholderText = "IMDb search (eng only)";
             tipsForm.SetToolTip(button2, "ѕоиск сета в выбранном диапозоне дат по выбрранное стране");
             tipsForm.SetToolTip(button3, "—охранение всего архива или только новых(за эту сессию) метаданных в excel");
             tipsForm.SetToolTip(button4, "ƒобавление метаданных либо выбраной позиции в листе либо всех в архив");
@@ -492,7 +493,7 @@ namespace MediaApi.Forms
                 activeForm2.Location = new Point(activeForm2.Left = locationForm["x"] + locationForm["width"] + SystemInformation.BorderSize.Width, locationForm["y"]);
             }
             else IMDbArchiveForm.instance.UpdateList();
-            
+
         }
 
         public void ChangeSourceList(string path)
@@ -535,17 +536,6 @@ namespace MediaApi.Forms
         public void UpdateSameJson(bool availible)
         {
             sameJson = availible;
-        }
-
-        private void textBox1_Enter(object sender, EventArgs e)
-        {
-            textBox1.Text = "";
-        }
-
-        private void textBox1_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBox1.Text))
-                textBox1.Text = "ѕоиск (only in Eng)";
         }
     }
 }

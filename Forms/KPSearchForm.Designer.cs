@@ -31,7 +31,7 @@
             pctPoster = new PictureBox();
             lblDescribtion = new Label();
             textSearch = new TextBox();
-            button1 = new Button();
+            btnSearch = new Button();
             checkBoxArchiveSearch = new CheckBox();
             listTitles = new ListBox();
             lblSynopsis = new Label();
@@ -66,20 +66,20 @@
             textSearch.Name = "textSearch";
             textSearch.Size = new Size(305, 29);
             textSearch.TabIndex = 2;
-            textSearch.Text = "КиноПоиск";
             // 
-            // button1
+            // btnSearch
             // 
-            button1.BackColor = SystemColors.ActiveCaption;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(744, 7);
-            button1.Name = "button1";
-            button1.Size = new Size(95, 36);
-            button1.TabIndex = 3;
-            button1.Text = "Найти";
-            button1.UseVisualStyleBackColor = false;
+            btnSearch.BackColor = SystemColors.ActiveCaption;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSearch.ForeColor = SystemColors.ControlLightLight;
+            btnSearch.Location = new Point(744, 7);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(95, 36);
+            btnSearch.TabIndex = 3;
+            btnSearch.Text = "Найти";
+            btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // checkBoxArchiveSearch
             // 
@@ -127,13 +127,14 @@
             Controls.Add(lblSynopsis);
             Controls.Add(listTitles);
             Controls.Add(checkBoxArchiveSearch);
-            Controls.Add(button1);
+            Controls.Add(btnSearch);
             Controls.Add(textSearch);
             Controls.Add(lblDescribtion);
             Controls.Add(pctPoster);
             MinimumSize = new Size(863, 537);
             Name = "KPSearchForm";
             Text = "KPSearchForm";
+            Load += KPSearchForm_Load;
             ((System.ComponentModel.ISupportInitialize)pctPoster).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -144,7 +145,7 @@
         private PictureBox pctPoster;
         private Label lblDescribtion;
         private TextBox textSearch;
-        private Button button1;
+        private Button btnSearch;
         private CheckBox checkBoxArchiveSearch;
         private ListBox listTitles;
         private Label lblSynopsis;

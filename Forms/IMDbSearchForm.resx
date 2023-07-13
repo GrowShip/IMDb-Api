@@ -168,9 +168,6 @@
   <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="textBox1.Text" xml:space="preserve">
-    <value>Поиск (only in Eng)</value>
-  </data>
   <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
     <value>textBox1</value>
   </data>

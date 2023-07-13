@@ -69,8 +69,6 @@
             // 
             resources.ApplyResources(textBox1, "textBox1");
             textBox1.Name = "textBox1";
-            textBox1.Enter += textBox1_Enter;
-            textBox1.Leave += textBox1_Leave;
             // 
             // listBox1
             // 
