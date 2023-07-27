@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationIcon>Add\image.psd (1).ico</ApplicationIcon>
+    <ApplicationIcon>Add\IconShI.ico</ApplicationIcon>
 	<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
   </PropertyGroup>
 
@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Add\image.psd (1).ico" />
+    <Content Include="Add\IconShI.ico" />
   </ItemGroup>
 
   <ItemGroup>

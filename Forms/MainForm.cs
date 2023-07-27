@@ -65,9 +65,9 @@ namespace MediaApi
 
         private void btnKinopoisk_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.KPSearchForm(), sender);
+            //OpenChildForm(new Forms.KPSearchForm(), sender);
         }
-        
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             if (activeForm != null)

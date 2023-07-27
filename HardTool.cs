@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using IMDbApiLib.Models;
+using IMDbApiLib;
+using Newtonsoft.Json;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
@@ -45,7 +47,7 @@ namespace MediaApi
                 if (a == DialogResult.Yes)
                 {
                     FilmData filmData = new FilmData();
-                    //filmData.Results = new List<JsonData>();
+                    filmData.Results = new List<JsonData>();
 
                     SaveJson(JsonConvert.SerializeObject(filmData), system);
                 }

@@ -1,5 +1,7 @@
 ﻿using IMDbApiLib.Models;
+using MediaApi.IMDB;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,8 +17,8 @@ namespace MediaApi
     public class JsonData
     {
         public string Id { get; set; }
-        public string Image { get; set; }
         public string Title { get; set; }
+        public string Image { get; set; }
         public string Description { get; set; }
         public string RuntimeStr { get; set; }
         public string Genres { get; set; }
@@ -113,6 +115,45 @@ namespace MediaApi
 
                 result.Results.Add(el);
             }
+            return result;
+        }
+
+        public static FilmData CalendarToData(CalendarData data)
+        {
+            var result = new FilmData();
+            result.Results = new List<JsonData>();
+
+            for (int i = 0; i < data.props.pageProps.groups.Count; i++)
+            {
+                for (int j = 0; j < data.props.pageProps.groups[i].entries.Count; j++)
+                {
+                    var item = data.props.pageProps.groups[i].entries[j];
+                    JsonData el = new JsonData();
+
+                    el.Id = item.id;
+                    el.Title = item.titleText;
+                    el.Image = item.imageModel != null ?  item.imageModel.url : null ;
+                    //el.Image = item.imageModel.url;
+                    //el.Description =
+                    //el.RuntimeStr =
+                    el.Genres = string.Join(", ", item.genres);
+                    //el.ContentRating =
+                    //el.IMDbRating =
+                    //el.Plot =
+                    //el.Stars =
+                    //el.LocationSearch =
+                    el.Type = item.titleType.text;
+                    el.Year = item.releaseYear.year.ToString();
+                    el.ReleaseDate = item.releaseDate.Substring(item.releaseDate.IndexOf(",")+1,12);
+                    //el.Awards =
+                    //el.Directors =
+                    //el.Companies =
+                    //el.Countries =
+                    //el.Languages = 
+                    result.Results.Add(el);
+                }
+            }
+
             return result;
         }
     }

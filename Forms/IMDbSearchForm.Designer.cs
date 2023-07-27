@@ -47,12 +47,13 @@
             CmngSoonBtn = new Button();
             btnClearAchive = new Button();
             button2 = new Button();
-            comboBox1 = new ComboBox();
+            cmbCountry = new ComboBox();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
             dateFrom = new MaskedTextBox();
             dateTo = new MaskedTextBox();
+            btnInCountryRls = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -196,11 +197,11 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
-            // comboBox1
+            // cmbCountry
             // 
-            resources.ApplyResources(comboBox1, "comboBox1");
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Name = "comboBox1";
+            resources.ApplyResources(cmbCountry, "cmbCountry");
+            cmbCountry.FormattingEnabled = true;
+            cmbCountry.Name = "cmbCountry";
             // 
             // label4
             // 
@@ -229,11 +230,21 @@
             dateTo.Name = "dateTo";
             dateTo.ValidatingType = typeof(DateTime);
             // 
+            // btnInCountryRls
+            // 
+            resources.ApplyResources(btnInCountryRls, "btnInCountryRls");
+            btnInCountryRls.BackColor = SystemColors.ActiveCaption;
+            btnInCountryRls.ForeColor = SystemColors.ButtonHighlight;
+            btnInCountryRls.Name = "btnInCountryRls";
+            btnInCountryRls.UseVisualStyleBackColor = false;
+            btnInCountryRls.Click += btnInCountryRls_Click;
+            // 
             // IMDbSearchForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
+            Controls.Add(btnInCountryRls);
             Controls.Add(dateTo);
             Controls.Add(btnClearAchive);
             Controls.Add(dateFrom);
@@ -242,7 +253,7 @@
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(scndForm);
-            Controls.Add(comboBox1);
+            Controls.Add(cmbCountry);
             Controls.Add(SearchTit);
             Controls.Add(button2);
             Controls.Add(OnlyNewCheckBox);
@@ -284,11 +295,12 @@
         private Button CmngSoonBtn;
         private Button btnClearAchive;
         private Button button2;
-        private ComboBox comboBox1;
+        private ComboBox cmbCountry;
         private Label label4;
         private Label label5;
         private Label label6;
         private MaskedTextBox dateFrom;
         private MaskedTextBox dateTo;
+        private Button btnInCountryRls;
     }
 }

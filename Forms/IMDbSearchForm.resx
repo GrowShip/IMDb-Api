@@ -151,7 +151,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;SearchButton.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>24</value>
   </data>
   <data name="textBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -178,7 +178,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>23</value>
   </data>
   <data name="listBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Right</value>
@@ -208,7 +208,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;listBox1.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 12</value>
@@ -242,7 +242,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>21</value>
   </data>
   <data name="label2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -281,7 +281,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="button4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -293,7 +293,7 @@
     <value>Segoe UI, 9.5pt</value>
   </data>
   <data name="button4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>752, 416</value>
+    <value>752, 415</value>
   </data>
   <data name="button4.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 34</value>
@@ -314,7 +314,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button4.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="linkLabel1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -347,7 +347,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;linkLabel1.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="button5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -380,7 +380,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button5.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left</value>
@@ -422,7 +422,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="button3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -455,7 +455,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button3.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="ArchiveSearchCheckBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -488,7 +488,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ArchiveSearchCheckBox.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="AllAddCheckBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -500,7 +500,7 @@
     <value>MiddleRight</value>
   </data>
   <data name="AllAddCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>701, 425</value>
+    <value>700, 425</value>
   </data>
   <data name="AllAddCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 19</value>
@@ -521,7 +521,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;AllAddCheckBox.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="OnlyNewCheckBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -529,14 +529,17 @@
   <data name="OnlyNewCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="OnlyNewCheckBox.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
   <data name="OnlyNewCheckBox.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
   <data name="OnlyNewCheckBox.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+    <value>MiddleRight</value>
   </data>
   <data name="OnlyNewCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>509, 424</value>
+    <value>309, 423</value>
   </data>
   <data name="OnlyNewCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 19</value>
@@ -546,6 +549,9 @@
   </data>
   <data name="OnlyNewCheckBox.Text" xml:space="preserve">
     <value>Только новые</value>
+  </data>
+  <data name="OnlyNewCheckBox.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
   </data>
   <data name="&gt;&gt;OnlyNewCheckBox.Name" xml:space="preserve">
     <value>OnlyNewCheckBox</value>
@@ -557,10 +563,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;OnlyNewCheckBox.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="SearchTit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+    <value>Bottom, Right</value>
   </data>
   <data name="SearchTit.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -569,16 +575,16 @@
     <value>Segoe UI, 9.5pt</value>
   </data>
   <data name="SearchTit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>126, 415</value>
+    <value>612, 415</value>
   </data>
   <data name="SearchTit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 34</value>
+    <value>83, 34</value>
   </data>
   <data name="SearchTit.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
   </data>
   <data name="SearchTit.Text" xml:space="preserve">
-    <value>Extension</value>
+    <value>Расширить</value>
   </data>
   <data name="&gt;&gt;SearchTit.Name" xml:space="preserve">
     <value>SearchTit</value>
@@ -590,7 +596,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;SearchTit.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="scndForm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -605,7 +611,7 @@
     <value>NoControl</value>
   </data>
   <data name="scndForm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>214, 415</value>
+    <value>126, 415</value>
   </data>
   <data name="scndForm.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 34</value>
@@ -626,7 +632,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;scndForm.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="CmngSoonBtn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -641,7 +647,7 @@
     <value>646, 47</value>
   </data>
   <data name="CmngSoonBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 38</value>
+    <value>99, 38</value>
   </data>
   <data name="CmngSoonBtn.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
@@ -659,7 +665,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CmngSoonBtn.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="btnClearAchive.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -692,7 +698,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnClearAchive.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="button2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -710,7 +716,7 @@
     <value>646, 88</value>
   </data>
   <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 48</value>
+    <value>99, 48</value>
   </data>
   <data name="button2.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -728,31 +734,31 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
-  <data name="comboBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="cmbCountry.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="comboBox1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="cmbCountry.Location" type="System.Drawing.Point, System.Drawing">
     <value>505, 89</value>
   </data>
-  <data name="comboBox1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="cmbCountry.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 23</value>
   </data>
-  <data name="comboBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="cmbCountry.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="&gt;&gt;comboBox1.Name" xml:space="preserve">
-    <value>comboBox1</value>
+  <data name="&gt;&gt;cmbCountry.Name" xml:space="preserve">
+    <value>cmbCountry</value>
   </data>
-  <data name="&gt;&gt;comboBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;cmbCountry.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;comboBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;cmbCountry.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;comboBox1.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="&gt;&gt;cmbCountry.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="label4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -788,7 +794,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="label5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -824,7 +830,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="label6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -857,7 +863,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="dateFrom.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -887,7 +893,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dateFrom.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="dateTo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -917,6 +923,39 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dateTo.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnInCountryRls.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btnInCountryRls.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnInCountryRls.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.5pt</value>
+  </data>
+  <data name="btnInCountryRls.Location" type="System.Drawing.Point, System.Drawing">
+    <value>749, 88</value>
+  </data>
+  <data name="btnInCountryRls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 48</value>
+  </data>
+  <data name="btnInCountryRls.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="btnInCountryRls.Text" xml:space="preserve">
+    <value>Прокат в стране</value>
+  </data>
+  <data name="&gt;&gt;btnInCountryRls.Name" xml:space="preserve">
+    <value>btnInCountryRls</value>
+  </data>
+  <data name="&gt;&gt;btnInCountryRls.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnInCountryRls.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnInCountryRls.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
