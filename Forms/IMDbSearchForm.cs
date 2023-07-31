@@ -15,8 +15,8 @@ using LicenseContext = OfficeOpenXml.LicenseContext;
 using OfficeOpenXml.DataValidation;
 using Button = System.Windows.Forms.Button;
 using MediaApi.IMDB;
-using TMDbLib.Objects.Languages;
 using MediaApi.Structure;
+using System.Xml.Serialization;
 
 namespace MediaApi.Forms
 {
@@ -115,7 +115,7 @@ namespace MediaApi.Forms
         private async void FillInCountry()
         {
 
-            var country = Language.MakeCountry();
+            var country = Structure.Language.MakeCountry();
             cmbCountry.DataSource = country.MyList;
             cmbCountry.DisplayMember = "Country";
             cmbCountry.ValueMember = "Symbol";
@@ -181,23 +181,23 @@ namespace MediaApi.Forms
             //Window_Loaded(sender, e, countryLang, fromD, toD);
         }
 
-        private async void Window_Loaded(object sender, EventArgs e, string language, string[] fromD, string[] toD)
-        {
-            try
-            {
-                string uriDate = $"&release_date={fromD[2]}-{fromD[1]}-10,{toD[2]}-{toD[1]}-10";
+        //private async void Window_Loaded(object sender, EventArgs e, string language, string[] fromD, string[] toD)
+        //{
+        //    try
+        //    {
+        //        string uriDate = $"&release_date={fromD[2]}-{fromD[1]}-10,{toD[2]}-{toD[1]}-10";
 
-                activeJson = await GetReleaseTitles(uriDate, language);
-                // Bind the titles to the ListBox control
-                listBox1.DataSource = activeJson.Results;
-                listBox1.DisplayMember = "Title";
-                listBox1.ValueMember = "Id";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}");
-            }
-        }
+        //        activeJson = await GetReleaseTitles(uriDate, language);
+        //        // Bind the titles to the ListBox control
+        //        listBox1.DataSource = activeJson.Results;
+        //        listBox1.DisplayMember = "Title";
+        //        listBox1.ValueMember = "Id";
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"An error occurred: {ex.Message}");
+        //    }
+        //}
 
         private async Task<FilmData> GetReleaseTitles(string uriDate, string language)
         {
@@ -215,7 +215,7 @@ namespace MediaApi.Forms
 
                     foreach (var item in a.Results)
                     {
-                        item.Countries = Language.countryCodeDictionary[language];
+                        item.Countries = Structure.Language.countryCodeDictionary[language];
                     }
                     return a;
                 }
@@ -384,6 +384,19 @@ namespace MediaApi.Forms
                 label3.Text = activeJson.Results[i].Plot;
                 linkLabel1.Text = activeJson.Results[i].Image;
                 pictureBox1.ImageLocation = activeJson.Results[i].Image;
+
+                if (activeJson.Results[i].All is not null)
+                {
+                    lblDates.Text = $"Russia         {activeJson.Results[i].All.RU.releaseDate}\n" +
+                                    $"United States  {activeJson.Results[i].All.US.releaseDate}\n" +
+                                    $"Germany        {activeJson.Results[i].All.DE.releaseDate}\n" +
+                                    $"Italy          {activeJson.Results[i].All.IT.releaseDate}\n" +
+                                    $"Spain          {activeJson.Results[i].All.ES.releaseDate}\n" +
+                                    $"United Kingdom {activeJson.Results[i].All.GB.releaseDate}\n" +
+                                    $"France         {activeJson.Results[i].All.FR.releaseDate}\n" +
+                                    $"China          {activeJson.Results[i].All.CN.releaseDate}\n";
+                }
+                else lblDates.Text = "-";
             }
             catch (Exception ex)
             {
@@ -451,7 +464,8 @@ namespace MediaApi.Forms
                         //info = Converter.TitleToData(await ApiUtils.GetObjectAsync<TitleData>(TitleUrl + item.Id));
                         foreach (JsonData el in activeJson.Results)
                         {
-                            savedJson.Results.Add(el);
+                            var obj = await UploadReleasesDates(el, el.Id);
+                            savedJson.Results.Add(obj);
                         }
                         HardTool.SaveJson(JsonConvert.SerializeObject(savedJson), "imdb");
                     }
@@ -460,14 +474,16 @@ namespace MediaApi.Forms
                         foreach (var item in savedJson.Results)
                         {
                             info = await GetInfoIDAsync(item.Id);
-                            SearchTitAdditionalInfoAdd(info.Results[0]);
+                            var obj = await UploadReleasesDates(info.Results[0], info.Results[0].Id);
+                            SearchTitAdditionalInfoAdd(obj);
                         }
                     }
                 }
                 else if (i != -1)
                 {
                     info = await GetInfoIDAsync(activeJson.Results[i].Id);
-                    SearchTitAdditionalInfoAdd(info.Results[0]);
+                    var obj = await UploadReleasesDates(info.Results[0], info.Results[0].Id);
+                    SearchTitAdditionalInfoAdd(obj);
                 }
                 else
                 {
@@ -514,6 +530,7 @@ namespace MediaApi.Forms
                 savedJson.Results[indexO].Countries = item.Countries;
                 savedJson.Results[indexO].IMDbRating = item.IMDbRating;
                 savedJson.Results[indexO].Plot = item.Plot;
+                savedJson.Results[indexO].All = item.All;
             }
             HardTool.SaveJson(JsonConvert.SerializeObject(savedJson), "imdb");
         }
@@ -574,6 +591,7 @@ namespace MediaApi.Forms
             if (a == DialogResult.OK)
             {
                 HardTool.MakeAnArchive("imdb");
+                sameJson = false;
             }
             savedJson = HardTool.GetSavedJson("imdb");
             activeJson = savedJson;
@@ -605,9 +623,22 @@ namespace MediaApi.Forms
             UpdateSameJson(false);
             string country = cmbCountry.SelectedValue.ToString();
             CalendarData cdD = await CalendarIMDB.GetIMDBCalendarAsync(country);
-            FilmData newJ = Converter.CalendarToData(cdD, Language.countryCodeDictionary[country]);
+            FilmData newJ = Converter.CalendarToData(cdD, Structure.Language.countryCodeDictionary[country]);
 
             UpdateListOfMeta(newJ);
+        }
+
+        /// <summary>
+        /// ƒогружает даты релизов в разных странах
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="title"></param>
+        /// <returns></returns>
+        private async Task<JsonData> UploadReleasesDates(JsonData date, string title)
+        {
+            CalendarD initital = await ReleasesDates.GetReleasesToData(title);
+            date = Converter.EnterReleasesDates(initital, date);
+            return date;
         }
     }
 }

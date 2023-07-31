@@ -37,6 +37,27 @@ namespace MediaApi.Structure
         public string Companies { get; set; }
         public string Countries { get; set; }
         public string Languages { get; set; }
+
+        public CounrtyReleaseAll All { get; set; }
+    }
+
+    public class CounrtyReleaseAll
+    {
+        public CounrtyRelease US { get; set; }
+        public CounrtyRelease DE { get; set; }
+        public CounrtyRelease IT { get; set; }
+        public CounrtyRelease ES { get; set; }
+        public CounrtyRelease GB { get; set; }
+        public CounrtyRelease FR { get; set; }
+        public CounrtyRelease CN { get; set; }
+        public CounrtyRelease RU { get; set; }
+    }
+
+    public class CounrtyRelease
+    {
+        public string code { get; set; }
+        public string country { get; set; }
+        public string releaseDate { get; set; }
     }
 
     public class Converter
@@ -153,8 +174,73 @@ namespace MediaApi.Structure
                     result.Results.Add(el);
                 }
             }
-
             return result;
+        }
+
+        public static JsonData EnterReleasesDates(CalendarD calendar, JsonData data)
+        {
+                data.All = new CounrtyReleaseAll();
+                data.All.US = new CounrtyRelease();
+                data.All.US.code = "US";
+                data.All.US.country = "United States";
+                data.All.DE = new CounrtyRelease();
+                data.All.DE.code = "DE";
+                data.All.DE.country = "Germany";
+                data.All.IT = new CounrtyRelease();
+                data.All.IT.code = "IT";
+                data.All.IT.country = "Italy";
+                data.All.ES = new CounrtyRelease();
+                data.All.ES.code = "ES";
+                data.All.ES.country = "Spain";
+                data.All.GB = new CounrtyRelease();
+                data.All.GB.code = "GB";
+                data.All.GB.country = "United Kingdom";
+                data.All.FR = new CounrtyRelease();
+                data.All.FR.code = "FR";
+                data.All.FR.country = "France";
+                data.All.CN = new CounrtyRelease();
+                data.All.CN.code = "CN";
+                data.All.CN.country = "China";
+                data.All.RU = new CounrtyRelease();
+                data.All.RU.code = "RU";
+                data.All.RU.country = "Russia";
+
+                foreach (var item in calendar.data.title.releaseDates.edges)
+            {
+                if (item.node.attributes.Count == 0)
+                {
+                    switch (item.node.country.id.ToLower())
+                    {
+                        case ("us"):
+                            data.All.US.releaseDate = item.node.displayableProperty.value.plainText;
+                            break;
+                        case ("de"):
+                            data.All.DE.releaseDate= item.node.displayableProperty.value.plainText;
+                            break;
+                        case ("it"):
+                            data.All.IT.releaseDate= item.node.displayableProperty.value.plainText;
+                            break;
+                        case ("es"):
+                            data.All.ES.releaseDate= item.node.displayableProperty.value.plainText;
+                            break;
+                        case ("gb"):
+                            data.All.GB.releaseDate= item.node.displayableProperty.value.plainText;
+                            break;
+                        case ("fr"):
+                            data.All.FR.releaseDate= item.node.displayableProperty.value.plainText;
+                            break;
+                        case ("cn"):
+                            data.All.CN.releaseDate= item.node.displayableProperty.value.plainText;
+                            break;
+                        case ("ru"):
+                            data.All.RU.releaseDate= item.node.displayableProperty.value.plainText;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            return data;
         }
     }
 }

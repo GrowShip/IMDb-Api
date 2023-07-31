@@ -54,6 +54,7 @@
             dateFrom = new MaskedTextBox();
             dateTo = new MaskedTextBox();
             btnInCountryRls = new Button();
+            lblDates = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -123,6 +124,7 @@
             // 
             resources.ApplyResources(label3, "label3");
             label3.BackColor = SystemColors.ButtonFace;
+            label3.CausesValidation = false;
             label3.Name = "label3";
             // 
             // button3
@@ -239,11 +241,18 @@
             btnInCountryRls.UseVisualStyleBackColor = false;
             btnInCountryRls.Click += btnInCountryRls_Click;
             // 
+            // lblDates
+            // 
+            resources.ApplyResources(lblDates, "lblDates");
+            lblDates.BackColor = SystemColors.ButtonFace;
+            lblDates.Name = "lblDates";
+            // 
             // IMDbSearchForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
+            Controls.Add(lblDates);
             Controls.Add(btnInCountryRls);
             Controls.Add(dateTo);
             Controls.Add(btnClearAchive);
@@ -302,5 +311,6 @@
         private MaskedTextBox dateFrom;
         private MaskedTextBox dateTo;
         private Button btnInCountryRls;
+        private Label lblDates;
     }
 }

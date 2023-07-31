@@ -22,16 +22,17 @@ namespace MediaApi.Structure
             country.MyList.Add(new MyObject { Id = 5, Country = "Germany", Symbol = "de" });
             country.MyList.Add(new MyObject { Id = 6, Country = "Hong Kong", Symbol = "hk" });
             country.MyList.Add(new MyObject { Id = 7, Country = "India", Symbol = "in" });
-            country.MyList.Add(new MyObject { Id = 8, Country = "Kazakhstan", Symbol = "kz" });
-            country.MyList.Add(new MyObject { Id = 9, Country = "Korea", Symbol = "xko" });
-            country.MyList.Add(new MyObject { Id = 10, Country = "Russia", Symbol = "ru" });
-            country.MyList.Add(new MyObject { Id = 11, Country = "South Korea", Symbol = "kr" });
-            country.MyList.Add(new MyObject { Id = 12, Country = "Spain", Symbol = "es" });
-            country.MyList.Add(new MyObject { Id = 13, Country = "Taiwan", Symbol = "tw" });
-            country.MyList.Add(new MyObject { Id = 14, Country = "Turkey", Symbol = "tr" });
-            country.MyList.Add(new MyObject { Id = 15, Country = "United Kingdom", Symbol = "gb" });
-            country.MyList.Add(new MyObject { Id = 16, Country = "United States", Symbol = "us" });
-            country.MyList.Add(new MyObject { Id = 17, Country = "West Germany", Symbol = "xwg" });
+            country.MyList.Add(new MyObject { Id = 8, Country = "Italy", Symbol = "it" });
+            country.MyList.Add(new MyObject { Id = 9, Country = "Kazakhstan", Symbol = "kz" });
+            country.MyList.Add(new MyObject { Id = 10,Country = "Korea", Symbol = "xko" });
+            country.MyList.Add(new MyObject { Id = 11, Country = "Russia", Symbol = "ru" });
+            country.MyList.Add(new MyObject { Id = 12, Country = "South Korea", Symbol = "kr" });
+            country.MyList.Add(new MyObject { Id = 13, Country = "Spain", Symbol = "es" });
+            country.MyList.Add(new MyObject { Id = 14, Country = "Taiwan", Symbol = "tw" });
+            country.MyList.Add(new MyObject { Id = 15, Country = "Turkey", Symbol = "tr" });
+            country.MyList.Add(new MyObject { Id = 16, Country = "United Kingdom", Symbol = "gb" });
+            country.MyList.Add(new MyObject { Id = 17, Country = "United States", Symbol = "us" });
+            country.MyList.Add(new MyObject { Id = 18, Country = "West Germany", Symbol = "xwg" });
             return country;
 
         }
@@ -45,6 +46,7 @@ namespace MediaApi.Structure
             { "de"   , "Germany"},
             { "hk"   , "Hong Kong"},
             { "in"   , "India"},
+            { "it"   , "Italy"},
             { "kz"   , "Kazakhstan"},
             { "xko"  , "Korea"},
             { "ru"   , "Russia"},
