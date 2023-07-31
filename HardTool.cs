@@ -133,6 +133,14 @@ namespace MediaApi
                 worksheet.Cells[1, 15].Value = "Description";
                 worksheet.Cells[1, 16].Value = "Directors";
                 worksheet.Cells[1, 17].Value = "Stars";
+                worksheet.Cells[1, 18].Value = "US";
+                worksheet.Cells[1, 19].Value = "DE";
+                worksheet.Cells[1, 20].Value = "IT";
+                worksheet.Cells[1, 21].Value = "ES";
+                worksheet.Cells[1, 22].Value = "GB";
+                worksheet.Cells[1, 23].Value = "FR";
+                worksheet.Cells[1, 24].Value = "CN";
+                worksheet.Cells[1, 25].Value = "RU";
 
                 // Parse the JSON response and populate the Excel worksheet
                 // Replace this code with your own JSON parsing logic
@@ -161,6 +169,17 @@ namespace MediaApi
                             worksheet.Cells[row, 15].Value = savedJson.Results.Find(f => f.Id == release).Description;
                             worksheet.Cells[row, 16].Value = savedJson.Results.Find(f => f.Id == release).Directors;
                             worksheet.Cells[row, 17].Value = savedJson.Results.Find(f => f.Id == release).Stars;
+                            if (savedJson.Results.Find(f => f.Id == release).All is not null)
+                            {
+                                worksheet.Cells[1, 18].Value = savedJson.Results.Find(f => f.Id == release).All.US.releaseDate;
+                                worksheet.Cells[1, 19].Value = savedJson.Results.Find(f => f.Id == release).All.DE.releaseDate;
+                                worksheet.Cells[1, 20].Value = savedJson.Results.Find(f => f.Id == release).All.IT.releaseDate;
+                                worksheet.Cells[1, 21].Value = savedJson.Results.Find(f => f.Id == release).All.ES.releaseDate;
+                                worksheet.Cells[1, 22].Value = savedJson.Results.Find(f => f.Id == release).All.GB.releaseDate;
+                                worksheet.Cells[1, 23].Value = savedJson.Results.Find(f => f.Id == release).All.FR.releaseDate;
+                                worksheet.Cells[1, 24].Value = savedJson.Results.Find(f => f.Id == release).All.CN.releaseDate;
+                                worksheet.Cells[1, 25].Value = savedJson.Results.Find(f => f.Id == release).All.RU.releaseDate;
+                            }
                             row++;
                         }
                     }
@@ -189,6 +208,17 @@ namespace MediaApi
                         worksheet.Cells[row, 15].Value = release.Description;
                         worksheet.Cells[row, 16].Value = release.Directors;
                         worksheet.Cells[row, 17].Value = release.Stars;
+                        if (release.All is not null)
+                        {
+                            worksheet.Cells[row, 18].Value = release.All.US.releaseDate;
+                            worksheet.Cells[row, 19].Value = release.All.DE.releaseDate;
+                            worksheet.Cells[row, 20].Value = release.All.IT.releaseDate;
+                            worksheet.Cells[row, 21].Value = release.All.ES.releaseDate;
+                            worksheet.Cells[row, 22].Value = release.All.GB.releaseDate;
+                            worksheet.Cells[row, 23].Value = release.All.FR.releaseDate;
+                            worksheet.Cells[row, 24].Value = release.All.CN.releaseDate;
+                            worksheet.Cells[row, 25].Value = release.All.RU.releaseDate;
+                        }
                         row++;
                     }
                 }
