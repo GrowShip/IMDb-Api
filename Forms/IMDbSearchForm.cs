@@ -622,7 +622,7 @@ namespace MediaApi.Forms
 
             UpdateSameJson(false);
             string country = cmbCountry.SelectedValue.ToString();
-            CalendarData cdD = await CalendarIMDB.GetIMDBCalendarAsync(country);
+            CalendarData cdD = await CalendarIMDB.GetIMDBCalendarAsync(country, "Movie");
             FilmData newJ = Converter.CalendarToData(cdD, Structure.Language.countryCodeDictionary[country]);
 
             UpdateListOfMeta(newJ);

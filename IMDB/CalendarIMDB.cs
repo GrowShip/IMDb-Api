@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RequestSupport;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,30 +10,6 @@ using System.Threading.Tasks;
 
 namespace MediaApi.IMDB
 {
-    internal class CalendarIMDB
-    {
-        public static async Task<CalendarData> GetIMDBCalendarAsync(string country = "RU", string content = "MOVIE")
-        {
-            country = country.ToUpper();
-            content = content.ToUpper();
-
-            WebRequest reqGet = WebRequest.Create($"https://www.imdb.com/calendar/?ref_=rlm&region={country}&type={content}");
-            WebResponse resp = reqGet.GetResponse();
-            reqGet.ContentType = "application/json";
-            string s = "";
-            using (Stream stream = resp.GetResponseStream())
-            {
-                StreamReader sr = new StreamReader(stream);
-                s = sr.ReadToEnd();
-            }
-            var what = @"<script id=""__NEXT_DATA__"" type=""application/json"">";
-            int from = s.IndexOf(what);
-            s = s.Substring(from + what.Length);
-            int to = s.IndexOf(@"}</s");
-            return JsonSerializer.Deserialize<CalendarData>(s.Substring(0, to + 1));
-        }
-    }
-
     public class CalendarData
     {
         public Props props { get; set; }
@@ -104,5 +81,34 @@ namespace MediaApi.IMDB
     {
         public string id { get; set; }
         public string text { get; set; }
+    }
+
+    internal class CalendarIMDB
+    {
+        public static async Task<CalendarData> GetIMDBCalendarAsync(string country = "RU", string content = "MOVIE")
+        {
+            country = country.ToUpper();
+            content = content.ToUpper();
+
+            CookieContainer cookieContainer = new CookieContainer();
+
+            var proxy = new WebProxy("127.0.0.1:8888");
+
+            var getRequest = new GetRequest($"https://www.imdb.com/calendar/?ref_=rlm&region={country}&type={content}");
+            getRequest.Headers.Add("content-type", "application/json");
+            getRequest.Proxy = proxy;
+            getRequest.Run(cookieContainer,0);
+
+            return PullOutData(getRequest.Response);
+        }
+
+        private static CalendarData PullOutData(string json)
+        {
+            var what = @"<script id=""__NEXT_DATA__"" type=""application/json"">";
+            int from = json.IndexOf(what);
+            json = json.Substring(from + what.Length);
+            int to = json.IndexOf(@"}</s");
+            return JsonSerializer.Deserialize<CalendarData>(json.Substring(0, to + 1));
+        }
     }
 }

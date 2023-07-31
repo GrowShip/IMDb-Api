@@ -1,6 +1,7 @@
 using Button = System.Windows.Forms.Button;
 using MediaApi.Forms;
 using MediaApi.Structure;
+using MediaApi.Properties;
 
 namespace MediaApi
 {
@@ -151,7 +152,8 @@ namespace MediaApi
         {
             try
             {
-                deskPanel.BackgroundImage = Image.FromFile(@"media\imdb\IMDbFull.png");
+                //deskPanel.BackgroundImage = Image.FromFile(@"media\imdb\IMDbFull.png");
+                deskPanel.BackgroundImage = Properties.Resources.IMDbFull;
             }
             catch (Exception)
             {
@@ -184,7 +186,8 @@ namespace MediaApi
         {
             try
             {
-                deskPanel.BackgroundImage = Image.FromFile(@"media\kinopoisk\KinopoiskFull.png");
+                //deskPanel.BackgroundImage = Image.FromFile(@"media\kinopoisk\KinopoiskFull.png");
+                deskPanel.BackgroundImage = Resources.KinopoiskFull;
             }
             catch (Exception)
             {

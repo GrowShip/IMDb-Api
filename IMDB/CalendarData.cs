@@ -101,7 +101,9 @@ namespace MediaApi.IMDB
     }
 
     //+
-
+    /// <summary>
+    /// Work with Releases Dates in countries
+    /// </summary>
     internal class ReleasesDates
     {
         static CookieContainer cookieContainer = new CookieContainer();
