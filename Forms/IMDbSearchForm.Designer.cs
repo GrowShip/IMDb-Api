@@ -29,79 +29,79 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IMDbSearchForm));
-            SearchButton = new Button();
-            textBox1 = new TextBox();
-            listBox1 = new ListBox();
-            pictureBox1 = new PictureBox();
-            label2 = new Label();
-            button4 = new Button();
+            btnSearch = new Button();
+            txtBoxSearch = new TextBox();
+            listTitles = new ListBox();
+            pictPoster = new PictureBox();
+            lblInfo = new Label();
+            btnAddTitle = new Button();
             linkLabel1 = new LinkLabel();
-            button5 = new Button();
-            label3 = new Label();
-            button3 = new Button();
+            btnFromArchive = new Button();
+            lblSynopsis = new Label();
+            btnExcelSave = new Button();
             ArchiveSearchCheckBox = new CheckBox();
             AllAddCheckBox = new CheckBox();
             OnlyNewCheckBox = new CheckBox();
-            SearchTit = new Button();
-            scndForm = new Button();
+            btnSearchExtension = new Button();
+            btnOpenArchive = new Button();
             CmngSoonBtn = new Button();
             btnClearAchive = new Button();
-            button2 = new Button();
+            btnSrchCountryDate = new Button();
             cmbCountry = new ComboBox();
-            label4 = new Label();
-            label5 = new Label();
+            lblCountry = new Label();
+            lblReleaseDate = new Label();
             label6 = new Label();
             dateFrom = new MaskedTextBox();
             dateTo = new MaskedTextBox();
             btnInCountryRls = new Button();
             lblDates = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictPoster).BeginInit();
             SuspendLayout();
             // 
-            // SearchButton
+            // btnSearch
             // 
-            resources.ApplyResources(SearchButton, "SearchButton");
-            SearchButton.BackColor = SystemColors.ActiveCaption;
-            SearchButton.ForeColor = SystemColors.ButtonHighlight;
-            SearchButton.Name = "SearchButton";
-            SearchButton.UseVisualStyleBackColor = false;
-            SearchButton.Click += button1_Click;
+            resources.ApplyResources(btnSearch, "btnSearch");
+            btnSearch.BackColor = SystemColors.ActiveCaption;
+            btnSearch.ForeColor = SystemColors.ButtonHighlight;
+            btnSearch.Name = "btnSearch";
+            btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
-            // textBox1
+            // txtBoxSearch
             // 
-            resources.ApplyResources(textBox1, "textBox1");
-            textBox1.Name = "textBox1";
+            resources.ApplyResources(txtBoxSearch, "txtBoxSearch");
+            txtBoxSearch.Name = "txtBoxSearch";
             // 
-            // listBox1
+            // listTitles
             // 
-            resources.ApplyResources(listBox1, "listBox1");
-            listBox1.BackColor = SystemColors.MenuBar;
-            listBox1.BorderStyle = BorderStyle.None;
-            listBox1.FormattingEnabled = true;
-            listBox1.Name = "listBox1";
-            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            resources.ApplyResources(listTitles, "listTitles");
+            listTitles.BackColor = SystemColors.MenuBar;
+            listTitles.BorderStyle = BorderStyle.None;
+            listTitles.FormattingEnabled = true;
+            listTitles.Name = "listTitles";
+            listTitles.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
-            // pictureBox1
+            // pictPoster
             // 
-            pictureBox1.BackColor = SystemColors.ButtonFace;
-            resources.ApplyResources(pictureBox1, "pictureBox1");
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.TabStop = false;
+            pictPoster.BackColor = SystemColors.ButtonFace;
+            resources.ApplyResources(pictPoster, "pictPoster");
+            pictPoster.Name = "pictPoster";
+            pictPoster.TabStop = false;
             // 
-            // label2
+            // lblInfo
             // 
-            resources.ApplyResources(label2, "label2");
-            label2.BackColor = SystemColors.ButtonFace;
-            label2.Name = "label2";
+            resources.ApplyResources(lblInfo, "lblInfo");
+            lblInfo.BackColor = SystemColors.ButtonFace;
+            lblInfo.Name = "lblInfo";
             // 
-            // button4
+            // btnAddTitle
             // 
-            resources.ApplyResources(button4, "button4");
-            button4.BackColor = SystemColors.ActiveCaption;
-            button4.ForeColor = SystemColors.ButtonHighlight;
-            button4.Name = "button4";
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button4_Click;
+            resources.ApplyResources(btnAddTitle, "btnAddTitle");
+            btnAddTitle.BackColor = SystemColors.ActiveCaption;
+            btnAddTitle.ForeColor = SystemColors.ButtonHighlight;
+            btnAddTitle.Name = "btnAddTitle";
+            btnAddTitle.UseVisualStyleBackColor = false;
+            btnAddTitle.Click += btnAddTitle_Click;
             // 
             // linkLabel1
             // 
@@ -111,30 +111,30 @@
             linkLabel1.TabStop = true;
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
-            // button5
+            // btnFromArchive
             // 
-            resources.ApplyResources(button5, "button5");
-            button5.BackColor = SystemColors.ActiveCaption;
-            button5.ForeColor = SystemColors.ButtonHighlight;
-            button5.Name = "button5";
-            button5.UseVisualStyleBackColor = false;
-            button5.Click += button5_Click;
+            resources.ApplyResources(btnFromArchive, "btnFromArchive");
+            btnFromArchive.BackColor = SystemColors.ActiveCaption;
+            btnFromArchive.ForeColor = SystemColors.ButtonHighlight;
+            btnFromArchive.Name = "btnFromArchive";
+            btnFromArchive.UseVisualStyleBackColor = false;
+            btnFromArchive.Click += btnFromArchive_Click;
             // 
-            // label3
+            // lblSynopsis
             // 
-            resources.ApplyResources(label3, "label3");
-            label3.BackColor = SystemColors.ButtonFace;
-            label3.CausesValidation = false;
-            label3.Name = "label3";
+            resources.ApplyResources(lblSynopsis, "lblSynopsis");
+            lblSynopsis.BackColor = SystemColors.ButtonFace;
+            lblSynopsis.CausesValidation = false;
+            lblSynopsis.Name = "lblSynopsis";
             // 
-            // button3
+            // btnExcelSave
             // 
-            resources.ApplyResources(button3, "button3");
-            button3.BackColor = SystemColors.ActiveCaption;
-            button3.ForeColor = SystemColors.ButtonHighlight;
-            button3.Name = "button3";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
+            resources.ApplyResources(btnExcelSave, "btnExcelSave");
+            btnExcelSave.BackColor = SystemColors.ActiveCaption;
+            btnExcelSave.ForeColor = SystemColors.ButtonHighlight;
+            btnExcelSave.Name = "btnExcelSave";
+            btnExcelSave.UseVisualStyleBackColor = false;
+            btnExcelSave.Click += btnExcelSave_Click;
             // 
             // ArchiveSearchCheckBox
             // 
@@ -154,23 +154,23 @@
             OnlyNewCheckBox.Name = "OnlyNewCheckBox";
             OnlyNewCheckBox.UseVisualStyleBackColor = true;
             // 
-            // SearchTit
+            // btnSearchExtension
             // 
-            resources.ApplyResources(SearchTit, "SearchTit");
-            SearchTit.BackColor = SystemColors.ActiveCaption;
-            SearchTit.ForeColor = SystemColors.ButtonHighlight;
-            SearchTit.Name = "SearchTit";
-            SearchTit.UseVisualStyleBackColor = false;
-            SearchTit.Click += SearchTit_Click;
+            resources.ApplyResources(btnSearchExtension, "btnSearchExtension");
+            btnSearchExtension.BackColor = SystemColors.ActiveCaption;
+            btnSearchExtension.ForeColor = SystemColors.ButtonHighlight;
+            btnSearchExtension.Name = "btnSearchExtension";
+            btnSearchExtension.UseVisualStyleBackColor = false;
+            btnSearchExtension.Click += btnSearchExtension_Click;
             // 
-            // scndForm
+            // btnOpenArchive
             // 
-            resources.ApplyResources(scndForm, "scndForm");
-            scndForm.BackColor = SystemColors.ActiveCaption;
-            scndForm.ForeColor = SystemColors.ButtonHighlight;
-            scndForm.Name = "scndForm";
-            scndForm.UseVisualStyleBackColor = false;
-            scndForm.Click += scndForm_Click;
+            resources.ApplyResources(btnOpenArchive, "btnOpenArchive");
+            btnOpenArchive.BackColor = SystemColors.ActiveCaption;
+            btnOpenArchive.ForeColor = SystemColors.ButtonHighlight;
+            btnOpenArchive.Name = "btnOpenArchive";
+            btnOpenArchive.UseVisualStyleBackColor = false;
+            btnOpenArchive.Click += btnOpenArchive_Click;
             // 
             // CmngSoonBtn
             // 
@@ -190,14 +190,14 @@
             btnClearAchive.UseVisualStyleBackColor = false;
             btnClearAchive.Click += btnClearAchive_Click;
             // 
-            // button2
+            // btnSrchCountryDate
             // 
-            resources.ApplyResources(button2, "button2");
-            button2.BackColor = SystemColors.ActiveCaption;
-            button2.ForeColor = SystemColors.ButtonHighlight;
-            button2.Name = "button2";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            resources.ApplyResources(btnSrchCountryDate, "btnSrchCountryDate");
+            btnSrchCountryDate.BackColor = SystemColors.ActiveCaption;
+            btnSrchCountryDate.ForeColor = SystemColors.ButtonHighlight;
+            btnSrchCountryDate.Name = "btnSrchCountryDate";
+            btnSrchCountryDate.UseVisualStyleBackColor = false;
+            btnSrchCountryDate.Click += btnSrchCountryDate_Click;
             // 
             // cmbCountry
             // 
@@ -205,15 +205,15 @@
             cmbCountry.FormattingEnabled = true;
             cmbCountry.Name = "cmbCountry";
             // 
-            // label4
+            // lblCountry
             // 
-            resources.ApplyResources(label4, "label4");
-            label4.Name = "label4";
+            resources.ApplyResources(lblCountry, "lblCountry");
+            lblCountry.Name = "lblCountry";
             // 
-            // label5
+            // lblReleaseDate
             // 
-            resources.ApplyResources(label5, "label5");
-            label5.Name = "label5";
+            resources.ApplyResources(lblReleaseDate, "lblReleaseDate");
+            lblReleaseDate.Name = "lblReleaseDate";
             // 
             // label6
             // 
@@ -259,54 +259,54 @@
             Controls.Add(dateFrom);
             Controls.Add(label6);
             Controls.Add(CmngSoonBtn);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(scndForm);
+            Controls.Add(lblReleaseDate);
+            Controls.Add(lblCountry);
+            Controls.Add(btnOpenArchive);
             Controls.Add(cmbCountry);
-            Controls.Add(SearchTit);
-            Controls.Add(button2);
+            Controls.Add(btnSearchExtension);
+            Controls.Add(btnSrchCountryDate);
             Controls.Add(OnlyNewCheckBox);
             Controls.Add(AllAddCheckBox);
             Controls.Add(ArchiveSearchCheckBox);
-            Controls.Add(button3);
-            Controls.Add(label3);
-            Controls.Add(button5);
+            Controls.Add(btnExcelSave);
+            Controls.Add(lblSynopsis);
+            Controls.Add(btnFromArchive);
             Controls.Add(linkLabel1);
-            Controls.Add(button4);
-            Controls.Add(label2);
-            Controls.Add(pictureBox1);
-            Controls.Add(listBox1);
-            Controls.Add(textBox1);
-            Controls.Add(SearchButton);
+            Controls.Add(btnAddTitle);
+            Controls.Add(lblInfo);
+            Controls.Add(pictPoster);
+            Controls.Add(listTitles);
+            Controls.Add(txtBoxSearch);
+            Controls.Add(btnSearch);
             Name = "IMDbSearchForm";
             Load += SearchForm_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictPoster).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private Button SearchButton;
-        private TextBox textBox1;
-        private ListBox listBox1;
-        private PictureBox pictureBox1;
-        private Label label2;
-        private Button button4;
+        private Button btnSearch;
+        private TextBox txtBoxSearch;
+        private ListBox listTitles;
+        private PictureBox pictPoster;
+        private Label lblInfo;
+        private Button btnAddTitle;
         private LinkLabel linkLabel1;
-        private Button button5;
-        private Label label3;
-        private Button button3;
+        private Button btnFromArchive;
+        private Label lblSynopsis;
+        private Button btnExcelSave;
         private CheckBox ArchiveSearchCheckBox;
         private CheckBox AllAddCheckBox;
         private CheckBox OnlyNewCheckBox;
-        private Button SearchTit;
-        private Button scndForm;
+        private Button btnSearchExtension;
+        private Button btnOpenArchive;
         private Button CmngSoonBtn;
         private Button btnClearAchive;
-        private Button button2;
+        private Button btnSrchCountryDate;
         private ComboBox cmbCountry;
-        private Label label4;
-        private Label label5;
+        private Label lblCountry;
+        private Label lblReleaseDate;
         private Label label6;
         private MaskedTextBox dateFrom;
         private MaskedTextBox dateTo;

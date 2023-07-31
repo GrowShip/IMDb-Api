@@ -118,202 +118,202 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="SearchButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnSearch.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="SearchButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnSearch.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="SearchButton.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnSearch.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.5pt</value>
   </data>
-  <data name="SearchButton.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnSearch.Location" type="System.Drawing.Point, System.Drawing">
     <value>422, 47</value>
   </data>
-  <data name="SearchButton.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnSearch.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 38</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="SearchButton.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnSearch.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="SearchButton.Text" xml:space="preserve">
+  <data name="btnSearch.Text" xml:space="preserve">
     <value>Поиск</value>
   </data>
-  <data name="&gt;&gt;SearchButton.Name" xml:space="preserve">
-    <value>SearchButton</value>
+  <data name="&gt;&gt;btnSearch.Name" xml:space="preserve">
+    <value>btnSearch</value>
   </data>
-  <data name="&gt;&gt;SearchButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnSearch.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;SearchButton.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnSearch.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;SearchButton.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnSearch.ZOrder" xml:space="preserve">
     <value>25</value>
   </data>
-  <data name="textBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="txtBoxSearch.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="textBox1.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="txtBoxSearch.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
   </data>
-  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="txtBoxSearch.Location" type="System.Drawing.Point, System.Drawing">
     <value>422, 12</value>
   </data>
-  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="txtBoxSearch.Size" type="System.Drawing.Size, System.Drawing">
     <value>410, 29</value>
   </data>
-  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="txtBoxSearch.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
-    <value>textBox1</value>
+  <data name="&gt;&gt;txtBoxSearch.Name" xml:space="preserve">
+    <value>txtBoxSearch</value>
   </data>
-  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;txtBoxSearch.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;txtBoxSearch.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;txtBoxSearch.ZOrder" xml:space="preserve">
     <value>24</value>
   </data>
-  <data name="listBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="listTitles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Right</value>
   </data>
-  <data name="listBox1.ItemHeight" type="System.Int32, mscorlib">
+  <data name="listTitles.ItemHeight" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
-  <data name="listBox1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="listTitles.Location" type="System.Drawing.Point, System.Drawing">
     <value>422, 142</value>
   </data>
-  <data name="listBox1.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+  <data name="listTitles.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>
-  <data name="listBox1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="listTitles.Size" type="System.Drawing.Size, System.Drawing">
     <value>410, 255</value>
   </data>
-  <data name="listBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="listTitles.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;listBox1.Name" xml:space="preserve">
-    <value>listBox1</value>
+  <data name="&gt;&gt;listTitles.Name" xml:space="preserve">
+    <value>listTitles</value>
   </data>
-  <data name="&gt;&gt;listBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;listTitles.Type" xml:space="preserve">
     <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;listBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;listTitles.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;listBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;listTitles.ZOrder" xml:space="preserve">
     <value>23</value>
   </data>
-  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="pictPoster.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 12</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="pictPoster.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="pictureBox1.MaximumSize" type="System.Drawing.Size, System.Drawing">
+  <data name="pictPoster.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>185, 259</value>
   </data>
-  <data name="pictureBox1.MinimumSize" type="System.Drawing.Size, System.Drawing">
+  <data name="pictPoster.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>185, 259</value>
   </data>
-  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="pictPoster.Size" type="System.Drawing.Size, System.Drawing">
     <value>185, 259</value>
   </data>
-  <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+  <data name="pictPoster.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="pictPoster.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
-    <value>pictureBox1</value>
+  <data name="&gt;&gt;pictPoster.Name" xml:space="preserve">
+    <value>pictPoster</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;pictPoster.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;pictPoster.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;pictPoster.ZOrder" xml:space="preserve">
     <value>22</value>
   </data>
-  <data name="label2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="lblInfo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblInfo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblInfo.Location" type="System.Drawing.Point, System.Drawing">
     <value>199, 12</value>
   </data>
-  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="lblInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="label2.MaximumSize" type="System.Drawing.Size, System.Drawing">
+  <data name="lblInfo.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>210, 259</value>
   </data>
-  <data name="label2.MinimumSize" type="System.Drawing.Size, System.Drawing">
+  <data name="lblInfo.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>210, 259</value>
   </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblInfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 259</value>
   </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblInfo.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="label2.Text" xml:space="preserve">
+  <data name="lblInfo.Text" xml:space="preserve">
     <value>-</value>
   </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
+  <data name="&gt;&gt;lblInfo.Name" xml:space="preserve">
+    <value>lblInfo</value>
   </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblInfo.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblInfo.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblInfo.ZOrder" xml:space="preserve">
     <value>21</value>
   </data>
-  <data name="button4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnAddTitle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="button4.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnAddTitle.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button4.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnAddTitle.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.5pt</value>
   </data>
-  <data name="button4.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnAddTitle.Location" type="System.Drawing.Point, System.Drawing">
     <value>752, 415</value>
   </data>
-  <data name="button4.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnAddTitle.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 34</value>
   </data>
-  <data name="button4.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnAddTitle.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="button4.Text" xml:space="preserve">
+  <data name="btnAddTitle.Text" xml:space="preserve">
     <value>Добавить</value>
   </data>
-  <data name="&gt;&gt;button4.Name" xml:space="preserve">
-    <value>button4</value>
+  <data name="&gt;&gt;btnAddTitle.Name" xml:space="preserve">
+    <value>btnAddTitle</value>
   </data>
-  <data name="&gt;&gt;button4.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnAddTitle.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button4.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnAddTitle.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;button4.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnAddTitle.ZOrder" xml:space="preserve">
     <value>20</value>
   </data>
   <data name="linkLabel1.AutoSize" type="System.Boolean, mscorlib">
@@ -349,112 +349,112 @@
   <data name="&gt;&gt;linkLabel1.ZOrder" xml:space="preserve">
     <value>19</value>
   </data>
-  <data name="button5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnFromArchive.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="button5.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnFromArchive.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button5.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnFromArchive.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.5pt</value>
   </data>
-  <data name="button5.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnFromArchive.Location" type="System.Drawing.Point, System.Drawing">
     <value>749, 47</value>
   </data>
-  <data name="button5.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnFromArchive.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 38</value>
   </data>
-  <data name="button5.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnFromArchive.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
-  <data name="button5.Text" xml:space="preserve">
+  <data name="btnFromArchive.Text" xml:space="preserve">
     <value>Из архива</value>
   </data>
-  <data name="&gt;&gt;button5.Name" xml:space="preserve">
-    <value>button5</value>
+  <data name="&gt;&gt;btnFromArchive.Name" xml:space="preserve">
+    <value>btnFromArchive</value>
   </data>
-  <data name="&gt;&gt;button5.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnFromArchive.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button5.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnFromArchive.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;button5.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnFromArchive.ZOrder" xml:space="preserve">
     <value>18</value>
   </data>
-  <data name="label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="lblSynopsis.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left</value>
   </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblSynopsis.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="lblSynopsis.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblSynopsis.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 277</value>
   </data>
-  <data name="label3.MaximumSize" type="System.Drawing.Size, System.Drawing">
+  <data name="lblSynopsis.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>185, 120</value>
   </data>
-  <data name="label3.MinimumSize" type="System.Drawing.Size, System.Drawing">
+  <data name="lblSynopsis.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>185, 120</value>
   </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblSynopsis.Size" type="System.Drawing.Size, System.Drawing">
     <value>185, 120</value>
   </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblSynopsis.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="label3.Text" xml:space="preserve">
+  <data name="lblSynopsis.Text" xml:space="preserve">
     <value>-</value>
   </data>
-  <data name="label3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="lblSynopsis.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
+  <data name="&gt;&gt;lblSynopsis.Name" xml:space="preserve">
+    <value>lblSynopsis</value>
   </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblSynopsis.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblSynopsis.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblSynopsis.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
-  <data name="button3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnExcelSave.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="button3.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnExcelSave.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button3.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnExcelSave.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.5pt</value>
   </data>
-  <data name="button3.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnExcelSave.Location" type="System.Drawing.Point, System.Drawing">
     <value>421, 415</value>
   </data>
-  <data name="button3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnExcelSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 34</value>
   </data>
-  <data name="button3.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnExcelSave.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
-  <data name="button3.Text" xml:space="preserve">
+  <data name="btnExcelSave.Text" xml:space="preserve">
     <value>Excel</value>
   </data>
-  <data name="&gt;&gt;button3.Name" xml:space="preserve">
-    <value>button3</value>
+  <data name="&gt;&gt;btnExcelSave.Name" xml:space="preserve">
+    <value>btnExcelSave</value>
   </data>
-  <data name="&gt;&gt;button3.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnExcelSave.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnExcelSave.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;button3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnExcelSave.ZOrder" xml:space="preserve">
     <value>16</value>
   </data>
   <data name="ArchiveSearchCheckBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -565,73 +565,73 @@
   <data name="&gt;&gt;OnlyNewCheckBox.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
-  <data name="SearchTit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnSearchExtension.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="SearchTit.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnSearchExtension.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="SearchTit.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnSearchExtension.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.5pt</value>
   </data>
-  <data name="SearchTit.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnSearchExtension.Location" type="System.Drawing.Point, System.Drawing">
     <value>612, 415</value>
   </data>
-  <data name="SearchTit.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnSearchExtension.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 34</value>
   </data>
-  <data name="SearchTit.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnSearchExtension.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
   </data>
-  <data name="SearchTit.Text" xml:space="preserve">
+  <data name="btnSearchExtension.Text" xml:space="preserve">
     <value>Расширить</value>
   </data>
-  <data name="&gt;&gt;SearchTit.Name" xml:space="preserve">
-    <value>SearchTit</value>
+  <data name="&gt;&gt;btnSearchExtension.Name" xml:space="preserve">
+    <value>btnSearchExtension</value>
   </data>
-  <data name="&gt;&gt;SearchTit.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnSearchExtension.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;SearchTit.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnSearchExtension.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;SearchTit.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnSearchExtension.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="scndForm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnOpenArchive.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
-  <data name="scndForm.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnOpenArchive.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="scndForm.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnOpenArchive.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.5pt</value>
   </data>
-  <data name="scndForm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnOpenArchive.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="scndForm.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnOpenArchive.Location" type="System.Drawing.Point, System.Drawing">
     <value>126, 415</value>
   </data>
-  <data name="scndForm.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnOpenArchive.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 34</value>
   </data>
-  <data name="scndForm.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnOpenArchive.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
   </data>
-  <data name="scndForm.Text" xml:space="preserve">
+  <data name="btnOpenArchive.Text" xml:space="preserve">
     <value>JSON</value>
   </data>
-  <data name="&gt;&gt;scndForm.Name" xml:space="preserve">
-    <value>scndForm</value>
+  <data name="&gt;&gt;btnOpenArchive.Name" xml:space="preserve">
+    <value>btnOpenArchive</value>
   </data>
-  <data name="&gt;&gt;scndForm.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnOpenArchive.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;scndForm.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnOpenArchive.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;scndForm.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnOpenArchive.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
   <data name="CmngSoonBtn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -700,40 +700,40 @@
   <data name="&gt;&gt;btnClearAchive.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="button2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnSrchCountryDate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="button2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnSrchCountryDate.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button2.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnSrchCountryDate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.5pt</value>
   </data>
-  <data name="button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnSrchCountryDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnSrchCountryDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>646, 88</value>
   </data>
-  <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnSrchCountryDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>99, 48</value>
   </data>
-  <data name="button2.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnSrchCountryDate.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="button2.Text" xml:space="preserve">
+  <data name="btnSrchCountryDate.Text" xml:space="preserve">
     <value>Поиск по стране и дате</value>
   </data>
-  <data name="&gt;&gt;button2.Name" xml:space="preserve">
-    <value>button2</value>
+  <data name="&gt;&gt;btnSrchCountryDate.Name" xml:space="preserve">
+    <value>btnSrchCountryDate</value>
   </data>
-  <data name="&gt;&gt;button2.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnSrchCountryDate.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnSrchCountryDate.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnSrchCountryDate.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
   <data name="cmbCountry.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -760,76 +760,76 @@
   <data name="&gt;&gt;cmbCountry.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="label4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="lblCountry.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblCountry.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="lblCountry.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
   </data>
-  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="lblCountry.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblCountry.Location" type="System.Drawing.Point, System.Drawing">
     <value>450, 90</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblCountry.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 19</value>
   </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblCountry.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
-  <data name="label4.Text" xml:space="preserve">
+  <data name="lblCountry.Text" xml:space="preserve">
     <value>Страна</value>
   </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
+  <data name="&gt;&gt;lblCountry.Name" xml:space="preserve">
+    <value>lblCountry</value>
   </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblCountry.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblCountry.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblCountry.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="label5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="lblReleaseDate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblReleaseDate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label5.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="lblReleaseDate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
   </data>
-  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="lblReleaseDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblReleaseDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>418, 115</value>
   </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblReleaseDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 19</value>
   </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblReleaseDate.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
   </data>
-  <data name="label5.Text" xml:space="preserve">
+  <data name="lblReleaseDate.Text" xml:space="preserve">
     <value>Дата релиза</value>
   </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
+  <data name="&gt;&gt;lblReleaseDate.Name" xml:space="preserve">
+    <value>lblReleaseDate</value>
   </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblReleaseDate.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblReleaseDate.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblReleaseDate.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="label6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">

@@ -164,20 +164,10 @@ namespace MediaApi.IMDB
             getRequest.Useragent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36";
             getRequest.Referer = KeysAccess.GetReleaseKey("imdb") +"/";
             getRequest.Headers.Add("origin", KeysAccess.GetReleaseKey("imdb"));
-            
-            //getRequest.Headers.Add("sec-ch-ua", "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"");
-            //getRequest.Headers.Add("sec-ch-ua-mobile", "?0");
-            //getRequest.Headers.Add("sec-ch-ua-platform", "\"Windows\"");
-            //getRequest.Headers.Add("Sec-Fetch-Dest", "empty");
-            //getRequest.Headers.Add("Sec-Fetch-Mode", "cors");
-            //getRequest.Headers.Add("Sec-Fetch-Site", "same-site");
-
             getRequest.Headers.Add("content-type", "application/json");
 
             getRequest.Headers.Add("Accept-Encoding", "gzip, deflate, br");
             getRequest.Headers.Add("Accept-Language", "en-GB,en-US;q=0.9,en;q=0.8,ru;q=0.7");
-
-            //getRequest.Headers.Add("Upgrade-Insecure-Requests", "1");
 
             getRequest.Host = KeysAccess.GetReleaseKey("ilya1").Substring(8,24);
             getRequest.Proxy = proxy;

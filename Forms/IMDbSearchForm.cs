@@ -50,20 +50,20 @@ namespace MediaApi.Forms
         {
             System.Windows.Forms.ToolTip tipsForm = new System.Windows.Forms.ToolTip();
             LoadTheme();
-            textBox1.PlaceholderText = "IMDb search (eng only)";
-            tipsForm.SetToolTip(button2, "Поиск сета в выбранном диапозоне дат по выбрранное стране");
-            tipsForm.SetToolTip(button3, "Сохранение всего архива или только новых(за эту сессию) метаданных в excel");
-            tipsForm.SetToolTip(button4, "Добавление метаданных либо выбраной позиции в листе либо всех в архив");
-            tipsForm.SetToolTip(button5, "Отображение всех метаданных содержащихся в архиве");
-            tipsForm.SetToolTip(listBox1, "Поле для отображения информации поиска или архивных записей");
-            tipsForm.SetToolTip(pictureBox1, "Постер");
+            txtBoxSearch.PlaceholderText = "IMDb search (eng only)";
+            tipsForm.SetToolTip(btnSrchCountryDate, "Поиск сета в выбранном диапозоне дат по выбрранное стране");
+            tipsForm.SetToolTip(btnExcelSave, "Сохранение всего архива или только новых(за эту сессию) метаданных в excel");
+            tipsForm.SetToolTip(btnAddTitle, "Добавление метаданных либо выбраной позиции в листе либо всех в архив");
+            tipsForm.SetToolTip(btnFromArchive, "Отображение всех метаданных содержащихся в архиве");
+            tipsForm.SetToolTip(listTitles, "Поле для отображения информации поиска или архивных записей");
+            tipsForm.SetToolTip(pictPoster, "Постер");
             tipsForm.SetToolTip(OnlyNewCheckBox, "Необходимо для получения excel файла с мета данными тайтлов этой сессии");
             tipsForm.SetToolTip(AllAddCheckBox, "Необходимо выделить чтобы добавить весь список найденных позиций в архив");
-            tipsForm.SetToolTip(textBox1, "Наименование для поиска по IMDB");
+            tipsForm.SetToolTip(txtBoxSearch, "Наименование для поиска по IMDB");
             tipsForm.SetToolTip(cmbCountry, "Выбор страны для поиска новых релизов");
             tipsForm.SetToolTip(ArchiveSearchCheckBox, "Неохоидмо для поиска тайтла в архиве");
-            tipsForm.SetToolTip(SearchTit, "Добавляет тип, год, дату релиза, языки, режиссера и другое для выбранного тайтла");
-            tipsForm.SetToolTip(SearchButton, "Кнопка для поиска по IMDB или архиву");
+            tipsForm.SetToolTip(btnSearchExtension, "Добавляет тип, год, дату релиза, языки, режиссера и другое для выбранного тайтла");
+            tipsForm.SetToolTip(btnSearch, "Кнопка для поиска по IMDB или архиву");
             tipsForm.SetToolTip(dateFrom, "Дата начала интервала");
             tipsForm.SetToolTip(dateTo, "Дата конечная интервала");
             savedJson = HardTool.GetSavedJson("imdb");
@@ -103,8 +103,8 @@ namespace MediaApi.Forms
             }
             ArchiveSearchCheckBox.ForeColor = ThemeColour.SecondaryColor;
             AllAddCheckBox.ForeColor = ThemeColour.SecondaryColor;
-            label4.ForeColor = ThemeColour.SecondaryColor;
-            label5.ForeColor = ThemeColour.PrimaryColor;
+            lblCountry.ForeColor = ThemeColour.SecondaryColor;
+            lblReleaseDate.ForeColor = ThemeColour.PrimaryColor;
             OnlyNewCheckBox.ForeColor = ThemeColour.SecondaryColor;
         }
 
@@ -126,9 +126,9 @@ namespace MediaApi.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void button1_Click(object sender, EventArgs e)
+        private async void btnSearch_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBox1.Text) && !ArchiveSearchCheckBox.Checked)
+            if (string.IsNullOrEmpty(txtBoxSearch.Text) && !ArchiveSearchCheckBox.Checked)
             {
                 MessageBox.Show("Строка для поиска пустая");
                 return;
@@ -136,12 +136,12 @@ namespace MediaApi.Forms
             sameJson = false;
             if (ArchiveSearchCheckBox.Checked)
             {
-                SearchTitleInArchive(textBox1.Text);
+                SearchTitleInArchive(txtBoxSearch.Text);
             }
             else
             {
                 AdvancedSearchInput adv = new AdvancedSearchInput();
-                adv.Title = textBox1.Text;
+                adv.Title = txtBoxSearch.Text;
                 activeJson = Converter.AdvToData(await _api.AdvancedSearchAsync(adv), "");
             }
 
@@ -150,9 +150,9 @@ namespace MediaApi.Forms
 
             UpdateListOfMeta(activeJson);
 
-            listBox1.DataSource = activeJson.Results;
-            listBox1.DisplayMember = "Title";
-            listBox1.ValueMember = "Id";
+            listTitles.DataSource = activeJson.Results;
+            listTitles.DisplayMember = "Title";
+            listTitles.ValueMember = "Id";
         }
 
         /// <summary>
@@ -160,7 +160,7 @@ namespace MediaApi.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void button2_Click(object sender, EventArgs e)
+        private async void btnSrchCountryDate_Click(object sender, EventArgs e)
         {
             var fromD = dateFrom.Text.Split(".");
             var toD = dateTo.Text.Split(".");
@@ -234,7 +234,7 @@ namespace MediaApi.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button3_Click(object sender, EventArgs e)
+        private void btnExcelSave_Click(object sender, EventArgs e)
         {
             HardTool.SaveJson(JsonConvert.SerializeObject(savedJson), "imdb");
             ExcelPlace.SaveReleasesToExcel(savedJson, OnlyNewCheckBox.Checked, newAddedJson);
@@ -245,7 +245,7 @@ namespace MediaApi.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button4_Click(object sender, EventArgs e)
+        private void btnAddTitle_Click(object sender, EventArgs e)
         {
             string sameFilms = "";
             savedJson = HardTool.GetSavedJson("imdb");
@@ -259,7 +259,7 @@ namespace MediaApi.Forms
             else if (!sameJson)
             {
                 //Прописать логику добавления в excel и файл json
-                var y = activeJson.Results[listBox1.SelectedIndex];
+                var y = activeJson.Results[listTitles.SelectedIndex];
                 sameFilms += AddNewItemToJson(y);
             }
             else
@@ -331,7 +331,7 @@ namespace MediaApi.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button5_Click(object sender, EventArgs e)
+        private void btnFromArchive_Click(object sender, EventArgs e)
         {
             //прописать логику отображения всех фалов олда
             sameJson = true;
@@ -366,8 +366,8 @@ namespace MediaApi.Forms
         {
             try
             {
-                var i = listBox1.SelectedIndex;
-                label2.Text = $"ID:             {activeJson.Results[i].Id}\n" +
+                var i = listTitles.SelectedIndex;
+                lblInfo.Text = $"ID:             {activeJson.Results[i].Id}\n" +
                               $"Title:          {activeJson.Results[i].Title}\n" +
                               $"Type:           {activeJson.Results[i].Type}\n" +
                               $"Year:           {activeJson.Results[i].Year}\n" +
@@ -381,9 +381,9 @@ namespace MediaApi.Forms
                               $"Directors:      {activeJson.Results[i].Directors}\n" +
                               $"Stars:          {activeJson.Results[i].Stars}";
                 //$"Describtion:    {activeJson.Results[i].Description}\n" +
-                label3.Text = activeJson.Results[i].Plot;
+                lblSynopsis.Text = activeJson.Results[i].Plot;
                 linkLabel1.Text = activeJson.Results[i].Image;
-                pictureBox1.ImageLocation = activeJson.Results[i].Image;
+                pictPoster.ImageLocation = activeJson.Results[i].Image;
 
                 if (activeJson.Results[i].All is not null)
                 {
@@ -419,9 +419,9 @@ namespace MediaApi.Forms
                 var release = await ComingSoonAsync();
                 activeJson = Converter.NewMovieToData(release);
 
-                listBox1.DataSource = activeJson.Results;
-                listBox1.DisplayMember = "Title";
-                listBox1.ValueMember = "Id";
+                listTitles.DataSource = activeJson.Results;
+                listTitles.DisplayMember = "Title";
+                listTitles.ValueMember = "Id";
             }
             catch (Exception)
             {
@@ -451,11 +451,11 @@ namespace MediaApi.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void SearchTit_Click(object sender, EventArgs e)
+        private async void btnSearchExtension_Click(object sender, EventArgs e)
         {
             try
             {
-                var i = listBox1.SelectedIndex;
+                var i = listTitles.SelectedIndex;
                 FilmData info;
                 if (AllAddCheckBox.Checked)
                 {
@@ -499,16 +499,6 @@ namespace MediaApi.Forms
 
         }
 
-        /// <summary>
-        /// Получает все сведения titla по ID imdb
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public static async Task<FilmData> GetInfoIDAsync(string id)
-        {
-            return Converter.TitleToData(await ApiUtils.GetObjectAsync<TitleData>(TitleUrl + id));
-        }
-
         private void SearchTitAdditionalInfoAdd(JsonData item)
         {
             var indexO = savedJson.Results.FindIndex(f => f.Id == item.Id);
@@ -536,6 +526,16 @@ namespace MediaApi.Forms
         }
 
         /// <summary>
+        /// Получает все сведения titla по ID imdb
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static async Task<FilmData> GetInfoIDAsync(string id)
+        {
+            return Converter.TitleToData(await ApiUtils.GetObjectAsync<TitleData>(TitleUrl + id));
+        }
+
+        /// <summary>
         /// Копирует ссылку
         /// </summary>
         /// <param name="sender"></param>
@@ -550,7 +550,7 @@ namespace MediaApi.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void scndForm_Click(object sender, EventArgs e)
+        private void btnOpenArchive_Click(object sender, EventArgs e)
         {
             if (activeForm2 == null)
             {
@@ -575,9 +575,9 @@ namespace MediaApi.Forms
             try
             {
                 activeJson = jsonnn;
-                listBox1.DataSource = activeJson.Results;
-                listBox1.DisplayMember = "Title";
-                listBox1.ValueMember = "Id";
+                listTitles.DataSource = activeJson.Results;
+                listTitles.DisplayMember = "Title";
+                listTitles.ValueMember = "Id";
             }
             catch (Exception ex)
             {
