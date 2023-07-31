@@ -11,12 +11,12 @@ using System.Net;
 using System.Security.Policy;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using JR.Utils.GUI.Forms;
 using LicenseContext = OfficeOpenXml.LicenseContext;
 using OfficeOpenXml.DataValidation;
 using Button = System.Windows.Forms.Button;
 using MediaApi.IMDB;
 using TMDbLib.Objects.Languages;
+using MediaApi.Structure;
 
 namespace MediaApi.Forms
 {
@@ -215,7 +215,7 @@ namespace MediaApi.Forms
 
                     foreach (var item in a.Results)
                     {
-                        item.LocationSearch = Language.countryCodeDictionary[language];
+                        item.Countries = Language.countryCodeDictionary[language];
                     }
                     return a;
                 }
@@ -377,7 +377,7 @@ namespace MediaApi.Forms
                               $"Genres:         {activeJson.Results[i].Genres}\n" +
                               $"Languages:      {activeJson.Results[i].Languages}\n" +
                               $"Countries of orgin: {activeJson.Results[i].Countries}\n" +
-                              $"Release country:{activeJson.Results[i].LocationSearch}\n" +
+                              $"Release in country: {activeJson.Results[i].LocationSearch}\n" +
                               $"Directors:      {activeJson.Results[i].Directors}\n" +
                               $"Stars:          {activeJson.Results[i].Stars}";
                 //$"Describtion:    {activeJson.Results[i].Description}\n" +
@@ -605,7 +605,7 @@ namespace MediaApi.Forms
             UpdateSameJson(false);
             string country = cmbCountry.SelectedValue.ToString();
             CalendarData cdD = await CalendarIMDB.GetIMDBCalendarAsync(country);
-            FilmData newJ = Converter.CalendarToData(cdD);
+            FilmData newJ = Converter.CalendarToData(cdD, Language.countryCodeDictionary[country]);
 
             UpdateListOfMeta(newJ);
         }

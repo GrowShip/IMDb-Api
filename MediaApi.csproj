@@ -30,6 +30,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\test\RequestSupport\RequestSupport.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Forms\IMDbSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>

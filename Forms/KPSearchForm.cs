@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MediaApi.Structure;
 using static System.Net.WebRequestMethods;
 
 namespace MediaApi.Forms

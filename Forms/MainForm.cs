@@ -16,6 +16,7 @@ using LicenseContext = OfficeOpenXml.LicenseContext;
 using OfficeOpenXml.DataValidation;
 using Button = System.Windows.Forms.Button;
 using MediaApi.Forms;
+using MediaApi.Structure;
 
 namespace MediaApi
 {

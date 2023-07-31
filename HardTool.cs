@@ -9,6 +9,7 @@ using System.Net;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using MediaApi.Structure;
 
 namespace MediaApi
 {

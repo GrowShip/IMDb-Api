@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MediaApi
+namespace MediaApi.Structure
 {
     public class FilmData
     {
@@ -26,7 +26,7 @@ namespace MediaApi
         public string IMDbRating { get; set; }
         public string Plot { get; set; }
         public string Stars { get; set; }
-        
+
         public string LocationSearch { get; set; }
 
         public string Type { get; set; }
@@ -41,7 +41,7 @@ namespace MediaApi
 
     public class Converter
     {
-        public static FilmData AdvToData(AdvancedSearchData AdvancedSearchDataJson, string language) 
+        public static FilmData AdvToData(AdvancedSearchData AdvancedSearchDataJson, string language)
         {
             var result = new FilmData();
             result.Results = new List<JsonData>();
@@ -59,7 +59,7 @@ namespace MediaApi
                 el.Stars = item.Stars;
                 el.Plot = item.Plot;
                 el.LocationSearch = language;
-                result.Results.Add(el); 
+                result.Results.Add(el);
             }
             return result;
         }
@@ -100,25 +100,25 @@ namespace MediaApi
             foreach (var elem in item.Items)
             {
                 var el = new JsonData();
-                el.Id =             elem.Id;
-                el.Title =          elem.Title;
-                el.Year =           elem.Year;
-                el.Image =          elem.Image;
-                el.ReleaseDate =    elem.ReleaseState;
-                el.RuntimeStr =     elem.RuntimeMins;
-                el.Plot =           elem.Plot;
-                el.Directors =      elem.Directors;
-                el.Stars =          elem.Stars;
-                el.Genres =         elem.Genres;
-                el.ContentRating =  elem.ContentRating;
-                el.IMDbRating =     elem.IMDbRating;
+                el.Id = elem.Id;
+                el.Title = elem.Title;
+                el.Year = elem.Year;
+                el.Image = elem.Image;
+                el.ReleaseDate = elem.ReleaseState;
+                el.RuntimeStr = elem.RuntimeMins;
+                el.Plot = elem.Plot;
+                el.Directors = elem.Directors;
+                el.Stars = elem.Stars;
+                el.Genres = elem.Genres;
+                el.ContentRating = elem.ContentRating;
+                el.IMDbRating = elem.IMDbRating;
 
                 result.Results.Add(el);
             }
             return result;
         }
 
-        public static FilmData CalendarToData(CalendarData data)
+        public static FilmData CalendarToData(CalendarData data, string country = "")
         {
             var result = new FilmData();
             result.Results = new List<JsonData>();
@@ -132,7 +132,7 @@ namespace MediaApi
 
                     el.Id = item.id;
                     el.Title = item.titleText;
-                    el.Image = item.imageModel != null ?  item.imageModel.url : null ;
+                    el.Image = item.imageModel != null ? item.imageModel.url : null;
                     //el.Image = item.imageModel.url;
                     //el.Description =
                     //el.RuntimeStr =
@@ -141,10 +141,10 @@ namespace MediaApi
                     //el.IMDbRating =
                     //el.Plot =
                     //el.Stars =
-                    //el.LocationSearch =
+                    el.LocationSearch = country;
                     el.Type = item.titleType.text;
                     el.Year = item.releaseYear.year.ToString();
-                    el.ReleaseDate = item.releaseDate.Substring(item.releaseDate.IndexOf(",")+1,12);
+                    el.ReleaseDate = item.releaseDate.Substring(item.releaseDate.IndexOf(",") + 1, 12);
                     //el.Awards =
                     //el.Directors =
                     //el.Companies =
