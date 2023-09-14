@@ -79,7 +79,7 @@
             listTitles.BorderStyle = BorderStyle.None;
             listTitles.FormattingEnabled = true;
             listTitles.Name = "listTitles";
-            listTitles.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            listTitles.SelectedIndexChanged += listTitles_SelectedIndexChanged;
             // 
             // pictPoster
             // 

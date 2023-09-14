@@ -122,10 +122,10 @@ namespace MediaApi
                 worksheet.Cells[1, 1].Value = "Type";
                 worksheet.Cells[1, 2].Value = "Title";
                 worksheet.Cells[1, 4].Value = "Genre";
-                worksheet.Cells[1, 5].Value = "Country";
+                //worksheet.Cells[1, 5].Value = "Country";
                 worksheet.Cells[1, 6].Value = "Year";
                 worksheet.Cells[1, 7].Value = "Rating IMDB";
-                worksheet.Cells[1, 10].Value = "Release Date";
+                //worksheet.Cells[1, 10].Value = "Release Date";
                 worksheet.Cells[1, 11].Value = "Release Country";
                 worksheet.Cells[1, 12].Value = "Snopsys";
                 worksheet.Cells[1, 13].Value = "Id";
@@ -147,6 +147,8 @@ namespace MediaApi
                 // Here, we assume the JSON response is an array of objects,
                 // each representing a release with 'name', 'year', 'synopsis', and 'other' properties
 
+                
+
                 //AdvancedSearchData releases = JsonConvert.DeserializeObject<AdvancedSearchData>(responseJson);
                 int row = 2;
                 if (onlyNewCheckBox)
@@ -158,10 +160,10 @@ namespace MediaApi
                             worksheet.Cells[row, 1].Value = savedJson.Results.Find(f => f.Id == release).Type;
                             worksheet.Cells[row, 2].Value = savedJson.Results.Find(f => f.Id == release).Title;
                             worksheet.Cells[row, 4].Value = savedJson.Results.Find(f => f.Id == release).Genres;
-                            worksheet.Cells[row, 5].Value = savedJson.Results.Find(f => f.Id == release).LocationSearch;
+                            //worksheet.Cells[row, 5].Value = savedJson.Results.Find(f => f.Id == release).LocationSearch;
                             worksheet.Cells[row, 6].Value = savedJson.Results.Find(f => f.Id == release).Year;
                             worksheet.Cells[row, 7].Value = savedJson.Results.Find(f => f.Id == release).IMDbRating;
-                            worksheet.Cells[row, 10].Value = savedJson.Results.Find(f => f.Id == release).ReleaseDate;
+                            //worksheet.Cells[row, 10].Value = savedJson.Results.Find(f => f.Id == release).ReleaseDate;
                             worksheet.Cells[row, 11].Value = savedJson.Results.Find(f => f.Id == release).Countries;
                             worksheet.Cells[row, 12].Value = savedJson.Results.Find(f => f.Id == release).Plot;
                             worksheet.Cells[row, 13].Value = savedJson.Results.Find(f => f.Id == release).Id;
@@ -171,14 +173,14 @@ namespace MediaApi
                             worksheet.Cells[row, 17].Value = savedJson.Results.Find(f => f.Id == release).Stars;
                             if (savedJson.Results.Find(f => f.Id == release).All is not null)
                             {
-                                worksheet.Cells[1, 18].Value = savedJson.Results.Find(f => f.Id == release).All.US.releaseDate;
-                                worksheet.Cells[1, 19].Value = savedJson.Results.Find(f => f.Id == release).All.DE.releaseDate;
-                                worksheet.Cells[1, 20].Value = savedJson.Results.Find(f => f.Id == release).All.IT.releaseDate;
-                                worksheet.Cells[1, 21].Value = savedJson.Results.Find(f => f.Id == release).All.ES.releaseDate;
-                                worksheet.Cells[1, 22].Value = savedJson.Results.Find(f => f.Id == release).All.GB.releaseDate;
-                                worksheet.Cells[1, 23].Value = savedJson.Results.Find(f => f.Id == release).All.FR.releaseDate;
-                                worksheet.Cells[1, 24].Value = savedJson.Results.Find(f => f.Id == release).All.CN.releaseDate;
-                                worksheet.Cells[1, 25].Value = savedJson.Results.Find(f => f.Id == release).All.RU.releaseDate;
+                                worksheet.Cells[row, 18].Value = savedJson.Results.Find(f => f.Id == release).All.US.releaseDate;
+                                worksheet.Cells[row, 19].Value = savedJson.Results.Find(f => f.Id == release).All.DE.releaseDate;
+                                worksheet.Cells[row, 20].Value = savedJson.Results.Find(f => f.Id == release).All.IT.releaseDate;
+                                worksheet.Cells[row, 21].Value = savedJson.Results.Find(f => f.Id == release).All.ES.releaseDate;
+                                worksheet.Cells[row, 22].Value = savedJson.Results.Find(f => f.Id == release).All.GB.releaseDate;
+                                worksheet.Cells[row, 23].Value = savedJson.Results.Find(f => f.Id == release).All.FR.releaseDate;
+                                worksheet.Cells[row, 24].Value = savedJson.Results.Find(f => f.Id == release).All.CN.releaseDate;
+                                worksheet.Cells[row, 25].Value = savedJson.Results.Find(f => f.Id == release).All.RU.releaseDate;
                             }
                             row++;
                         }
@@ -197,10 +199,10 @@ namespace MediaApi
                         worksheet.Cells[row, 1].Value = release.Type;
                         worksheet.Cells[row, 2].Value = release.Title;
                         worksheet.Cells[row, 4].Value = release.Genres;
-                        worksheet.Cells[row, 5].Value = release.LocationSearch;
+                        //worksheet.Cells[row, 5].Value = release.LocationSearch;
                         worksheet.Cells[row, 6].Value = release.Year;
                         worksheet.Cells[row, 7].Value = release.IMDbRating;
-                        worksheet.Cells[row, 10].Value = release.ReleaseDate;
+                        //worksheet.Cells[row, 10].Value = release.ReleaseDate;
                         worksheet.Cells[row, 11].Value = release.Countries;
                         worksheet.Cells[row, 12].Value = release.Plot;
                         worksheet.Cells[row, 13].Value = release.Id;
@@ -223,6 +225,34 @@ namespace MediaApi
                     }
                 }
 
+                //width              
+                worksheet.Columns[1].Width = 7;
+                worksheet.Columns[2].Width = 35;
+                worksheet.Columns[3].Width = 3;
+                worksheet.Columns[4].Width = 29;
+                worksheet.Columns[5].Width = 3;
+                worksheet.Columns[6].Width = 11;
+                worksheet.Columns[7].Width = 11;
+                worksheet.Columns[8].Width = 3;
+                worksheet.Columns[9].Width = 3;
+                worksheet.Columns[10].Width = 3;
+                worksheet.Columns[11].Width = 22;
+                worksheet.Columns[12].Width = 22;
+                worksheet.Columns[13].Width = 10;
+                worksheet.Columns[14].Width = 8;
+                worksheet.Columns[15].Width = 10;
+                worksheet.Columns[16].Width = 16;
+                worksheet.Columns[17].Width = 16;
+                worksheet.Columns[18].Width = 17;
+                worksheet.Columns[19].Width = 17;
+                worksheet.Columns[20].Width = 17;
+                worksheet.Columns[21].Width = 17;
+                worksheet.Columns[22].Width = 17;
+                worksheet.Columns[23].Width = 17;
+                worksheet.Columns[24].Width = 17;
+                worksheet.Columns[25].Width = 17;
+
+                worksheet.Row(1).Style.Font.Bold = true;
 
                 // Save the Excel file
                 SaveFileDialog saveFileDialog = new SaveFileDialog();

@@ -17,6 +17,7 @@ using Button = System.Windows.Forms.Button;
 using MediaApi.IMDB;
 using MediaApi.Structure;
 using System.Xml.Serialization;
+using System.Reflection;
 
 namespace MediaApi.Forms
 {
@@ -108,7 +109,6 @@ namespace MediaApi.Forms
             OnlyNewCheckBox.ForeColor = ThemeColour.SecondaryColor;
         }
 
-
         /// <summary>
         /// Заполнение списка стран
         /// </summary>
@@ -140,9 +140,11 @@ namespace MediaApi.Forms
             }
             else
             {
-                AdvancedSearchInput adv = new AdvancedSearchInput();
-                adv.Title = txtBoxSearch.Text;
-                activeJson = Converter.AdvToData(await _api.AdvancedSearchAsync(adv), "");
+                //AdvancedSearchInput adv = new AdvancedSearchInput();
+                //adv.Title = txtBoxSearch.Text;
+                //activeJson = Converter.AdvToData(await _api.AdvancedSearchAsync(adv), "");
+
+                activeJson = Converter.SrchTitToData(await _api.SearchTitleAsync(txtBoxSearch.Text));
             }
 
             //api.SearchMovieAsync("expression");
@@ -180,24 +182,6 @@ namespace MediaApi.Forms
             UpdateListOfMeta(activeJson);
             //Window_Loaded(sender, e, countryLang, fromD, toD);
         }
-
-        //private async void Window_Loaded(object sender, EventArgs e, string language, string[] fromD, string[] toD)
-        //{
-        //    try
-        //    {
-        //        string uriDate = $"&release_date={fromD[2]}-{fromD[1]}-10,{toD[2]}-{toD[1]}-10";
-
-        //        activeJson = await GetReleaseTitles(uriDate, language);
-        //        // Bind the titles to the ListBox control
-        //        listBox1.DataSource = activeJson.Results;
-        //        listBox1.DisplayMember = "Title";
-        //        listBox1.ValueMember = "Id";
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"An error occurred: {ex.Message}");
-        //    }
-        //}
 
         private async Task<FilmData> GetReleaseTitles(string uriDate, string language)
         {
@@ -306,11 +290,13 @@ namespace MediaApi.Forms
             }
             else if (!string.IsNullOrEmpty(a.LocationSearch))
             {
-                if (!savedJson.Results[indexO].LocationSearch.Contains(a.LocationSearch))
+                //TODO дописать сравнение 2ух тайтлов
+                //CompareTwoJsonFile(byref savedJson.Results[indexO], a);
+                if (savedJson.Results[indexO].LocationSearch is null)
                 {
-                    string.Concat(savedJson.Results[indexO].LocationSearch, "/" + a.LocationSearch);
+                    sameFilm = "\n" + a.Id + "_" + a.Title + ";";
                 }
-                sameFilm = "\n" + a.Id + "_" + a.Title + ";";
+                string.Concat(savedJson.Results[indexO].LocationSearch, "/" + a.LocationSearch);
             }
             else sameFilm = "\n" + a.Id + "_" + a.Title + ";";
             return sameFilm;
@@ -362,7 +348,7 @@ namespace MediaApi.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void listTitles_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
@@ -371,16 +357,16 @@ namespace MediaApi.Forms
                               $"Title:          {activeJson.Results[i].Title}\n" +
                               $"Type:           {activeJson.Results[i].Type}\n" +
                               $"Year:           {activeJson.Results[i].Year}\n" +
-                              $"Release date:   {activeJson.Results[i].ReleaseDate}\n" +
+                              $"Info:    {activeJson.Results[i].Description}\n" +
+                              //$"Release date:   {activeJson.Results[i].ReleaseDate}\n" +
                               $"RunTime Mins:   {activeJson.Results[i].RuntimeStr}\n" +
                               $"Rating:         {activeJson.Results[i].ContentRating}\n" +
                               $"Genres:         {activeJson.Results[i].Genres}\n" +
                               $"Languages:      {activeJson.Results[i].Languages}\n" +
                               $"Countries of orgin: {activeJson.Results[i].Countries}\n" +
-                              $"Release in country: {activeJson.Results[i].LocationSearch}\n" +
+                              //$"Release in country: {activeJson.Results[i].LocationSearch}\n" +
                               $"Directors:      {activeJson.Results[i].Directors}\n" +
                               $"Stars:          {activeJson.Results[i].Stars}";
-                //$"Describtion:    {activeJson.Results[i].Description}\n" +
                 lblSynopsis.Text = activeJson.Results[i].Plot;
                 linkLabel1.Text = activeJson.Results[i].Image;
                 pictPoster.ImageLocation = activeJson.Results[i].Image;
@@ -416,6 +402,7 @@ namespace MediaApi.Forms
         {
             try
             {
+                sameJson = false;
                 var release = await ComingSoonAsync();
                 activeJson = Converter.NewMovieToData(release);
 
@@ -425,7 +412,7 @@ namespace MediaApi.Forms
             }
             catch (Exception)
             {
-
+                sameJson = true;
                 throw;
             }
         }
@@ -465,6 +452,7 @@ namespace MediaApi.Forms
                         foreach (JsonData el in activeJson.Results)
                         {
                             var obj = await UploadReleasesDates(el, el.Id);
+                            if (obj is null) break;
                             savedJson.Results.Add(obj);
                         }
                         HardTool.SaveJson(JsonConvert.SerializeObject(savedJson), "imdb");
@@ -514,13 +502,25 @@ namespace MediaApi.Forms
                 savedJson.Results[indexO].RuntimeStr = item.RuntimeStr;
                 savedJson.Results[indexO].Awards = item.Awards;
                 savedJson.Results[indexO].Directors = item.Directors;
-                savedJson.Results[indexO].Companies = item.Companies;
-                savedJson.Results[indexO].Languages = item.Languages;
-                savedJson.Results[indexO].ContentRating = item.ContentRating;
+                savedJson.Results[indexO].Stars = item.Stars;
+                //savedJson.Results[indexO].Companies = item.Companies;
+                //savedJson.Results[indexO].Languages = item.Languages;
+                //savedJson.Results[indexO].ContentRating = item.ContentRating;
                 savedJson.Results[indexO].Countries = item.Countries;
-                savedJson.Results[indexO].IMDbRating = item.IMDbRating;
-                savedJson.Results[indexO].Plot = item.Plot;
+                //savedJson.Results[indexO].IMDbRating = item.IMDbRating;
+                //savedJson.Results[indexO].Plot = item.Plot;
                 savedJson.Results[indexO].All = item.All;
+
+                PropertyInfo[] properties = savedJson.Results[indexO].GetType().GetProperties();
+
+                foreach (PropertyInfo property in properties)
+                {
+                    object sourceValue = property.GetValue(item);
+                    object targetValue = property.GetValue(savedJson.Results[indexO]);
+
+                    if (targetValue == null && sourceValue != null)
+                        property.SetValue(savedJson.Results[indexO], sourceValue);
+                }
             }
             HardTool.SaveJson(JsonConvert.SerializeObject(savedJson), "imdb");
         }
@@ -563,6 +563,10 @@ namespace MediaApi.Forms
 
         }
 
+        /// <summary>
+        /// Update source of list view titles
+        /// </summary>
+        /// <param name="path"></param>
         public void ChangeSourceList(string path)
         {
             activeJson = JsonConvert.DeserializeObject<FilmData>(File.ReadAllText(path));
@@ -585,6 +589,11 @@ namespace MediaApi.Forms
             }
         }
 
+        /// <summary>
+        /// Create an archive file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClearAchive_Click(object sender, EventArgs e)
         {
             var a = MessageBox.Show("Точно архивировать рабочую смету?", "Архивация", MessageBoxButtons.OKCancel);
@@ -623,9 +632,11 @@ namespace MediaApi.Forms
             UpdateSameJson(false);
             string country = cmbCountry.SelectedValue.ToString();
             CalendarData cdD = await CalendarIMDB.GetIMDBCalendarAsync(country, "Movie");
-            FilmData newJ = Converter.CalendarToData(cdD, Structure.Language.countryCodeDictionary[country]);
-
-            UpdateListOfMeta(newJ);
+            if (cdD is not null)
+            {
+                FilmData newJ = Converter.CalendarToData(cdD, Structure.Language.countryCodeDictionary[country]);
+                UpdateListOfMeta(newJ);
+            }
         }
 
         /// <summary>
@@ -636,7 +647,9 @@ namespace MediaApi.Forms
         /// <returns></returns>
         private async Task<JsonData> UploadReleasesDates(JsonData date, string title)
         {
+            if (title is null) return new JsonData();
             CalendarD initital = await ReleasesDates.GetReleasesToData(title);
+            if (initital.data is null) return date;
             date = Converter.EnterReleasesDates(initital, date);
             return date;
         }

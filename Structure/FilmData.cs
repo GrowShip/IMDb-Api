@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TMDbLib.Objects.Languages;
 
 namespace MediaApi.Structure
 {
@@ -80,6 +81,25 @@ namespace MediaApi.Structure
                 el.Stars = item.Stars;
                 el.Plot = item.Plot;
                 el.LocationSearch = language;
+                result.Results.Add(el);
+            }
+            return result;
+        }
+
+        public static FilmData SrchTitToData(SearchData srhTitData)
+        {
+            var result = new FilmData();
+            result.Results = new List<JsonData>();
+
+            foreach (var item in srhTitData.Results)
+            {
+                
+                var el = new JsonData();
+                el.Id = item.Id;
+                el.Title = item.Title;
+                el.Type = item.ResultType;
+                el.Description = item.Description;
+                el.Image = item.Image;
                 result.Results.Add(el);
             }
             return result;
@@ -205,35 +225,38 @@ namespace MediaApi.Structure
                 data.All.RU.code = "RU";
                 data.All.RU.country = "Russia";
 
-                foreach (var item in calendar.data.title.releaseDates.edges)
+            foreach (var item in calendar.data.title.releaseDates.edges)
             {
-                if (item.node.attributes.Count == 0)
+                if (item.node.attributes.Count == 0 || item.node.attributes[0].id == "internet")
                 {
+                    string notes = "";
+                    if (item.node.attributes.Count != 0) notes = " (internet)";
+
                     switch (item.node.country.id.ToLower())
                     {
                         case ("us"):
-                            data.All.US.releaseDate = item.node.displayableProperty.value.plainText;
+                            data.All.US.releaseDate = item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("de"):
-                            data.All.DE.releaseDate= item.node.displayableProperty.value.plainText;
+                            data.All.DE.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("it"):
-                            data.All.IT.releaseDate= item.node.displayableProperty.value.plainText;
+                            data.All.IT.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("es"):
-                            data.All.ES.releaseDate= item.node.displayableProperty.value.plainText;
+                            data.All.ES.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("gb"):
-                            data.All.GB.releaseDate= item.node.displayableProperty.value.plainText;
+                            data.All.GB.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("fr"):
-                            data.All.FR.releaseDate= item.node.displayableProperty.value.plainText;
+                            data.All.FR.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("cn"):
-                            data.All.CN.releaseDate= item.node.displayableProperty.value.plainText;
+                            data.All.CN.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("ru"):
-                            data.All.RU.releaseDate= item.node.displayableProperty.value.plainText;
+                            data.All.RU.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         default:
                             break;

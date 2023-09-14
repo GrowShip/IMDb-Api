@@ -92,14 +92,15 @@ namespace MediaApi.IMDB
 
             CookieContainer cookieContainer = new CookieContainer();
 
-            var proxy = new WebProxy("127.0.0.1:8888");
+            //var proxy = new WebProxy("127.0.0.1:8888");
 
             var getRequest = new GetRequest($"https://www.imdb.com/calendar/?ref_=rlm&region={country}&type={content}");
             getRequest.Headers.Add("content-type", "application/json");
-            getRequest.Proxy = proxy;
+            //getRequest.Proxy = proxy;
             getRequest.Run(cookieContainer,0);
-
-            return PullOutData(getRequest.Response);
+            if (getRequest.Response is not null)
+                return PullOutData(getRequest.Response);
+            return null;
         }
 
         private static CalendarData PullOutData(string json)

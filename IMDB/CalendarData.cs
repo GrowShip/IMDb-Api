@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.Encodings;
 using System.Threading.Tasks;
 using MediaApi.Structure;
 using Newtonsoft.Json;
@@ -116,6 +117,11 @@ namespace MediaApi.IMDB
             {
                 oneMore = false;
                 var respond = await MakeRequestForData(count, titleTt);
+                if (respond.Contains("No page results after cursor", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    if (count != 0) return calendar;
+                    else return new CalendarD();
+                }
 
                 if (count == 0)
                 {
@@ -131,6 +137,7 @@ namespace MediaApi.IMDB
                 {
                     oneMore = true;
                     count++;
+                    if (count >= 3) oneMore = false;
                 }
 
             } while (oneMore);
@@ -156,7 +163,7 @@ namespace MediaApi.IMDB
             else return string.Empty;
 
             var code = tittleTt;
-            var proxy = new WebProxy("127.0.0.1:8888");
+            //var proxy = new WebProxy("127.0.0.1:8888");
 
             var getRequest = new GetRequest(KeysAccess.GetReleaseKey("ilya1") + "={\"after\":\"" + typeRequest +"\",\"const\":\"" + code + "\",\"first\":50,\"isAutoTranslationEnabled\":false,\"locale\":\"en-GB\",\"originalTitleText\":false}&extensions={\"persistedQuery\":{\"sha256Hash\":\"" + KeysAccess.GetReleaseKey("ilya2")+ "\",\"version\":1}}");
 
@@ -170,10 +177,11 @@ namespace MediaApi.IMDB
             getRequest.Headers.Add("Accept-Language", "en-GB,en-US;q=0.9,en;q=0.8,ru;q=0.7");
 
             getRequest.Host = KeysAccess.GetReleaseKey("ilya1").Substring(8,24);
-            getRequest.Proxy = proxy;
+            //getRequest.Proxy = proxy;
             getRequest.Run(cookieContainer);
-
-            return getRequest.Response;
+            var a = getRequest.Response;
+            
+            return (getRequest.Response);
         }
     }
 }
