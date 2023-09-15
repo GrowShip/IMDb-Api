@@ -79,6 +79,19 @@ namespace MediaApi
             }
         }
 
+        public static void SaveJson(FilmData data, string system)
+        {
+            try
+            {
+                SaveJson(JsonConvert.SerializeObject(data), system);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"Error saving JSON file: {ex.Message}");
+            }
+        }
+
         public static void MakeAnArchive(string system)
         {
             var oldNameFullPath = AppDomain.CurrentDomain.BaseDirectory + $"JSON\\{system}\\file.json";
@@ -121,10 +134,13 @@ namespace MediaApi
                 // Set column headers
                 worksheet.Cells[1, 1].Value = "Type";
                 worksheet.Cells[1, 2].Value = "Title";
+                worksheet.Cells[1, 3].Value = "Airline Release";
                 worksheet.Cells[1, 4].Value = "Genre";
-                //worksheet.Cells[1, 5].Value = "Country";
+                worksheet.Cells[1, 5].Value = "Studio";
                 worksheet.Cells[1, 6].Value = "Year";
                 worksheet.Cells[1, 7].Value = "Rating IMDB";
+                worksheet.Cells[1, 8].Value = "Award";
+                worksheet.Cells[1, 9].Value = "Gross World";
                 //worksheet.Cells[1, 10].Value = "Release Date";
                 worksheet.Cells[1, 11].Value = "Release Country";
                 worksheet.Cells[1, 12].Value = "Snopsys";
@@ -163,6 +179,8 @@ namespace MediaApi
                             //worksheet.Cells[row, 5].Value = savedJson.Results.Find(f => f.Id == release).LocationSearch;
                             worksheet.Cells[row, 6].Value = savedJson.Results.Find(f => f.Id == release).Year;
                             worksheet.Cells[row, 7].Value = savedJson.Results.Find(f => f.Id == release).IMDbRating;
+                            worksheet.Cells[row, 8].Value = savedJson.Results.Find(f => f.Id == release).Awards;
+                            worksheet.Cells[row, 9].Value = savedJson.Results.Find(f => f.Id == release).GrossWorld;
                             //worksheet.Cells[row, 10].Value = savedJson.Results.Find(f => f.Id == release).ReleaseDate;
                             worksheet.Cells[row, 11].Value = savedJson.Results.Find(f => f.Id == release).Countries;
                             worksheet.Cells[row, 12].Value = savedJson.Results.Find(f => f.Id == release).Plot;
@@ -202,6 +220,8 @@ namespace MediaApi
                         //worksheet.Cells[row, 5].Value = release.LocationSearch;
                         worksheet.Cells[row, 6].Value = release.Year;
                         worksheet.Cells[row, 7].Value = release.IMDbRating;
+                        worksheet.Cells[row, 8].Value = release.Awards;
+                        worksheet.Cells[row, 9].Value = release.GrossWorld;
                         //worksheet.Cells[row, 10].Value = release.ReleaseDate;
                         worksheet.Cells[row, 11].Value = release.Countries;
                         worksheet.Cells[row, 12].Value = release.Plot;
@@ -226,31 +246,31 @@ namespace MediaApi
                 }
 
                 //width              
-                worksheet.Columns[1].Width = 7;
-                worksheet.Columns[2].Width = 35;
-                worksheet.Columns[3].Width = 3;
-                worksheet.Columns[4].Width = 29;
-                worksheet.Columns[5].Width = 3;
-                worksheet.Columns[6].Width = 11;
-                worksheet.Columns[7].Width = 11;
-                worksheet.Columns[8].Width = 3;
-                worksheet.Columns[9].Width = 3;
-                worksheet.Columns[10].Width = 3;
-                worksheet.Columns[11].Width = 22;
-                worksheet.Columns[12].Width = 22;
-                worksheet.Columns[13].Width = 10;
-                worksheet.Columns[14].Width = 8;
-                worksheet.Columns[15].Width = 10;
-                worksheet.Columns[16].Width = 16;
-                worksheet.Columns[17].Width = 16;
-                worksheet.Columns[18].Width = 17;
-                worksheet.Columns[19].Width = 17;
-                worksheet.Columns[20].Width = 17;
-                worksheet.Columns[21].Width = 17;
-                worksheet.Columns[22].Width = 17;
-                worksheet.Columns[23].Width = 17;
-                worksheet.Columns[24].Width = 17;
-                worksheet.Columns[25].Width = 17;
+                worksheet.Columns[1].Width = 7;     //Type;
+                worksheet.Columns[2].Width = 35;    //Title;
+                worksheet.Columns[3].Width = 17;    //Airline Release;
+                worksheet.Columns[4].Width = 29;    //Genre;
+                worksheet.Columns[5].Width = 22;     //Studia;
+                worksheet.Columns[6].Width = 11;    //Year;
+                worksheet.Columns[7].Width = 11;    //Rating IMDB;
+                worksheet.Columns[8].Width = 16;     //Awards
+                worksheet.Columns[9].Width = 16;     //Gross
+                worksheet.Columns[10].Width = 3;    //
+                worksheet.Columns[11].Width = 22;   //Release Сountry;
+                worksheet.Columns[12].Width = 22;   //Snopsys;
+                worksheet.Columns[13].Width = 10;   //Id;
+                worksheet.Columns[14].Width = 8;    //Runtime;
+                worksheet.Columns[15].Width = 10;   //Description;
+                worksheet.Columns[16].Width = 16;   //Directors;
+                worksheet.Columns[17].Width = 16;   //Stars;
+                worksheet.Columns[18].Width = 17;   //US;
+                worksheet.Columns[19].Width = 17;   //DE;
+                worksheet.Columns[20].Width = 17;   //IT;
+                worksheet.Columns[21].Width = 17;   //ES;
+                worksheet.Columns[22].Width = 17;   //GB;
+                worksheet.Columns[23].Width = 17;   //FR;
+                worksheet.Columns[24].Width = 17;   //CN;
+                worksheet.Columns[25].Width = 17;   //RU;
 
                 worksheet.Row(1).Style.Font.Bold = true;
 

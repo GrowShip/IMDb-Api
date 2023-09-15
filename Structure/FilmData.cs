@@ -39,6 +39,8 @@ namespace MediaApi.Structure
         public string Countries { get; set; }
         public string Languages { get; set; }
 
+        public string GrossWorld { get; set; }
+
         public CounrtyReleaseAll All { get; set; }
     }
 
@@ -128,6 +130,8 @@ namespace MediaApi.Structure
             el.Languages = item.Languages;
             el.ContentRating = item.ContentRating;
             el.IMDbRating = item.IMDbRating;
+            if (item.BoxOffice is not null) 
+                el.GrossWorld = item.BoxOffice.CumulativeWorldwideGross;
             result.Results.Add(el);
 
             return result;
@@ -231,31 +235,38 @@ namespace MediaApi.Structure
                 {
                     string notes = "";
                     if (item.node.attributes.Count != 0) notes = " (internet)";
-
                     switch (item.node.country.id.ToLower())
                     {
                         case ("us"):
+                            if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.US.releaseDate)) break;
                             data.All.US.releaseDate = item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("de"):
+                            if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.DE.releaseDate)) break;
                             data.All.DE.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("it"):
+                            if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.IT.releaseDate)) break;
                             data.All.IT.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("es"):
+                            if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.ES.releaseDate)) break;
                             data.All.ES.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("gb"):
+                            if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.GB.releaseDate)) break;
                             data.All.GB.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("fr"):
+                            if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.FR.releaseDate)) break;
                             data.All.FR.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("cn"):
+                            if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.CN.releaseDate)) break;
                             data.All.CN.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("ru"):
+                            if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.RU.releaseDate)) break;
                             data.All.RU.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         default:

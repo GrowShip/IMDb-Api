@@ -74,7 +74,6 @@ namespace MediaApi.Forms
 
         public WebProxy WebProxy { get; }
         private ApiLib _api;
-        //private TMDbLib.Client.TMDbClient _apiTMDB;
         private string releases;
         private FilmData activeJson;
         private List<string> newAddedJson = new List<string>();
@@ -190,16 +189,21 @@ namespace MediaApi.Forms
             {
                 try
                 {
-
-                    // Parse the JSON response
-                    releases = await client.GetStringAsync(apiUrlForNew + uriDate + "&countries=" + language);
+                    if (language == "")
+                        releases = await client.GetStringAsync(apiUrlForNew + uriDate);
+                    else
+                        // Parse the JSON response
+                        releases = await client.GetStringAsync(apiUrlForNew + uriDate + "&countries=" + language);
 
                     //SaveReleasesToExcel(releases);
                     var a = JsonConvert.DeserializeObject<FilmData>(releases);
-
-                    foreach (var item in a.Results)
+                    if (language != "")
                     {
-                        item.Countries = Structure.Language.countryCodeDictionary[language];
+                        foreach (var item in a.Results)
+                        {
+                            item.Countries = Structure.Language.countryCodeDictionary[language];
+                        }
+                        return a;
                     }
                     return a;
                 }
@@ -254,6 +258,7 @@ namespace MediaApi.Forms
             }
 
             HardTool.SaveJson(JsonConvert.SerializeObject(savedJson), "imdb");
+
             if (!string.IsNullOrEmpty(sameFilms))
             {
                 //MessageBox.Show("Фильмы которые уже добавленны ранее:\n" + sameFilms.Substring(0,sameFilms.Length - 1));
@@ -344,7 +349,7 @@ namespace MediaApi.Forms
         }
 
         /// <summary>
-        /// Раскрывает инфу в описаниии выбранного тайтла
+        /// Раскрывает инфу выбранного тайтла
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -358,6 +363,8 @@ namespace MediaApi.Forms
                               $"Type:           {activeJson.Results[i].Type}\n" +
                               $"Year:           {activeJson.Results[i].Year}\n" +
                               $"Info:    {activeJson.Results[i].Description}\n" +
+                              $"Awards:   {activeJson.Results[i].Awards}\n" +
+                              $"Gross:   {activeJson.Results[i].GrossWorld}\n" +
                               //$"Release date:   {activeJson.Results[i].ReleaseDate}\n" +
                               $"RunTime Mins:   {activeJson.Results[i].RuntimeStr}\n" +
                               $"Rating:         {activeJson.Results[i].ContentRating}\n" +
@@ -564,7 +571,7 @@ namespace MediaApi.Forms
         }
 
         /// <summary>
-        /// Update source of list view titles
+        /// Изменение источника для листа тайтлов
         /// </summary>
         /// <param name="path"></param>
         public void ChangeSourceList(string path)
@@ -590,7 +597,7 @@ namespace MediaApi.Forms
         }
 
         /// <summary>
-        /// Create an archive file
+        /// Создание архивного файла
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -652,6 +659,35 @@ namespace MediaApi.Forms
             if (initital.data is null) return date;
             date = Converter.EnterReleasesDates(initital, date);
             return date;
+        }
+
+        /// <summary>
+        /// Удаление выбранного или всех тайтлов
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void brtRemovettl_Click(object sender, EventArgs e)
+        {
+            if (AllAddCheckBox.Checked && sameJson)
+            {
+                savedJson.Results.Clear();
+
+            }
+            else if (sameJson)
+            {
+                //Прописать логику добавления в excel и файл json
+                //savedJson.Results.Remove(activeJson.Results[listTitles.SelectedIndex]);
+                savedJson.Results.RemoveAt(listTitles.SelectedIndex);
+            }
+            else
+            {
+                MessageBox.Show("Ты не в архивеном файле", "Войди в архив");
+                AllAddCheckBox.Checked = false;
+                return;
+            }
+
+            HardTool.SaveJson(savedJson, "imdb");
+            btnFromArchive_Click(sender, e);
         }
     }
 }

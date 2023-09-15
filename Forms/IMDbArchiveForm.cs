@@ -91,7 +91,6 @@ namespace MediaApi.Forms
                 IMDbSearchForm.instance.UpdateSameJson(true);
             else IMDbSearchForm.instance.UpdateSameJson(false);
             IMDbSearchForm.instance.ChangeSourceList(dirs[indexList]);
-
         }
 
         private void LoadTheme()

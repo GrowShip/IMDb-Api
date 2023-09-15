@@ -14,7 +14,7 @@ namespace MediaApi.Structure
         public static Country MakeCountry()
         {
             Country country = new Country();
-
+            country.MyList.Add(new MyObject { Id = 0, Country = " ", Symbol = "" });
             country.MyList.Add(new MyObject { Id = 1, Country = "Austria", Symbol = "at" });
             country.MyList.Add(new MyObject { Id = 2, Country = "China", Symbol = "cn" });
             country.MyList.Add(new MyObject { Id = 3, Country = "East German", Symbol = "ddde" });
@@ -39,6 +39,7 @@ namespace MediaApi.Structure
 
         public static Dictionary<string, string> countryCodeDictionary = new Dictionary<string, string>()
         {
+            { " ", "" },
             { "at"   , "Austria"},
             { "cn"   , "China"},
             { "ddde" , "East German"},
