@@ -174,7 +174,7 @@ namespace MediaApi
                         foreach (var release in newAddedJson)
                         {
                             worksheet.Cells[row, 1].Value = savedJson.Results.Find(f => f.Id == release).Type;
-                            worksheet.Cells[row, 2].Value = savedJson.Results.Find(f => f.Id == release).Title;
+                            worksheet.Cells[row, 2].Value = savedJson.Results.Find(f => f.Id == release).TitleOrigin;
                             worksheet.Cells[row, 4].Value = savedJson.Results.Find(f => f.Id == release).Genres;
                             //worksheet.Cells[row, 5].Value = savedJson.Results.Find(f => f.Id == release).LocationSearch;
                             worksheet.Cells[row, 6].Value = savedJson.Results.Find(f => f.Id == release).Year;
@@ -215,7 +215,7 @@ namespace MediaApi
                     {
 
                         worksheet.Cells[row, 1].Value = release.Type;
-                        worksheet.Cells[row, 2].Value = release.Title;
+                        worksheet.Cells[row, 2].Value = release.TitleOrigin;
                         worksheet.Cells[row, 4].Value = release.Genres;
                         //worksheet.Cells[row, 5].Value = release.LocationSearch;
                         worksheet.Cells[row, 6].Value = release.Year;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -42,9 +43,9 @@ namespace MediaApi.IMDB
     public class Title
     {
         public ReleaseDates releaseDates { get; set; }
-        //public string __typename { get; set; }
+        public Akas akas { get; set; }
     }
-
+    #region release dates
     public class ReleaseDates
     {
         public int total { get; set; }
@@ -100,7 +101,16 @@ namespace MediaApi.IMDB
         public string plainText { get; set; }
         public string __typename { get; set; }
     }
+    #endregion
 
+    #region Akas title name in country
+    public class Akas
+    {
+        public int total { get; set; }
+        public List<Edge> edges { get; set; }
+        public PageInfo pageInfo { get; set; }
+    }
+    #endregion
     //+
     /// <summary>
     /// Work with Releases Dates in countries
@@ -116,7 +126,7 @@ namespace MediaApi.IMDB
             do
             {
                 oneMore = false;
-                var respond = await MakeRequestForData(count, titleTt);
+                var respond = await MakeRequestForData(count, titleTt, "dates");
                 if (respond.Contains("No page results after cursor", StringComparison.CurrentCultureIgnoreCase))
                 {
                     if (count != 0) return calendar;
@@ -142,10 +152,52 @@ namespace MediaApi.IMDB
 
             } while (oneMore);
 
+            calendar.data.title.akas = new Akas();
+            calendar.data.title.akas = await GetRusTitle(titleTt);
+
             return calendar;
         }
 
-        private static async Task<string> MakeRequestForData(int type, string tittleTt)
+        private static async Task<Akas> GetRusTitle(string titleTl)
+        {
+            int count = 0;
+            Akas inCounrtyTitle = new Akas();
+
+            bool oneMore;
+            do
+            {
+                oneMore = false;
+                var respond = await MakeRequestForData(count, titleTl, "titles");
+                if (respond.Contains("No page results after cursor", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    if (count != 0) return inCounrtyTitle;
+                    else return new Akas();
+                }
+
+                if (count == 0)
+                {
+                    inCounrtyTitle = JsonConvert.DeserializeObject<CalendarD>(respond).data.title.akas;
+                }
+                else
+                {
+                    var additional = JsonConvert.DeserializeObject<CalendarD>(respond);
+                    inCounrtyTitle.edges.AddRange(additional.data.title.akas.edges);
+                    inCounrtyTitle.pageInfo.hasNextPage = additional.data.title.akas.pageInfo.hasNextPage;
+                }
+                if (inCounrtyTitle.pageInfo.hasNextPage)
+                {
+                    oneMore = true;
+                    count++;
+                    if (count >= 3) oneMore = false;
+                }
+
+            } while (oneMore);
+
+            return inCounrtyTitle;
+
+        }
+
+        private static async Task<string> MakeRequestForData(int type, string tittleTt, string key)
         {
             string typeRequest = "";
             if (type == 0)
@@ -165,7 +217,13 @@ namespace MediaApi.IMDB
             var code = tittleTt;
             //var proxy = new WebProxy("127.0.0.1:8888");
 
-            var getRequest = new GetRequest(KeysAccess.GetReleaseKey("ilya1") + "={\"after\":\"" + typeRequest +"\",\"const\":\"" + code + "\",\"first\":50,\"isAutoTranslationEnabled\":false,\"locale\":\"en-GB\",\"originalTitleText\":false}&extensions={\"persistedQuery\":{\"sha256Hash\":\"" + KeysAccess.GetReleaseKey("ilya2")+ "\",\"version\":1}}");
+            GetRequest getRequest;
+            if (key == "dates")
+                getRequest = new GetRequest(KeysAccess.GetReleaseKey("baseUrl") + KeysAccess.GetReleaseKey("releasesDates") + "={\"after\":\"" + typeRequest +"\",\"const\":\"" + code + "\",\"first\":50,\"isAutoTranslationEnabled\":false,\"locale\":\"en-GB\",\"originalTitleText\":false}&extensions={\"persistedQuery\":{\"sha256Hash\":\"" + KeysAccess.GetReleaseKey("releaseDatesHash") + "\",\"version\":1}}");
+            else if (key == "titles")
+                getRequest = new GetRequest(KeysAccess.GetReleaseKey("baseUrl") + KeysAccess.GetReleaseKey("inCountryTitle") + "={\"after\":\"" + typeRequest + "\",\"const\":\"" + code + "\",\"first\":50,\"isAutoTranslationEnabled\":false,\"locale\":\"en-US\",\"originalTitleText\":false}&extensions={\"persistedQuery\":{\"sha256Hash\":\"" + KeysAccess.GetReleaseKey("inCountryTitleHash") + "\",\"version\":1}}");
+            else 
+                return string.Empty;
 
             getRequest.Accept = "application/graphql+json, application/json";
             getRequest.Useragent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36";
@@ -176,11 +234,10 @@ namespace MediaApi.IMDB
             getRequest.Headers.Add("Accept-Encoding", "gzip, deflate, br");
             getRequest.Headers.Add("Accept-Language", "en-GB,en-US;q=0.9,en;q=0.8,ru;q=0.7");
 
-            getRequest.Host = KeysAccess.GetReleaseKey("ilya1").Substring(8,24);
+            getRequest.Host = KeysAccess.GetReleaseKey("baseUrl").Substring(8);
             //getRequest.Proxy = proxy;
             getRequest.Run(cookieContainer);
-            var a = getRequest.Response;
-            
+                        
             return (getRequest.Response);
         }
     }

@@ -18,7 +18,8 @@ namespace MediaApi.Structure
     public class JsonData
     {
         public string Id { get; set; }
-        public string Title { get; set; }
+        public string TitleOrigin { get; set; }
+        public string TitleRus { get; set; }
         public string Image { get; set; }
         public string Description { get; set; }
         public string RuntimeStr { get; set; }
@@ -74,7 +75,7 @@ namespace MediaApi.Structure
             {
                 var el = new JsonData();
                 el.Id = item.Id;
-                el.Title = item.Title;
+                el.TitleOrigin = item.Title;
                 el.Genres = item.Genres;
                 el.Description = item.Description;
                 el.Image = item.Image;
@@ -98,7 +99,7 @@ namespace MediaApi.Structure
                 
                 var el = new JsonData();
                 el.Id = item.Id;
-                el.Title = item.Title;
+                el.TitleOrigin = item.Title;
                 el.Type = item.ResultType;
                 el.Description = item.Description;
                 el.Image = item.Image;
@@ -114,7 +115,7 @@ namespace MediaApi.Structure
 
             var el = new JsonData();
             el.Id = item.Id;
-            el.Title = item.Title;
+            el.TitleOrigin = item.Title;
             el.Type = item.Type;
             el.Year = item.Year;
             el.Image = item.Image;
@@ -146,7 +147,7 @@ namespace MediaApi.Structure
             {
                 var el = new JsonData();
                 el.Id = elem.Id;
-                el.Title = elem.Title;
+                el.TitleOrigin = elem.Title;
                 el.Year = elem.Year;
                 el.Image = elem.Image;
                 el.ReleaseDate = elem.ReleaseState;
@@ -176,7 +177,7 @@ namespace MediaApi.Structure
                     JsonData el = new JsonData();
 
                     el.Id = item.id;
-                    el.Title = item.titleText;
+                    el.TitleOrigin = item.titleText;
                     el.Image = item.imageModel != null ? item.imageModel.url : null;
                     //el.Image = item.imageModel.url;
                     //el.Description =
@@ -203,6 +204,15 @@ namespace MediaApi.Structure
 
         public static JsonData EnterReleasesDates(CalendarD calendar, JsonData data)
         {
+            try
+            {
+                data.TitleRus = calendar.data.title.akas.edges.Find(f => f.node.country.id == "RU").node.displayableProperty.value.plainText;
+            }
+            catch (Exception ex)
+            {
+                data.TitleRus = "";
+            }
+                
                 data.All = new CounrtyReleaseAll();
                 data.All.US = new CounrtyRelease();
                 data.All.US.code = "US";

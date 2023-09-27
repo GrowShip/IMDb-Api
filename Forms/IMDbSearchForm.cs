@@ -62,7 +62,7 @@ namespace MediaApi.Forms
             tipsForm.SetToolTip(AllAddCheckBox, "Необходимо выделить чтобы добавить весь список найденных позиций в архив");
             tipsForm.SetToolTip(txtBoxSearch, "Наименование для поиска по IMDB");
             tipsForm.SetToolTip(cmbCountry, "Выбор страны для поиска новых релизов");
-            tipsForm.SetToolTip(ArchiveSearchCheckBox, "Неохоидмо для поиска тайтла в архиве");
+            tipsForm.SetToolTip(ArchiveSearchCheckBox, "Необходимо для поиска тайтла в архиве");
             tipsForm.SetToolTip(btnSearchExtension, "Добавляет тип, год, дату релиза, языки, режиссера и другое для выбранного тайтла");
             tipsForm.SetToolTip(btnSearch, "Кнопка для поиска по IMDB или архиву");
             tipsForm.SetToolTip(dateFrom, "Дата начала интервала");
@@ -127,6 +127,9 @@ namespace MediaApi.Forms
         /// <param name="e"></param>
         private async void btnSearch_Click(object sender, EventArgs e)
         {
+            WaitForm a = new WaitForm();
+            a.Show();
+
             if (string.IsNullOrEmpty(txtBoxSearch.Text) && !ArchiveSearchCheckBox.Checked)
             {
                 MessageBox.Show("Строка для поиска пустая");
@@ -154,6 +157,8 @@ namespace MediaApi.Forms
             listTitles.DataSource = activeJson.Results;
             listTitles.DisplayMember = "Title";
             listTitles.ValueMember = "Id";
+
+            a.Hide();
         }
 
         /// <summary>
@@ -163,6 +168,9 @@ namespace MediaApi.Forms
         /// <param name="e"></param>
         private async void btnSrchCountryDate_Click(object sender, EventArgs e)
         {
+            WaitForm a = new WaitForm();
+            a.Show();
+
             var fromD = dateFrom.Text.Split(".");
             var toD = dateTo.Text.Split(".");
             if (string.IsNullOrEmpty(fromD[2]) || string.IsNullOrEmpty(fromD[1]) || string.IsNullOrEmpty(toD[2]) || string.IsNullOrEmpty(toD[1]))
@@ -180,6 +188,8 @@ namespace MediaApi.Forms
 
             UpdateListOfMeta(activeJson);
             //Window_Loaded(sender, e, countryLang, fromD, toD);
+
+            a.Hide();
         }
 
         private async Task<FilmData> GetReleaseTitles(string uriDate, string language)
@@ -190,7 +200,7 @@ namespace MediaApi.Forms
                 try
                 {
                     if (language == "")
-                        releases = await client.GetStringAsync(apiUrlForNew + uriDate);
+                        releases = await client.GetStringAsync(apiUrlForNew + uriDate + "&count=250");
                     else
                         // Parse the JSON response
                         releases = await client.GetStringAsync(apiUrlForNew + uriDate + "&countries=" + language);
@@ -235,6 +245,9 @@ namespace MediaApi.Forms
         /// <param name="e"></param>
         private void btnAddTitle_Click(object sender, EventArgs e)
         {
+            WaitForm a = new WaitForm();
+            a.Show();
+
             string sameFilms = "";
             savedJson = HardTool.GetSavedJson("imdb");
             if (AllAddCheckBox.Checked && !sameJson)
@@ -272,7 +285,8 @@ namespace MediaApi.Forms
                 }
             }
             AllAddCheckBox.Checked = false;
-            MessageBox.Show("Добавлено");
+            //MessageBox.Show("Добавлено");
+            a.Hide();
         }
 
         private string AddNewItemToJson(JsonData a)
@@ -299,11 +313,11 @@ namespace MediaApi.Forms
                 //CompareTwoJsonFile(byref savedJson.Results[indexO], a);
                 if (savedJson.Results[indexO].LocationSearch is null)
                 {
-                    sameFilm = "\n" + a.Id + "_" + a.Title + ";";
+                    sameFilm = "\n" + a.Id + "_" + a.TitleOrigin + ";";
                 }
                 string.Concat(savedJson.Results[indexO].LocationSearch, "/" + a.LocationSearch);
             }
-            else sameFilm = "\n" + a.Id + "_" + a.Title + ";";
+            else sameFilm = "\n" + a.Id + "_" + a.TitleOrigin + ";";
             return sameFilm;
         }
 
@@ -341,7 +355,7 @@ namespace MediaApi.Forms
             activeJson = new FilmData();
             activeJson.Results = new List<JsonData>();
             savedJson = HardTool.GetSavedJson("imdb");
-            List<JsonData> ab = savedJson.Results.FindAll(f => f.Title.Contains(title, StringComparison.CurrentCultureIgnoreCase));
+            List<JsonData> ab = savedJson.Results.FindAll(f => f.TitleOrigin.Contains(title, StringComparison.CurrentCultureIgnoreCase));
             foreach (var elem in ab)
             {
                 activeJson.Results.Add(elem);
@@ -359,7 +373,8 @@ namespace MediaApi.Forms
             {
                 var i = listTitles.SelectedIndex;
                 lblInfo.Text = $"ID:             {activeJson.Results[i].Id}\n" +
-                              $"Title:          {activeJson.Results[i].Title}\n" +
+                              $"Title Origin:   {activeJson.Results[i].TitleOrigin}\n" +
+                              $"Title RUS:      {activeJson.Results[i].TitleRus}\n" +
                               $"Type:           {activeJson.Results[i].Type}\n" +
                               $"Year:           {activeJson.Results[i].Year}\n" +
                               $"Info:    {activeJson.Results[i].Description}\n" +
@@ -447,9 +462,12 @@ namespace MediaApi.Forms
         /// <param name="e"></param>
         private async void btnSearchExtension_Click(object sender, EventArgs e)
         {
+            WaitForm a = new WaitForm();
+            a.Show();
+            int i;
             try
             {
-                var i = listTitles.SelectedIndex;
+                i = listTitles.SelectedIndex;
                 FilmData info;
                 if (AllAddCheckBox.Checked)
                 {
@@ -474,6 +492,16 @@ namespace MediaApi.Forms
                         }
                     }
                 }
+                else if(OnlyNewCheckBox.Checked)
+                {
+                    foreach (string id in newAddedJson)
+                    {
+                        var obj = await UploadReleasesDates(activeJson.Results.Find(f => f.Id == id), id);
+                        if (obj is null) break;
+                        savedJson.Results.Add(obj);
+                    }
+                    HardTool.SaveJson(JsonConvert.SerializeObject(savedJson), "imdb");
+                }
                 else if (i != -1)
                 {
                     info = await GetInfoIDAsync(activeJson.Results[i].Id);
@@ -492,6 +520,9 @@ namespace MediaApi.Forms
             }
             AllAddCheckBox.Checked = false;
 
+            listTitles_SelectedIndexChanged(sender, e);
+
+            a.Hide();
         }
 
         private void SearchTitAdditionalInfoAdd(JsonData item)
@@ -587,7 +618,7 @@ namespace MediaApi.Forms
             {
                 activeJson = jsonnn;
                 listTitles.DataSource = activeJson.Results;
-                listTitles.DisplayMember = "Title";
+                listTitles.DisplayMember = "TitleOrigin";
                 listTitles.ValueMember = "Id";
             }
             catch (Exception ex)
@@ -630,6 +661,9 @@ namespace MediaApi.Forms
         /// <param name="e"></param>
         private async void btnInCountryRls_Click(object sender, EventArgs e)
         {
+            WaitForm a = new WaitForm();
+            a.Show();
+
             if (String.IsNullOrEmpty(cmbCountry.Text))
             {
                 MessageBox.Show("Выбери страну");
@@ -644,6 +678,8 @@ namespace MediaApi.Forms
                 FilmData newJ = Converter.CalendarToData(cdD, Structure.Language.countryCodeDictionary[country]);
                 UpdateListOfMeta(newJ);
             }
+
+            a.Hide();
         }
 
         /// <summary>
