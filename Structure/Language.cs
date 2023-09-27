@@ -33,6 +33,8 @@ namespace MediaApi.Structure
             country.MyList.Add(new MyObject { Id = 16, Country = "United Kingdom", Symbol = "gb" });
             country.MyList.Add(new MyObject { Id = 17, Country = "United States", Symbol = "us" });
             country.MyList.Add(new MyObject { Id = 18, Country = "West Germany", Symbol = "xwg" });
+            country.MyList.Add(new MyObject { Id = 19, Country = "Saudi Arabia", Symbol = "sa" });
+            country.MyList.Add(new MyObject { Id = 20, Country = "Egypt", Symbol = "eg" });
             return country;
 
         }
@@ -57,7 +59,9 @@ namespace MediaApi.Structure
             { "tr"   , "Turkey"},
             { "gb"   , "United Kingdom"},
             { "us"   , "United States"},
-            { "xwg"  , "West Germany"}
+            { "xwg"  , "West Germany"},
+            { "sa"  , "Saudi Arabia"},
+            { "eg"  , "Egypt"}
         };
 
     }

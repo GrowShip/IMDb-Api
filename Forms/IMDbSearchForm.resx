@@ -129,7 +129,7 @@
     <value>Segoe UI, 9.5pt</value>
   </data>
   <data name="btnSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>422, 41</value>
+    <value>421, 42</value>
   </data>
   <data name="btnSearch.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 38</value>
@@ -260,13 +260,13 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="lblInfo.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>210, 259</value>
+    <value>215, 259</value>
   </data>
   <data name="lblInfo.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>210, 259</value>
+    <value>215, 259</value>
   </data>
   <data name="lblInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 259</value>
+    <value>215, 259</value>
   </data>
   <data name="lblInfo.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -362,7 +362,7 @@
     <value>Segoe UI, 9.5pt</value>
   </data>
   <data name="btnFromArchive.Location" type="System.Drawing.Point, System.Drawing">
-    <value>749, 41</value>
+    <value>749, 42</value>
   </data>
   <data name="btnFromArchive.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 38</value>
@@ -647,7 +647,7 @@
     <value>Segoe UI, 9.5pt</value>
   </data>
   <data name="CmngSoonBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>644, 41</value>
+    <value>644, 42</value>
   </data>
   <data name="CmngSoonBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>99, 38</value>
@@ -716,7 +716,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnSrchCountryDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>644, 79</value>
+    <value>644, 80</value>
   </data>
   <data name="btnSrchCountryDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>99, 48</value>
@@ -938,7 +938,7 @@
     <value>Segoe UI, 9.5pt</value>
   </data>
   <data name="btnInCountryRls.Location" type="System.Drawing.Point, System.Drawing">
-    <value>749, 79</value>
+    <value>749, 80</value>
   </data>
   <data name="btnInCountryRls.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 48</value>
@@ -971,10 +971,10 @@
     <value>197, 277</value>
   </data>
   <data name="lblDates.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>210, 120</value>
+    <value>215, 120</value>
   </data>
   <data name="lblDates.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 120</value>
+    <value>215, 120</value>
   </data>
   <data name="lblDates.TabIndex" type="System.Int32, mscorlib">
     <value>36</value>

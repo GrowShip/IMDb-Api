@@ -493,7 +493,7 @@ namespace MediaApi.Forms
                         }
                     }
                 }
-                else if(OnlyNewCheckBox.Checked)
+                else if (OnlyNewCheckBox.Checked)
                 {
                     foreach (string id in newAddedJson)
                     {
