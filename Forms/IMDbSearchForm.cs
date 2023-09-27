@@ -168,9 +168,6 @@ namespace MediaApi.Forms
         /// <param name="e"></param>
         private async void btnSrchCountryDate_Click(object sender, EventArgs e)
         {
-            WaitForm a = new WaitForm();
-            a.Show();
-
             var fromD = dateFrom.Text.Split(".");
             var toD = dateTo.Text.Split(".");
             if (string.IsNullOrEmpty(fromD[2]) || string.IsNullOrEmpty(fromD[1]) || string.IsNullOrEmpty(toD[2]) || string.IsNullOrEmpty(toD[1]))
@@ -178,6 +175,10 @@ namespace MediaApi.Forms
                 MessageBox.Show("Не введены даты для поиска релизов");
                 return;
             }
+
+            WaitForm a = new WaitForm();
+            a.Show();
+
             // &release_date=2023-04-01,2023-06-01
             sameJson = false;
             string countryLang = cmbCountry.SelectedValue.ToString();
