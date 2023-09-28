@@ -268,6 +268,7 @@ namespace MediaApi.Forms
             {
                 MessageBox.Show("Ты хочешь добавить уже добавленное?", "Зачем?");
                 AllAddCheckBox.Checked = false;
+                a.Hide();
                 return;
             }
 
@@ -497,9 +498,9 @@ namespace MediaApi.Forms
                 {
                     foreach (string id in newAddedJson)
                     {
-                        var obj = await UploadReleasesDates(activeJson.Results.Find(f => f.Id == id), id);
-                        if (obj is null) break;
-                        savedJson.Results.Add(obj);
+                        info = await GetInfoIDAsync(id);
+                        var obj = await UploadReleasesDates(info.Results[0], info.Results[0].Id);
+                        SearchTitAdditionalInfoAdd(obj);
                     }
                     HardTool.SaveJson(JsonConvert.SerializeObject(savedJson), "imdb");
                 }
@@ -520,6 +521,7 @@ namespace MediaApi.Forms
                 throw;
             }
             AllAddCheckBox.Checked = false;
+            OnlyNewCheckBox.Checked = false;
 
             listTitles_SelectedIndexChanged(sender, e);
 
@@ -535,19 +537,25 @@ namespace MediaApi.Forms
             }
             else
             {
-                savedJson.Results[indexO].Type = item.Type;
-                savedJson.Results[indexO].Year = item.Year;
-                savedJson.Results[indexO].ReleaseDate = item.ReleaseDate;
-                savedJson.Results[indexO].RuntimeStr = item.RuntimeStr;
-                savedJson.Results[indexO].Awards = item.Awards;
-                savedJson.Results[indexO].Directors = item.Directors;
-                savedJson.Results[indexO].Stars = item.Stars;
+                //savedJson.Results[indexO].Type = item.Type;
+                //savedJson.Results[indexO].Year = item.Year;
+                //savedJson.Results[indexO].ReleaseDate = item.ReleaseDate;
+                //savedJson.Results[indexO].RuntimeStr = item.RuntimeStr;
+                //savedJson.Results[indexO].Awards = item.Awards;
+                //savedJson.Results[indexO].Directors = item.Directors;
+                //savedJson.Results[indexO].Stars = item.Stars;
+                //if (item.TitleOrigin  is not null) savedJson.Results[indexO].TitleOrigin = item.TitleOrigin;
+                //savedJson.Results[indexO].TitleRus = item.TitleRus;
+
                 //savedJson.Results[indexO].Companies = item.Companies;
                 //savedJson.Results[indexO].Languages = item.Languages;
                 //savedJson.Results[indexO].ContentRating = item.ContentRating;
-                savedJson.Results[indexO].Countries = item.Countries;
+
+                //savedJson.Results[indexO].Countries = item.Countries;
+
                 //savedJson.Results[indexO].IMDbRating = item.IMDbRating;
                 //savedJson.Results[indexO].Plot = item.Plot;
+
                 savedJson.Results[indexO].All = item.All;
 
                 PropertyInfo[] properties = savedJson.Results[indexO].GetType().GetProperties();
@@ -557,7 +565,9 @@ namespace MediaApi.Forms
                     object sourceValue = property.GetValue(item);
                     object targetValue = property.GetValue(savedJson.Results[indexO]);
 
-                    if (targetValue == null && sourceValue != null)
+                    //if (targetValue == null && sourceValue != null)
+                    //    property.SetValue(savedJson.Results[indexO], sourceValue);
+                    if (sourceValue != null)
                         property.SetValue(savedJson.Results[indexO], sourceValue);
                 }
             }

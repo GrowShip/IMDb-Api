@@ -45,7 +45,9 @@ namespace MediaApi.IMDB
         public ReleaseDates releaseDates { get; set; }
         public Akas akas { get; set; }
     }
+
     #region release dates
+
     public class ReleaseDates
     {
         public int total { get; set; }
@@ -104,13 +106,16 @@ namespace MediaApi.IMDB
     #endregion
 
     #region Akas title name in country
+
     public class Akas
     {
         public int total { get; set; }
         public List<Edge> edges { get; set; }
         public PageInfo pageInfo { get; set; }
     }
+
     #endregion
+    
     //+
     /// <summary>
     /// Work with Releases Dates in countries
@@ -122,11 +127,13 @@ namespace MediaApi.IMDB
         {
             int count = 0;
             CalendarD calendar = new CalendarD();
+            string endCourse = "";
             bool oneMore;
             do
             {
                 oneMore = false;
-                var respond = await MakeRequestForData(count, titleTt, "dates");
+                
+                var respond = await MakeRequestForData(count, titleTt, "dates", endCourse);
                 if (respond.Contains("No page results after cursor", StringComparison.CurrentCultureIgnoreCase))
                 {
                     if (count != 0) return calendar;
@@ -147,6 +154,7 @@ namespace MediaApi.IMDB
                 {
                     oneMore = true;
                     count++;
+                    endCourse = calendar.data.title.releaseDates.pageInfo.endCursor;
                     if (count >= 3) oneMore = false;
                 }
 
@@ -162,12 +170,13 @@ namespace MediaApi.IMDB
         {
             int count = 0;
             Akas inCounrtyTitle = new Akas();
-
+            string endCourse = "";
             bool oneMore;
             do
             {
                 oneMore = false;
-                var respond = await MakeRequestForData(count, titleTl, "titles");
+                
+                var respond = await MakeRequestForData(count, titleTl, "titles", endCourse);
                 if (respond.Contains("No page results after cursor", StringComparison.CurrentCultureIgnoreCase))
                 {
                     if (count != 0) return inCounrtyTitle;
@@ -188,16 +197,22 @@ namespace MediaApi.IMDB
                 {
                     oneMore = true;
                     count++;
+                    endCourse = inCounrtyTitle.pageInfo.endCursor;
                     if (count >= 3) oneMore = false;
                 }
 
             } while (oneMore);
 
-            return inCounrtyTitle;
+            //int emptyNode = inCounrtyTitle.edges.Find(f => f.node.country is null).position;
+            while (inCounrtyTitle.edges.Count >= 1 && inCounrtyTitle.edges[0].node.country is null)
+            {
+                inCounrtyTitle.edges.Remove(inCounrtyTitle.edges[0]);
+            }                  
 
+            return inCounrtyTitle;
         }
 
-        private static async Task<string> MakeRequestForData(int type, string tittleTt, string key)
+        private static async Task<string> MakeRequestForData(int type, string tittleTt, string key, string endCoursor)
         {
             string typeRequest = "";
             if (type == 0)
@@ -206,11 +221,14 @@ namespace MediaApi.IMDB
             }
             else if (type == 1)
             {
-                typeRequest = "NTQ=";
+                //typeRequest = "NTQ=";
+                typeRequest = "NDk=";
+                typeRequest = endCoursor;
             }
             else if (type == 2)
             {
                 typeRequest = "MTA0";
+                typeRequest = endCoursor;
             }
             else return string.Empty;
 
