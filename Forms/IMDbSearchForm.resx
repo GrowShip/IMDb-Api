@@ -187,7 +187,7 @@
     <value>15</value>
   </data>
   <data name="listTitles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>422, 130</value>
+    <value>422, 133</value>
   </data>
   <data name="listTitles.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
@@ -395,7 +395,7 @@
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
   <data name="lblSynopsis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 277</value>
+    <value>9, 280</value>
   </data>
   <data name="lblSynopsis.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>185, 120</value>
@@ -716,7 +716,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnSrchCountryDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>644, 80</value>
+    <value>644, 82</value>
   </data>
   <data name="btnSrchCountryDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>99, 48</value>
@@ -743,7 +743,7 @@
     <value>Top, Right</value>
   </data>
   <data name="cmbCountry.Location" type="System.Drawing.Point, System.Drawing">
-    <value>504, 78</value>
+    <value>504, 80</value>
   </data>
   <data name="cmbCountry.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 23</value>
@@ -776,7 +776,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblCountry.Location" type="System.Drawing.Point, System.Drawing">
-    <value>449, 81</value>
+    <value>449, 83</value>
   </data>
   <data name="lblCountry.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 19</value>
@@ -812,7 +812,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblReleaseDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>417, 104</value>
+    <value>417, 106</value>
   </data>
   <data name="lblReleaseDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 19</value>
@@ -845,7 +845,7 @@
     <value>NoControl</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>566, 106</value>
+    <value>566, 108</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>12, 15</value>
@@ -872,7 +872,7 @@
     <value>Top, Right</value>
   </data>
   <data name="dateFrom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>504, 102</value>
+    <value>504, 104</value>
   </data>
   <data name="dateFrom.Mask" xml:space="preserve">
     <value>00/00/0000</value>
@@ -902,7 +902,7 @@
     <value>Top, Right</value>
   </data>
   <data name="dateTo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>575, 102</value>
+    <value>575, 104</value>
   </data>
   <data name="dateTo.Mask" xml:space="preserve">
     <value>00/00/0000</value>
@@ -938,7 +938,7 @@
     <value>Segoe UI, 9.5pt</value>
   </data>
   <data name="btnInCountryRls.Location" type="System.Drawing.Point, System.Drawing">
-    <value>749, 80</value>
+    <value>749, 82</value>
   </data>
   <data name="btnInCountryRls.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 48</value>
@@ -968,7 +968,7 @@
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
   <data name="lblDates.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 277</value>
+    <value>197, 281</value>
   </data>
   <data name="lblDates.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>215, 120</value>

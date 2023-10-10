@@ -10,6 +10,8 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using MediaApi.Structure;
+using System.Diagnostics.Eventing.Reader;
+using Microsoft.VisualBasic;
 
 namespace MediaApi
 {
@@ -95,7 +97,19 @@ namespace MediaApi
         public static void MakeAnArchive(string system)
         {
             var oldNameFullPath = AppDomain.CurrentDomain.BaseDirectory + $"JSON\\{system}\\file.json";
-            var newNameFullPath = AppDomain.CurrentDomain.BaseDirectory + $"JSON\\{system}\\{DateTime.Now.ToShortDateString()}.json";
+
+            string inserting = "";
+            using (var filenameForm = new Forms.InputBoxForm())
+            {
+                if (filenameForm.ShowDialog() == DialogResult.OK)
+                {
+                    if (filenameForm.filename.Length > 0)
+                        inserting = filenameForm.filename;
+                }
+                else inserting = DateTime.Now.ToShortDateString();
+            }
+
+            var newNameFullPath = AppDomain.CurrentDomain.BaseDirectory + $"JSON\\{system}\\{inserting}.json";
             RemoveAnArchive(newNameFullPath);
             File.Move(oldNameFullPath,newNameFullPath);
         }
