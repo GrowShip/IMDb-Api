@@ -315,11 +315,11 @@ namespace MediaApi.Forms
                 //CompareTwoJsonFile(byref savedJson.Results[indexO], a);
                 if (savedJson.Results[indexO].LocationSearch is null)
                 {
-                    sameFilm = "\n" + a.Id + "_" + a.TitleOrigin + ";";
+                    sameFilm = "\n" + a.Id + "_" + a.Title + ";";
                 }
                 string.Concat(savedJson.Results[indexO].LocationSearch, "/" + a.LocationSearch);
             }
-            else sameFilm = "\n" + a.Id + "_" + a.TitleOrigin + ";";
+            else sameFilm = "\n" + a.Id + "_" + a.Title + ";";
             return sameFilm;
         }
 
@@ -357,7 +357,7 @@ namespace MediaApi.Forms
             activeJson = new FilmData();
             activeJson.Results = new List<JsonData>();
             savedJson = HardTool.GetSavedJson("imdb");
-            List<JsonData> ab = savedJson.Results.FindAll(f => f.TitleOrigin.Contains(title, StringComparison.CurrentCultureIgnoreCase));
+            List<JsonData> ab = savedJson.Results.FindAll(f => f.Title.Contains(title, StringComparison.CurrentCultureIgnoreCase));
             foreach (var elem in ab)
             {
                 activeJson.Results.Add(elem);
@@ -375,7 +375,7 @@ namespace MediaApi.Forms
             {
                 var i = listTitles.SelectedIndex;
                 lblInfo.Text = $"ID:             {activeJson.Results[i].Id}\n" +
-                              $"Title Origin:   {activeJson.Results[i].TitleOrigin}\n" +
+                              $"Title Origin:   {activeJson.Results[i].Title}\n" +
                               $"Title RUS:      {activeJson.Results[i].TitleRus}\n" +
                               $"Type:           {activeJson.Results[i].Type}\n" +
                               $"Year:           {activeJson.Results[i].Year}\n" +
@@ -629,7 +629,7 @@ namespace MediaApi.Forms
             {
                 activeJson = jsonnn;
                 listTitles.DataSource = activeJson.Results;
-                listTitles.DisplayMember = "TitleOrigin";
+                listTitles.DisplayMember = "Title";
                 listTitles.ValueMember = "Id";
             }
             catch (Exception ex)
@@ -675,8 +675,9 @@ namespace MediaApi.Forms
             WaitForm a = new WaitForm();
             a.Show();
 
-            if (String.IsNullOrEmpty(cmbCountry.Text))
+            if (String.IsNullOrEmpty(cmbCountry.Text) || cmbCountry.Text.Length < 2)
             {
+                a.Hide();
                 MessageBox.Show("Выбери страну");
                 return;
             }

@@ -133,14 +133,15 @@ namespace MediaApi
 
                 // Set column headers
                 worksheet.Cells[1, 1].Value = "Type";
-                worksheet.Cells[1, 2].Value = "Title";
-                worksheet.Cells[1, 3].Value = "Airline Release";
+                worksheet.Cells[1, 2].Value = "Title origin";
+                worksheet.Cells[1, 3].Value = "Title RUS";
                 worksheet.Cells[1, 4].Value = "Genre";
                 worksheet.Cells[1, 5].Value = "Studio";
                 worksheet.Cells[1, 6].Value = "Year";
                 worksheet.Cells[1, 7].Value = "Rating IMDB";
                 worksheet.Cells[1, 8].Value = "Award";
                 worksheet.Cells[1, 9].Value = "Gross World";
+                worksheet.Cells[1, 10].Value = "Airline Release";
                 //worksheet.Cells[1, 10].Value = "Release Date";
                 worksheet.Cells[1, 11].Value = "Release Country";
                 worksheet.Cells[1, 12].Value = "Snopsys";
@@ -174,7 +175,8 @@ namespace MediaApi
                         foreach (var release in newAddedJson)
                         {
                             worksheet.Cells[row, 1].Value = savedJson.Results.Find(f => f.Id == release).Type;
-                            worksheet.Cells[row, 2].Value = savedJson.Results.Find(f => f.Id == release).TitleOrigin;
+                            worksheet.Cells[row, 2].Value = savedJson.Results.Find(f => f.Id == release).Title;
+                            worksheet.Cells[row, 3].Value = savedJson.Results.Find(f => f.Id == release).TitleRus;
                             worksheet.Cells[row, 4].Value = savedJson.Results.Find(f => f.Id == release).Genres;
                             //worksheet.Cells[row, 5].Value = savedJson.Results.Find(f => f.Id == release).LocationSearch;
                             worksheet.Cells[row, 6].Value = savedJson.Results.Find(f => f.Id == release).Year;
@@ -215,7 +217,8 @@ namespace MediaApi
                     {
 
                         worksheet.Cells[row, 1].Value = release.Type;
-                        worksheet.Cells[row, 2].Value = release.TitleOrigin;
+                        worksheet.Cells[row, 2].Value = release.Title;
+                        worksheet.Cells[row, 3].Value = release.TitleRus;
                         worksheet.Cells[row, 4].Value = release.Genres;
                         //worksheet.Cells[row, 5].Value = release.LocationSearch;
                         worksheet.Cells[row, 6].Value = release.Year;
@@ -247,15 +250,15 @@ namespace MediaApi
 
                 //width              
                 worksheet.Columns[1].Width = 7;     //Type;
-                worksheet.Columns[2].Width = 35;    //Title;
-                worksheet.Columns[3].Width = 17;    //Airline Release;
+                worksheet.Columns[2].Width = 35;    //Title origin;
+                worksheet.Columns[3].Width = 35;    //Title RUS
                 worksheet.Columns[4].Width = 29;    //Genre;
                 worksheet.Columns[5].Width = 22;     //Studia;
                 worksheet.Columns[6].Width = 11;    //Year;
                 worksheet.Columns[7].Width = 11;    //Rating IMDB;
                 worksheet.Columns[8].Width = 16;     //Awards
                 worksheet.Columns[9].Width = 16;     //Gross
-                worksheet.Columns[10].Width = 3;    //
+                worksheet.Columns[10].Width = 17;    //Airline Release
                 worksheet.Columns[11].Width = 22;   //Release Сountry;
                 worksheet.Columns[12].Width = 22;   //Snopsys;
                 worksheet.Columns[13].Width = 10;   //Id;
