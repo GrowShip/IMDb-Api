@@ -241,10 +241,15 @@ namespace MediaApi.Structure
 
             foreach (var item in calendar.data.title.releaseDates.edges)
             {
-                if (item.node.attributes.Count == 0 || item.node.attributes[0].id == "internet")
+                if (item.node.attributes.Count == 0 || item.node.attributes[0].id.Contains("internet", StringComparison.CurrentCultureIgnoreCase) || item.node.attributes[0].id.Contains("limited", StringComparison.CurrentCultureIgnoreCase))
                 {
                     string notes = "";
-                    if (item.node.attributes.Count != 0) notes = " (internet)";
+                    if(item.node.attributes.Count != 0)
+                    { 
+                        if (item.node.attributes[0].id.Contains("internet", StringComparison.CurrentCultureIgnoreCase)) notes = " (internet)";
+                        if (item.node.attributes[0].id.Contains("limited", StringComparison.CurrentCultureIgnoreCase)) notes = " (limited)";
+                    }
+                    
                     switch (item.node.country.id.ToLower())
                     {
                         case ("us"):
