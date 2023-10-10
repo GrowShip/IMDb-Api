@@ -254,34 +254,42 @@ namespace MediaApi.Structure
                     {
                         case ("us"):
                             if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.US.releaseDate)) break;
+                            if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.US.releaseDate) && !data.All.US.releaseDate.Contains("internet")) break;
                             data.All.US.releaseDate = item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("de"):
                             if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.DE.releaseDate)) break;
+                            if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.DE.releaseDate) && !data.All.DE.releaseDate.Contains("internet")) break;
                             data.All.DE.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("it"):
                             if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.IT.releaseDate)) break;
+                            if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.IT.releaseDate) && !data.All.IT.releaseDate.Contains("internet")) break;
                             data.All.IT.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("es"):
                             if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.ES.releaseDate)) break;
+                            if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.ES.releaseDate) && !data.All.ES.releaseDate.Contains("internet")) break;
                             data.All.ES.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("gb"):
                             if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.GB.releaseDate)) break;
+                            if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.GB.releaseDate) && !data.All.GB.releaseDate.Contains("internet")) break;
                             data.All.GB.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("fr"):
                             if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.FR.releaseDate)) break;
+                            if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.FR.releaseDate) && !data.All.FR.releaseDate.Contains("internet")) break;
                             data.All.FR.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("cn"):
                             if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.CN.releaseDate)) break;
+                            if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.CN.releaseDate) && !data.All.CN.releaseDate.Contains("internet")) break;
                             data.All.CN.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         case ("ru"):
                             if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.RU.releaseDate)) break;
+                            if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.RU.releaseDate) && !data.All.RU.releaseDate.Contains("internet")) break;
                             data.All.RU.releaseDate= item.node.displayableProperty.value.plainText + notes;
                             break;
                         default:
