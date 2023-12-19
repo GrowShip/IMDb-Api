@@ -63,6 +63,16 @@ namespace MediaApi.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap clossSymb {
+            get {
+                object obj = ResourceManager.GetObject("clossSymb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap cross_out__2_ {
             get {
                 object obj = ResourceManager.GetObject("cross-out (2)", resourceCulture);
@@ -86,6 +96,16 @@ namespace MediaApi.Properties {
         public static System.Drawing.Bitmap KinopoiskFull {
             get {
                 object obj = ResourceManager.GetObject("KinopoiskFull", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap whiteClose {
+            get {
+                object obj = ResourceManager.GetObject("whiteClose", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
