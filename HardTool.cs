@@ -138,7 +138,17 @@ namespace MediaApi
         private static void SaveReleasesToExceMethod(FilmData savedJson, bool onlyNewCheckBox, List<string> newAddedJson)
         {
             HardTool.SaveJson(JsonConvert.SerializeObject(savedJson), "imdb");
-
+            var langList = new List<string>()
+            {
+                "US",
+                "DE",
+                "IT",
+                "ES",
+                "GB",
+                "FR",
+                "CN",
+                "RU"
+            };
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             // Create a new Excel package
             using (ExcelPackage package = new ExcelPackage())
@@ -188,33 +198,50 @@ namespace MediaApi
                     {
                         foreach (var release in newAddedJson)
                         {
-                            worksheet.Cells[row, 1].Value = savedJson.Results.Find(f => f.Id == release).Type;
-                            worksheet.Cells[row, 2].Value = savedJson.Results.Find(f => f.Id == release).Title;
-                            worksheet.Cells[row, 3].Value = savedJson.Results.Find(f => f.Id == release).TitleRus;
-                            worksheet.Cells[row, 4].Value = savedJson.Results.Find(f => f.Id == release).Genres;
+                            var tempA = savedJson.Results.Find(f => f.Id == release);
+                            
+                            worksheet.Cells[row, 1].Value = tempA.Type;
+                            worksheet.Cells[row, 2].Value = tempA.Title;
+                            worksheet.Cells[row, 3].Value = tempA.TitleRus;
+                            worksheet.Cells[row, 4].Value = tempA.Genres;
                             //worksheet.Cells[row, 5].Value = savedJson.Results.Find(f => f.Id == release).LocationSearch;
-                            worksheet.Cells[row, 6].Value = savedJson.Results.Find(f => f.Id == release).Year;
-                            worksheet.Cells[row, 7].Value = savedJson.Results.Find(f => f.Id == release).IMDbRating;
-                            worksheet.Cells[row, 8].Value = savedJson.Results.Find(f => f.Id == release).Awards;
-                            worksheet.Cells[row, 9].Value = savedJson.Results.Find(f => f.Id == release).GrossWorld;
+                            worksheet.Cells[row, 6].Value = tempA.Year;
+                            worksheet.Cells[row, 7].Value = tempA.IMDbRating;
+                            worksheet.Cells[row, 8].Value = tempA.Awards;
+                            worksheet.Cells[row, 9].Value = tempA.GrossWorld;
                             //worksheet.Cells[row, 10].Value = savedJson.Results.Find(f => f.Id == release).ReleaseDate;
-                            worksheet.Cells[row, 11].Value = savedJson.Results.Find(f => f.Id == release).Countries;
-                            worksheet.Cells[row, 12].Value = savedJson.Results.Find(f => f.Id == release).Plot;
-                            worksheet.Cells[row, 13].Value = savedJson.Results.Find(f => f.Id == release).Id;
-                            worksheet.Cells[row, 14].Value = savedJson.Results.Find(f => f.Id == release).RuntimeStr;
-                            worksheet.Cells[row, 15].Value = savedJson.Results.Find(f => f.Id == release).Description;
-                            worksheet.Cells[row, 16].Value = savedJson.Results.Find(f => f.Id == release).Directors;
-                            worksheet.Cells[row, 17].Value = savedJson.Results.Find(f => f.Id == release).Stars;
-                            if (savedJson.Results.Find(f => f.Id == release).All is not null)
+                            worksheet.Cells[row, 11].Value = tempA.Countries;
+                            worksheet.Cells[row, 12].Value = tempA.Plot;
+                            worksheet.Cells[row, 13].Value = tempA.Id;
+                            var a = savedJson.Results.Find(f => f.Id == release).Id;
+                            worksheet.Cells[row, 14].Value = tempA.RuntimeStr;
+                            worksheet.Cells[row, 15].Value = tempA.Description;
+                            worksheet.Cells[row, 16].Value = tempA.Directors;
+                            worksheet.Cells[row, 17].Value = tempA.Stars;
+                            if (tempA.CounrtyReleaseAll is not null)
                             {
-                                worksheet.Cells[row, 18].Value = savedJson.Results.Find(f => f.Id == release).All.US.releaseDate;
-                                worksheet.Cells[row, 19].Value = savedJson.Results.Find(f => f.Id == release).All.DE.releaseDate;
-                                worksheet.Cells[row, 20].Value = savedJson.Results.Find(f => f.Id == release).All.IT.releaseDate;
-                                worksheet.Cells[row, 21].Value = savedJson.Results.Find(f => f.Id == release).All.ES.releaseDate;
-                                worksheet.Cells[row, 22].Value = savedJson.Results.Find(f => f.Id == release).All.GB.releaseDate;
-                                worksheet.Cells[row, 23].Value = savedJson.Results.Find(f => f.Id == release).All.FR.releaseDate;
-                                worksheet.Cells[row, 24].Value = savedJson.Results.Find(f => f.Id == release).All.CN.releaseDate;
-                                worksheet.Cells[row, 25].Value = savedJson.Results.Find(f => f.Id == release).All.RU.releaseDate;
+                                //worksheet.Cells[row, 18].Value = savedJson.Results.Find(f => f.Id == release).All.US.releaseDate;
+                                //worksheet.Cells[row, 19].Value = savedJson.Results.Find(f => f.Id == release).All.DE.releaseDate;
+                                //worksheet.Cells[row, 20].Value = savedJson.Results.Find(f => f.Id == release).All.IT.releaseDate;
+                                //worksheet.Cells[row, 21].Value = savedJson.Results.Find(f => f.Id == release).All.ES.releaseDate;
+                                //worksheet.Cells[row, 22].Value = savedJson.Results.Find(f => f.Id == release).All.GB.releaseDate;
+                                //worksheet.Cells[row, 23].Value = savedJson.Results.Find(f => f.Id == release).All.FR.releaseDate;
+                                //worksheet.Cells[row, 24].Value = savedJson.Results.Find(f => f.Id == release).All.CN.releaseDate;
+                                //worksheet.Cells[row, 25].Value = savedJson.Results.Find(f => f.Id == release).All.RU.releaseDate;
+                                for (int i = 0; i < langList.Count; i++)
+                                {
+                                    var CR = new CounrtyRelease();
+                                    if (tempA.CounrtyReleaseAll.TryGetValue(langList[i], out CR))
+                                        worksheet.Cells[row, 18 + i].Value = CR.releaseDate;
+                                }
+                                //worksheet.Cells[row, 18].Value = tempA.CounrtyReleaseAll["US"].releaseDate;
+                                //worksheet.Cells[row, 19].Value = tempA.CounrtyReleaseAll["DE"].releaseDate;
+                                //worksheet.Cells[row, 20].Value = tempA.CounrtyReleaseAll["IT"].releaseDate;
+                                //worksheet.Cells[row, 21].Value = tempA.CounrtyReleaseAll["ES"].releaseDate;
+                                //worksheet.Cells[row, 22].Value = tempA.CounrtyReleaseAll["GB"].releaseDate;
+                                //worksheet.Cells[row, 23].Value = tempA.CounrtyReleaseAll["FR"].releaseDate;
+                                //worksheet.Cells[row, 24].Value = tempA.CounrtyReleaseAll["CN"].releaseDate;
+                                //worksheet.Cells[row, 25].Value = tempA.CounrtyReleaseAll["RU"].releaseDate;
                             }
                             row++;
                         }
@@ -247,16 +274,30 @@ namespace MediaApi
                         worksheet.Cells[row, 15].Value = release.Description;
                         worksheet.Cells[row, 16].Value = release.Directors;
                         worksheet.Cells[row, 17].Value = release.Stars;
-                        if (release.All is not null)
+                        if (release.CounrtyReleaseAll is not null)
                         {
-                            worksheet.Cells[row, 18].Value = release.All.US.releaseDate;
-                            worksheet.Cells[row, 19].Value = release.All.DE.releaseDate;
-                            worksheet.Cells[row, 20].Value = release.All.IT.releaseDate;
-                            worksheet.Cells[row, 21].Value = release.All.ES.releaseDate;
-                            worksheet.Cells[row, 22].Value = release.All.GB.releaseDate;
-                            worksheet.Cells[row, 23].Value = release.All.FR.releaseDate;
-                            worksheet.Cells[row, 24].Value = release.All.CN.releaseDate;
-                            worksheet.Cells[row, 25].Value = release.All.RU.releaseDate;
+                            //worksheet.Cells[row, 18].Value = release.All.US.releaseDate;
+                            //worksheet.Cells[row, 19].Value = release.All.DE.releaseDate;
+                            //worksheet.Cells[row, 20].Value = release.All.IT.releaseDate;
+                            //worksheet.Cells[row, 21].Value = release.All.ES.releaseDate;
+                            //worksheet.Cells[row, 22].Value = release.All.GB.releaseDate;
+                            //worksheet.Cells[row, 23].Value = release.All.FR.releaseDate;
+                            //worksheet.Cells[row, 24].Value = release.All.CN.releaseDate;
+                            //worksheet.Cells[row, 25].Value = release.All.RU.releaseDate;
+                            for (int i = 0; i < langList.Count; i++)
+                            {
+                                var CR = new CounrtyRelease();
+                                if (release.CounrtyReleaseAll.TryGetValue(langList[i], out CR))
+                                    worksheet.Cells[row, 18 + i].Value = CR.releaseDate;
+                            }
+                            //worksheet.Cells[row, 18].Value = release.CounrtyReleaseAll["US"].releaseDate;
+                            //worksheet.Cells[row, 19].Value = release.CounrtyReleaseAll["DE"].releaseDate;
+                            //worksheet.Cells[row, 20].Value = release.CounrtyReleaseAll["IT"].releaseDate;
+                            //worksheet.Cells[row, 21].Value = release.CounrtyReleaseAll["ES"].releaseDate;
+                            //worksheet.Cells[row, 22].Value = release.CounrtyReleaseAll["GB"].releaseDate;
+                            //worksheet.Cells[row, 23].Value = release.CounrtyReleaseAll["FR"].releaseDate;
+                            //worksheet.Cells[row, 24].Value = release.CounrtyReleaseAll["CN"].releaseDate;
+                            //worksheet.Cells[row, 25].Value = release.CounrtyReleaseAll["RU"].releaseDate;
                         }
                         row++;
                     }
