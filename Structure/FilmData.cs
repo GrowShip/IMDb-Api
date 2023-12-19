@@ -42,10 +42,10 @@ namespace MediaApi.Structure
 
         public string GrossWorld { get; set; }
 
-        public CounrtyReleaseAll All { get; set; }
+        public Dictionary<string, CounrtyRelease> CounrtyReleaseAll { get; set; }
     }
 
-    public class CounrtyReleaseAll
+    public class CounrtyReleaseAllO
     {
         public CounrtyRelease US { get; set; }
         public CounrtyRelease DE { get; set; }
@@ -204,40 +204,33 @@ namespace MediaApi.Structure
 
         public static JsonData EnterReleasesDates(CalendarD calendar, JsonData data)
         {
-            try
-            {
-                data.TitleRus = calendar.data.title.akas.edges.Find(f => f.node.country.id == "RU").node.displayableProperty.value.plainText;
-            }
-            catch (Exception ex)
-            {
-                data.TitleRus = "";
-            }
+            data.CounrtyReleaseAll = new Dictionary<string, CounrtyRelease>();
                 
-                data.All = new CounrtyReleaseAll();
-                data.All.US = new CounrtyRelease();
-                data.All.US.code = "US";
-                data.All.US.country = "United States";
-                data.All.DE = new CounrtyRelease();
-                data.All.DE.code = "DE";
-                data.All.DE.country = "Germany";
-                data.All.IT = new CounrtyRelease();
-                data.All.IT.code = "IT";
-                data.All.IT.country = "Italy";
-                data.All.ES = new CounrtyRelease();
-                data.All.ES.code = "ES";
-                data.All.ES.country = "Spain";
-                data.All.GB = new CounrtyRelease();
-                data.All.GB.code = "GB";
-                data.All.GB.country = "United Kingdom";
-                data.All.FR = new CounrtyRelease();
-                data.All.FR.code = "FR";
-                data.All.FR.country = "France";
-                data.All.CN = new CounrtyRelease();
-                data.All.CN.code = "CN";
-                data.All.CN.country = "China";
-                data.All.RU = new CounrtyRelease();
-                data.All.RU.code = "RU";
-                data.All.RU.country = "Russia";
+                //data.All = new CounrtyReleaseAll();
+                //data.All.US = new CounrtyRelease();
+                //data.All.US.code = "US";
+                //data.All.US.country = "United States";
+                //data.All.DE = new CounrtyRelease();
+                //data.All.DE.code = "DE";
+                //data.All.DE.country = "Germany";
+                //data.All.IT = new CounrtyRelease();
+                //data.All.IT.code = "IT";
+                //data.All.IT.country = "Italy";
+                //data.All.ES = new CounrtyRelease();
+                //data.All.ES.code = "ES";
+                //data.All.ES.country = "Spain";
+                //data.All.GB = new CounrtyRelease();
+                //data.All.GB.code = "GB";
+                //data.All.GB.country = "United Kingdom";
+                //data.All.FR = new CounrtyRelease();
+                //data.All.FR.code = "FR";
+                //data.All.FR.country = "France";
+                //data.All.CN = new CounrtyRelease();
+                //data.All.CN.code = "CN";
+                //data.All.CN.country = "China";
+                //data.All.RU = new CounrtyRelease();
+                //data.All.RU.code = "RU";
+                //data.All.RU.country = "Russia";
 
             foreach (var item in calendar.data.title.releaseDates.edges)
             {
@@ -249,48 +242,90 @@ namespace MediaApi.Structure
                         if (item.node.attributes[0].id.Contains("internet", StringComparison.CurrentCultureIgnoreCase)) notes = " (internet)";
                         if (item.node.attributes[0].id.Contains("limited", StringComparison.CurrentCultureIgnoreCase)) notes = " (limited)";
                     }
-                    
+
+                    #region
+                    //switch (item.node.country.id.ToLower())
+                    //{
+                    //    case ("us"):
+
+                    //        if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.US.releaseDate)) break;
+                    //        if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.US.releaseDate) && !data.All.US.releaseDate.Contains("internet")) break;
+                    //        data.All.US.releaseDate = item.node.displayableProperty.value.plainText + notes;
+                    //        break;
+                    //    case ("de"):
+                    //        if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.DE.releaseDate)) break;
+                    //        if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.DE.releaseDate) && !data.All.DE.releaseDate.Contains("internet")) break;
+                    //        data.All.DE.releaseDate= item.node.displayableProperty.value.plainText + notes;
+                    //        break;
+                    //    case ("it"):
+                    //        if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.IT.releaseDate)) break;
+                    //        if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.IT.releaseDate) && !data.All.IT.releaseDate.Contains("internet")) break;
+                    //        data.All.IT.releaseDate= item.node.displayableProperty.value.plainText + notes;
+                    //        break;
+                    //    case ("es"):
+                    //        if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.ES.releaseDate)) break;
+                    //        if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.ES.releaseDate) && !data.All.ES.releaseDate.Contains("internet")) break;
+                    //        data.All.ES.releaseDate= item.node.displayableProperty.value.plainText + notes;
+                    //        break;
+                    //    case ("gb"):
+                    //        if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.GB.releaseDate)) break;
+                    //        if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.GB.releaseDate) && !data.All.GB.releaseDate.Contains("internet")) break;
+                    //        data.All.GB.releaseDate= item.node.displayableProperty.value.plainText + notes;
+                    //        break;
+                    //    case ("fr"):
+                    //        if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.FR.releaseDate)) break;
+                    //        if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.FR.releaseDate) && !data.All.FR.releaseDate.Contains("internet")) break;
+                    //        data.All.FR.releaseDate= item.node.displayableProperty.value.plainText + notes;
+                    //        break;
+                    //    case ("cn"):
+                    //        if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.CN.releaseDate)) break;
+                    //        if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.CN.releaseDate) && !data.All.CN.releaseDate.Contains("internet")) break;
+                    //        data.All.CN.releaseDate= item.node.displayableProperty.value.plainText + notes;
+                    //        break;
+                    //    case ("ru"):
+                    //        if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.RU.releaseDate)) break;
+                    //        if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.RU.releaseDate) && !data.All.RU.releaseDate.Contains("internet")) break;
+                    //        try
+                    //        {
+                    //            data.TitleRus = calendar.data.title.akas.edges.Find(f => f.node.country.id == "RU").node.displayableProperty.value.plainText;
+                    //        }
+                    //        catch (Exception ex)
+                    //        {
+                    //            data.TitleRus = "";
+                    //        }
+                    //        data.All.RU.releaseDate= item.node.displayableProperty.value.plainText + notes;
+                    //        break;
+                    //    default:
+                    //        break;
+                    //}
+                    #endregion
+                    bool a;
                     switch (item.node.country.id.ToLower())
                     {
                         case ("us"):
-                            if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.US.releaseDate)) break;
-                            if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.US.releaseDate) && !data.All.US.releaseDate.Contains("internet")) break;
-                            data.All.US.releaseDate = item.node.displayableProperty.value.plainText + notes;
+                            a = ChechAvailCountry(ref data, item, "United States", notes);
                             break;
                         case ("de"):
-                            if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.DE.releaseDate)) break;
-                            if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.DE.releaseDate) && !data.All.DE.releaseDate.Contains("internet")) break;
-                            data.All.DE.releaseDate= item.node.displayableProperty.value.plainText + notes;
+                            a = ChechAvailCountry(ref data, item, "Germany", notes);
                             break;
                         case ("it"):
-                            if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.IT.releaseDate)) break;
-                            if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.IT.releaseDate) && !data.All.IT.releaseDate.Contains("internet")) break;
-                            data.All.IT.releaseDate= item.node.displayableProperty.value.plainText + notes;
+                            a = ChechAvailCountry(ref data, item, "Italy", notes);
                             break;
                         case ("es"):
-                            if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.ES.releaseDate)) break;
-                            if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.ES.releaseDate) && !data.All.ES.releaseDate.Contains("internet")) break;
-                            data.All.ES.releaseDate= item.node.displayableProperty.value.plainText + notes;
+                            a = ChechAvailCountry(ref data, item, "Spain", notes);
                             break;
                         case ("gb"):
-                            if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.GB.releaseDate)) break;
-                            if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.GB.releaseDate) && !data.All.GB.releaseDate.Contains("internet")) break;
-                            data.All.GB.releaseDate= item.node.displayableProperty.value.plainText + notes;
+                            a = ChechAvailCountry(ref data, item, "United Kingdom", notes);
                             break;
                         case ("fr"):
-                            if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.FR.releaseDate)) break;
-                            if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.FR.releaseDate) && !data.All.FR.releaseDate.Contains("internet")) break;
-                            data.All.FR.releaseDate= item.node.displayableProperty.value.plainText + notes;
+                            a = ChechAvailCountry(ref data, item, "France", notes);
                             break;
                         case ("cn"):
-                            if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.CN.releaseDate)) break;
-                            if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.CN.releaseDate) && !data.All.CN.releaseDate.Contains("internet")) break;
-                            data.All.CN.releaseDate= item.node.displayableProperty.value.plainText + notes;
+                            a = ChechAvailCountry(ref data, item, "China", notes);
                             break;
                         case ("ru"):
-                            if (notes.Contains("internet") && !String.IsNullOrEmpty(data.All.RU.releaseDate)) break;
-                            if (notes.Contains("limited") && !String.IsNullOrEmpty(data.All.RU.releaseDate) && !data.All.RU.releaseDate.Contains("internet")) break;
-                            data.All.RU.releaseDate= item.node.displayableProperty.value.plainText + notes;
+                            a = ChechAvailCountry(ref data, item, "Russia", notes);
+                            data.TitleRus = calendar.data.title.akas.edges.Find(f => f.node.country.id == "RU").node.displayableProperty.value.plainText;
                             break;
                         default:
                             break;
@@ -298,6 +333,29 @@ namespace MediaApi.Structure
                 }
             }
             return data;
+        }
+
+        static private bool ChechAvailCountry(ref JsonData data, Edge element, string country, string noteIn)
+        {
+            if (!data.CounrtyReleaseAll.ContainsKey(element.node.country.id))
+            {
+                data.CounrtyReleaseAll.Add(element.node.country.id, new CounrtyRelease()
+                {
+                    code = element.node.country.id,
+                    country = country,
+                    releaseDate = element.node.displayableProperty.value.plainText + noteIn
+
+                });
+                return false;
+            }
+            else
+            {
+                if (noteIn.Contains("internet") && !String.IsNullOrEmpty(data.CounrtyReleaseAll[element.node.country.id].releaseDate)) return true;
+                if (noteIn.Contains("limited") && !String.IsNullOrEmpty(data.CounrtyReleaseAll[element.node.country.id].releaseDate) && !data.CounrtyReleaseAll[element.node.country.id].releaseDate.Contains("internet")) return true;
+                data.CounrtyReleaseAll[element.node.country.id].releaseDate = element.node.displayableProperty.value.plainText + noteIn;
+                return true;
+            }    
+
         }
     }
 }

@@ -62,10 +62,11 @@
             // btnClose
             // 
             resources.ApplyResources(btnClose, "btnClose");
+            btnClose.BackColor = Color.FromArgb(12, 12, 12);
             btnClose.ForeColor = Color.FromArgb(25, 25, 25);
-            btnClose.Image = Properties.Resources.cross_out__2_;
+            btnClose.Image = Properties.Resources.whiteClose;
             btnClose.Name = "btnClose";
-            btnClose.UseVisualStyleBackColor = true;
+            btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
             // btnIMDb

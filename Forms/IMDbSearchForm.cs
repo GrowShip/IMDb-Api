@@ -18,6 +18,7 @@ using MediaApi.IMDB;
 using MediaApi.Structure;
 using System.Xml.Serialization;
 using System.Reflection;
+using System.Text;
 
 namespace MediaApi.Forms
 {
@@ -81,7 +82,7 @@ namespace MediaApi.Forms
         private Boolean sameJson;
         public Form activeForm2;
 
-        private string apiUrlForNew = $"https://imdb-api.com/API/AdvancedSearch/{KeysAccess.GetRandomValue()}/?title_type=tv_movie,tv_series,tv_episode,documentary,video";
+        private string apiUrlForNew = $"https://imdb-api.com/API/AdvancedSearch/{KeysAccess.GetRandomValue()}/?";
         private static string TitleUrl = $"https://imdb-api.com/en/API/Title/{KeysAccess.GetRandomValue()}/";
 
         //private string UpComingUrl = $"https://imdb-api.com/en/API/ComingSoon/{KeysAccess.GetRandomValue()}";
@@ -371,6 +372,7 @@ namespace MediaApi.Forms
         /// <param name="e"></param>
         private void listTitles_SelectedIndexChanged(object sender, EventArgs e)
         {
+            prgProccess.Visible = false;
             try
             {
                 var i = listTitles.SelectedIndex;
@@ -395,16 +397,22 @@ namespace MediaApi.Forms
                 linkLabel1.Text = activeJson.Results[i].Image;
                 pictPoster.ImageLocation = activeJson.Results[i].Image;
 
-                if (activeJson.Results[i].All is not null)
+                if (activeJson.Results[i].CounrtyReleaseAll is not null)
                 {
-                    lblDates.Text = $"Russia         {activeJson.Results[i].All.RU.releaseDate}\n" +
-                                    $"United States  {activeJson.Results[i].All.US.releaseDate}\n" +
-                                    $"Germany        {activeJson.Results[i].All.DE.releaseDate}\n" +
-                                    $"Italy          {activeJson.Results[i].All.IT.releaseDate}\n" +
-                                    $"Spain          {activeJson.Results[i].All.ES.releaseDate}\n" +
-                                    $"United Kingdom {activeJson.Results[i].All.GB.releaseDate}\n" +
-                                    $"France         {activeJson.Results[i].All.FR.releaseDate}\n" +
-                                    $"China          {activeJson.Results[i].All.CN.releaseDate}\n";
+                    var tempA = new StringBuilder();
+                    foreach (var item in activeJson.Results[i].CounrtyReleaseAll)
+                    {
+                        tempA.Append(item.Value.country + "   " + item.Value.releaseDate + "\n");
+                    }
+                    //lblDates.Text = $"Russia         {activeJson.Results[i].CounrtyReleaseAll["RU"].releaseDate}\n" +
+                    //                $"United States  {activeJson.Results[i].CounrtyReleaseAll["US"].releaseDate}\n" +
+                    //                $"Germany        {activeJson.Results[i].CounrtyReleaseAll["DE"].releaseDate}\n" +
+                    //                $"Italy          {activeJson.Results[i].CounrtyReleaseAll["IT"].releaseDate}\n" +
+                    //                $"Spain          {activeJson.Results[i].CounrtyReleaseAll["ES"].releaseDate}\n" +
+                    //                $"United Kingdom {activeJson.Results[i].CounrtyReleaseAll["GB"].releaseDate}\n" +
+                    //                $"France         {activeJson.Results[i].CounrtyReleaseAll["FR"].releaseDate}\n" +
+                    //                $"China          {activeJson.Results[i].CounrtyReleaseAll["CN"].releaseDate}\n";
+                    lblDates.Text = tempA.ToString(0, tempA.Length - 1);
                 }
                 else lblDates.Text = "-";
             }
@@ -470,43 +478,78 @@ namespace MediaApi.Forms
             try
             {
                 i = listTitles.SelectedIndex;
-                FilmData info;
+                
                 if (AllAddCheckBox.Checked)
                 {
                     if (savedJson.Results == null || savedJson.Results.Count() < 1)
                     {
+                        prgProccess.Visible = true;
                         //info = Converter.TitleToData(await ApiUtils.GetObjectAsync<TitleData>(TitleUrl + item.Id));
-                        foreach (JsonData el in activeJson.Results)
+                        prgProccess.Minimum = 0;
+                        prgProccess.Maximum = activeJson.Results.Count();
+                        for (int l = 0; l < activeJson.Results.Count; l++)
                         {
-                            var obj = await UploadReleasesDates(el, el.Id);
+                            prgProccess.PerformStep();
+                            var obj = await UploadReleasesDates(activeJson.Results[l], activeJson.Results[l].Id);
                             if (obj is null) break;
                             savedJson.Results.Add(obj);
                         }
+                        
+                        //foreach (JsonData el in activeJson.Results)
+                        //{
+                        //    var obj = await UploadReleasesDates(el, el.Id);
+                        //    if (obj is null) break;
+                        //    savedJson.Results.Add(obj);
+                        //}
                         HardTool.SaveJson(JsonConvert.SerializeObject(savedJson), "imdb");
                     }
                     else
                     {
-                        foreach (var item in savedJson.Results)
+                        prgProccess.Visible = true;
+                        //info = Converter.TitleToData(await ApiUtils.GetObjectAsync<TitleData>(TitleUrl + item.Id));
+                        prgProccess.Minimum = 0;
+                        prgProccess.Maximum = savedJson.Results.Count();
+                        for (int l = 0; l < savedJson.Results.Count; l++)
                         {
-                            info = await GetInfoIDAsync(item.Id);
+                            prgProccess.PerformStep();
+                            var info = await GetInfoIDAsync(savedJson.Results[l].Id);
                             var obj = await UploadReleasesDates(info.Results[0], info.Results[0].Id);
                             SearchTitAdditionalInfoAdd(obj);
                         }
+
+                        //foreach (var item in savedJson.Results)
+                        //{
+                        //    var info = await GetInfoIDAsync(item.Id);
+                        //    var obj = await UploadReleasesDates(info.Results[0], info.Results[0].Id);
+                        //    SearchTitAdditionalInfoAdd(obj);
+                        //}
                     }
                 }
                 else if (OnlyNewCheckBox.Checked)
                 {
-                    foreach (string id in newAddedJson)
+                    prgProccess.Visible = true;
+                    //info = Converter.TitleToData(await ApiUtils.GetObjectAsync<TitleData>(TitleUrl + item.Id));
+                    prgProccess.Minimum = 0;
+                    prgProccess.Maximum = newAddedJson.Count();
+                    for (int l = 0; l < newAddedJson.Count; l++)
                     {
-                        info = await GetInfoIDAsync(id);
+                        prgProccess.PerformStep();
+                        var info = await GetInfoIDAsync(newAddedJson[l]);
                         var obj = await UploadReleasesDates(info.Results[0], info.Results[0].Id);
                         SearchTitAdditionalInfoAdd(obj);
                     }
+
+                    //foreach (string id in newAddedJson)
+                    //{
+                    //    var info = await GetInfoIDAsync(id);
+                    //    var obj = await UploadReleasesDates(info.Results[0], info.Results[0].Id);
+                    //    SearchTitAdditionalInfoAdd(obj);
+                    //}
                     HardTool.SaveJson(JsonConvert.SerializeObject(savedJson), "imdb");
                 }
                 else if (i != -1)
                 {
-                    info = await GetInfoIDAsync(activeJson.Results[i].Id);
+                    var info = await GetInfoIDAsync(activeJson.Results[i].Id);
                     var obj = await UploadReleasesDates(info.Results[0], info.Results[0].Id);
                     SearchTitAdditionalInfoAdd(obj);
                 }
@@ -556,7 +599,7 @@ namespace MediaApi.Forms
                 //savedJson.Results[indexO].IMDbRating = item.IMDbRating;
                 //savedJson.Results[indexO].Plot = item.Plot;
 
-                savedJson.Results[indexO].All = item.All;
+                savedJson.Results[indexO].CounrtyReleaseAll = item.CounrtyReleaseAll;
 
                 PropertyInfo[] properties = savedJson.Results[indexO].GetType().GetProperties();
 

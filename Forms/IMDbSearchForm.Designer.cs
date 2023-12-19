@@ -56,6 +56,7 @@
             btnInCountryRls = new Button();
             lblDates = new Label();
             brtRemovettl = new Button();
+            prgProccess = new ProgressBar();
             ((System.ComponentModel.ISupportInitialize)pictPoster).BeginInit();
             SuspendLayout();
             // 
@@ -257,11 +258,17 @@
             brtRemovettl.UseVisualStyleBackColor = false;
             brtRemovettl.Click += brtRemovettl_Click;
             // 
+            // prgProccess
+            // 
+            resources.ApplyResources(prgProccess, "prgProccess");
+            prgProccess.Name = "prgProccess";
+            // 
             // IMDbSearchForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
+            Controls.Add(prgProccess);
             Controls.Add(brtRemovettl);
             Controls.Add(lblDates);
             Controls.Add(btnInCountryRls);
@@ -324,5 +331,6 @@
         private Button btnInCountryRls;
         private Label lblDates;
         private Button brtRemovettl;
+        private ProgressBar prgProccess;
     }
 }
