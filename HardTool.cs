@@ -68,6 +68,53 @@ namespace MediaApi
             return savedJson;
         }
 
+
+        private static FilmData GetSavedJson2(string system)
+        {
+            string jsonPath = Path.Combine("JSON", system, "file.json");
+
+            if (File.Exists(jsonPath))
+            {
+                string json = File.ReadAllText(jsonPath);
+                return !string.IsNullOrEmpty(json)
+                    ? JsonConvert.DeserializeObject<FilmData>(json)
+                    : new FilmData { Results = new List<JsonData>() };
+            }
+
+            CreateDirectoriesIfNotExist("JSON", system);
+
+            DialogResult result = MessageBox.Show("Создать архивный файл?", "Архивного файла нет", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                FilmData filmData = new FilmData { Results = new List<JsonData>() };
+                SaveJson2(JsonConvert.SerializeObject(filmData), system);
+                return filmData;
+            }
+
+            return new FilmData { Results = new List<JsonData>() };
+        }
+
+        private static void CreateDirectoriesIfNotExist(params string[] directories)
+        {
+            foreach (var directory in directories)
+            {
+                string path = Path.Combine("JSON", directory);
+                if (!Directory.Exists(path))
+                {
+                    DirectoryInfo di = Directory.CreateDirectory(path);
+                    di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
+                }
+            }
+        }
+
+        private static void SaveJson2(string json, string system)
+        {
+            File.WriteAllText(Path.Combine("JSON", system, "file.json"), json);
+        }
+
+
+
         public static void SaveJson(string json, string system)
         {
             try

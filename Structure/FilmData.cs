@@ -325,7 +325,8 @@ namespace MediaApi.Structure
                             break;
                         case ("ru"):
                             a = ChechAvailCountry(ref data, item, "Russia", notes);
-                            data.TitleRus = calendar.data.title.akas.edges.Find(f => f.node.country.id == "RU").node.displayableProperty.value.plainText;
+                            if (calendar.data.title.akas.edges is not null)
+                                data.TitleRus = calendar.data.title.akas.edges.Find(f => f.node.country.id == "RU").node.displayableProperty.value.plainText;   
                             break;
                         default:
                             break;

@@ -19,6 +19,8 @@ using MediaApi.Structure;
 using System.Xml.Serialization;
 using System.Reflection;
 using System.Text;
+using System.Diagnostics;
+using System.Data;
 
 namespace MediaApi.Forms
 {
@@ -57,7 +59,8 @@ namespace MediaApi.Forms
             tipsForm.SetToolTip(btnExcelSave, "Сохранение всего архива или только новых(за эту сессию) метаданных в excel");
             tipsForm.SetToolTip(btnAddTitle, "Добавление метаданных либо выбраной позиции в листе либо всех в архив");
             tipsForm.SetToolTip(btnFromArchive, "Отображение всех метаданных содержащихся в архиве");
-            tipsForm.SetToolTip(listTitles, "Поле для отображения информации поиска или архивных записей");
+            //tipsForm.SetToolTip(listTitles, "Поле для отображения информации поиска или архивных записей");
+            tipsForm.SetToolTip(dGVtitles, "Поле для отображения информации поиска или архивных записей");
             tipsForm.SetToolTip(pictPoster, "Постер");
             tipsForm.SetToolTip(OnlyNewCheckBox, "Необходимо для получения excel файла с мета данными тайтлов этой сессии");
             tipsForm.SetToolTip(AllAddCheckBox, "Необходимо выделить чтобы добавить весь список найденных позиций в архив");
@@ -68,7 +71,8 @@ namespace MediaApi.Forms
             tipsForm.SetToolTip(btnSearch, "Кнопка для поиска по IMDB или архиву");
             tipsForm.SetToolTip(dateFrom, "Дата начала интервала");
             tipsForm.SetToolTip(dateTo, "Дата конечная интервала");
-            savedJson = HardTool.GetSavedJson("imdb");
+            //savedJson = HardTool.GetSavedJson("imdb");
+            btnFromArchive_Click(sender, e);
         }
 
         #region Global variables
@@ -106,6 +110,8 @@ namespace MediaApi.Forms
             AllAddCheckBox.ForeColor = ThemeColour.SecondaryColor;
             lblCountry.ForeColor = ThemeColour.SecondaryColor;
             lblReleaseDate.ForeColor = ThemeColour.PrimaryColor;
+            lblTotalTitles.ForeColor = ThemeColour.SecondaryColor;
+            chBoxUpdDown.ForeColor = ThemeColour.SecondaryColor;
             OnlyNewCheckBox.ForeColor = ThemeColour.SecondaryColor;
         }
 
@@ -155,9 +161,9 @@ namespace MediaApi.Forms
 
             UpdateListOfMeta(activeJson);
 
-            listTitles.DataSource = activeJson.Results;
-            listTitles.DisplayMember = "Title";
-            listTitles.ValueMember = "Id";
+            //listTitles.DataSource = activeJson.Results;
+            //listTitles.DisplayMember = "Title";
+            //listTitles.ValueMember = "Id";
 
             a.Hide();
         }
@@ -262,7 +268,8 @@ namespace MediaApi.Forms
             else if (!sameJson)
             {
                 //Прописать логику добавления в excel и файл json
-                var y = activeJson.Results[listTitles.SelectedIndex];
+                //var y = activeJson.Results[listTitles.SelectedIndex];
+                var y = activeJson.Results[dGVtitles.CurrentRow.Index];
                 sameFilms += AddNewItemToJson(y);
             }
             else
@@ -373,9 +380,68 @@ namespace MediaApi.Forms
         private void listTitles_SelectedIndexChanged(object sender, EventArgs e)
         {
             prgProccess.Visible = false;
+            //try
+            //{
+            //    var i = listTitles.SelectedIndex;
+
+            //    lblInfo.Text = $"ID:             {activeJson.Results[i].Id}\n" +
+            //                  $"Title Origin:   {activeJson.Results[i].Title}\n" +
+            //                  $"Title RUS:      {activeJson.Results[i].TitleRus}\n" +
+            //                  $"Type:           {activeJson.Results[i].Type}\n" +
+            //                  $"Year:           {activeJson.Results[i].Year}\n" +
+            //                  $"Info:    {activeJson.Results[i].Description}\n" +
+            //                  $"Awards:   {activeJson.Results[i].Awards}\n" +
+            //                  $"Gross:   {activeJson.Results[i].GrossWorld}\n" +
+            //                  //$"Release date:   {activeJson.Results[i].ReleaseDate}\n" +
+            //                  $"RunTime Mins:   {activeJson.Results[i].RuntimeStr}\n" +
+            //                  $"Rating:         {activeJson.Results[i].ContentRating}\n" +
+            //                  $"Genres:         {activeJson.Results[i].Genres}\n" +
+            //                  $"Languages:      {activeJson.Results[i].Languages}\n" +
+            //                  $"Countries of orgin: {activeJson.Results[i].Countries}\n" +
+            //                  //$"Release in country: {activeJson.Results[i].LocationSearch}\n" +
+            //                  $"Directors:      {activeJson.Results[i].Directors}\n" +
+            //                  $"Stars:          {activeJson.Results[i].Stars}";
+            //    lblSynopsis.Text = activeJson.Results[i].Plot;
+            //    linkLabel1.Text = activeJson.Results[i].Image;
+            //    pictPoster.ImageLocation = activeJson.Results[i].Image;
+
+            //    if (activeJson.Results[i].CounrtyReleaseAll is not null)
+            //    {
+            //        var tempA = new StringBuilder();
+            //        foreach (var item in activeJson.Results[i].CounrtyReleaseAll)
+            //        {
+            //            tempA.Append(item.Value.country + "   " + item.Value.releaseDate + "\n");
+            //        }
+            //        //lblDates.Text = $"Russia         {activeJson.Results[i].CounrtyReleaseAll["RU"].releaseDate}\n" +
+            //        //                $"United States  {activeJson.Results[i].CounrtyReleaseAll["US"].releaseDate}\n" +
+            //        //                $"Germany        {activeJson.Results[i].CounrtyReleaseAll["DE"].releaseDate}\n" +
+            //        //                $"Italy          {activeJson.Results[i].CounrtyReleaseAll["IT"].releaseDate}\n" +
+            //        //                $"Spain          {activeJson.Results[i].CounrtyReleaseAll["ES"].releaseDate}\n" +
+            //        //                $"United Kingdom {activeJson.Results[i].CounrtyReleaseAll["GB"].releaseDate}\n" +
+            //        //                $"France         {activeJson.Results[i].CounrtyReleaseAll["FR"].releaseDate}\n" +
+            //        //                $"China          {activeJson.Results[i].CounrtyReleaseAll["CN"].releaseDate}\n";
+            //        lblDates.Text = tempA.ToString(0, tempA.Length - 1);
+            //    }
+            //    else lblDates.Text = "-";
+            //}
+            //catch (Exception ex)
+            //{
+            //    new AdvancedSearchData
+            //    {
+            //        ErrorMessage = ex.Message
+            //    };
+            //}
+        }
+
+        private void dGVtitles_SelectionChanged(object sender, EventArgs e)
+        {
+            var a = dGVtitles.CurrentRow.Index;
+
+            prgProccess.Visible = false;
             try
             {
-                var i = listTitles.SelectedIndex;
+                var i = dGVtitles.CurrentRow.Index;
+
                 lblInfo.Text = $"ID:             {activeJson.Results[i].Id}\n" +
                               $"Title Origin:   {activeJson.Results[i].Title}\n" +
                               $"Title RUS:      {activeJson.Results[i].TitleRus}\n" +
@@ -438,9 +504,11 @@ namespace MediaApi.Forms
                 var release = await ComingSoonAsync();
                 activeJson = Converter.NewMovieToData(release);
 
-                listTitles.DataSource = activeJson.Results;
-                listTitles.DisplayMember = "Title";
-                listTitles.ValueMember = "Id";
+                UpdateListOfMeta(activeJson);
+
+                //listTitles.DataSource = activeJson.Results;
+                //listTitles.DisplayMember = "Title";
+                //listTitles.ValueMember = "Id";
             }
             catch (Exception)
             {
@@ -470,15 +538,15 @@ namespace MediaApi.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void btnSearchExtension_Click(object sender, EventArgs e)
+        private async void btnSearchExtension_Click_last(object sender, EventArgs e)
         {
             WaitForm a = new WaitForm();
             a.Show();
             int i;
             try
             {
-                i = listTitles.SelectedIndex;
-                
+                i = dGVtitles.CurrentRow.Index;
+
                 if (AllAddCheckBox.Checked)
                 {
                     if (savedJson.Results == null || savedJson.Results.Count() < 1)
@@ -494,7 +562,7 @@ namespace MediaApi.Forms
                             if (obj is null) break;
                             savedJson.Results.Add(obj);
                         }
-                        
+
                         //foreach (JsonData el in activeJson.Results)
                         //{
                         //    var obj = await UploadReleasesDates(el, el.Id);
@@ -571,7 +639,100 @@ namespace MediaApi.Forms
             a.Hide();
         }
 
-        private void SearchTitAdditionalInfoAdd(JsonData item)
+        private async void btnSearchExtension_Click(object sender, EventArgs e)
+        {
+            WaitForm waitForm = new WaitForm();
+            waitForm.Show();
+
+            try
+            {
+                int selectedIndex = dGVtitles.CurrentRow.Index;
+
+                if (AllAddCheckBox.Checked)
+                {
+                    await ProcessAllAddCheckBox();
+                }
+                else if (OnlyNewCheckBox.Checked)
+                {
+                    await ProcessOnlyNewCheckBox();
+                }
+                else if (selectedIndex != -1)
+                {
+                    await ProcessSelectedIndex(selectedIndex);
+                }
+                else
+                {
+                    MessageBox.Show("Никакой тайтл не выбран");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception appropriately, logging or displaying an error message.
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+            finally
+            {
+                prgProccess.Update();
+                prgProccess.Visible = false;
+
+                AllAddCheckBox.Checked = false;
+                OnlyNewCheckBox.Checked = false;
+
+                //listTitles_SelectedIndexChanged(sender, e);
+                UpdateListOfMeta(savedJson);
+                waitForm.Hide();
+            }
+        }
+
+        private async Task ProcessAllAddCheckBox()
+        {
+            prgProccess.Visible = true;
+            prgProccess.Minimum = 0;
+            prgProccess.Maximum = activeJson.Results.Count();
+
+            foreach (var result in activeJson.Results)
+            {
+                prgProccess.PerformStep();
+                var info = await GetInfoIDAsync(result.Id);
+                var obj = await UploadReleasesDates(info.Results[0], info.Results[0].Id);
+                if (obj is null) break;
+                SearchTitAdditionalInfoAdd(obj);
+                //savedJson.Results.Add(obj);
+            }
+
+            HardTool.SaveJson(JsonConvert.SerializeObject(savedJson), "imdb");
+        }
+
+        private async Task ProcessOnlyNewCheckBox()
+        {
+            prgProccess.Visible = true;
+            prgProccess.Minimum = 0;
+            prgProccess.Maximum = newAddedJson.Count();
+
+            foreach (var id in newAddedJson)
+            {
+                prgProccess.PerformStep();
+                var info = await GetInfoIDAsync(id);
+                var obj = await UploadReleasesDates(info.Results[0], info.Results[0].Id);
+                SearchTitAdditionalInfoAdd(obj);
+            }
+
+            HardTool.SaveJson(JsonConvert.SerializeObject(savedJson), "imdb");
+        }
+
+        private async Task ProcessSelectedIndex(int selectedIndex)
+        {
+            var info = await GetInfoIDAsync(activeJson.Results[selectedIndex].Id);
+            var obj = await UploadReleasesDates(info.Results[0], info.Results[0].Id);
+            SearchTitAdditionalInfoAdd(obj);
+
+            HardTool.SaveJson(JsonConvert.SerializeObject(savedJson), "imdb");
+        }
+
+
+
+        private void SearchTitAdditionalInfoAdd_lat(JsonData item)
         {
             var indexO = savedJson.Results.FindIndex(f => f.Id == item.Id);
             if (indexO == -1)
@@ -615,6 +776,37 @@ namespace MediaApi.Forms
                 }
             }
             HardTool.SaveJson(JsonConvert.SerializeObject(savedJson), "imdb");
+        }
+
+        private void SearchTitAdditionalInfoAdd(JsonData item)
+        {
+            int indexO = savedJson.Results.FindIndex(f => f.Id == item.Id);
+
+            if (indexO == -1)
+            {
+                savedJson.Results.Add(item);
+            }
+            else
+            {
+                savedJson.Results[indexO].CounrtyReleaseAll = item.CounrtyReleaseAll;
+                UpdateExistingItemProperties(savedJson.Results[indexO], item);
+            }
+        }
+
+        private void UpdateExistingItemProperties(JsonData target, JsonData source)
+        {
+            PropertyInfo[] properties = target.GetType().GetProperties();
+
+            foreach (PropertyInfo property in properties)
+            {
+                object sourceValue = property.GetValue(source);
+                object targetValue = property.GetValue(target);
+
+                if (sourceValue != null)
+                {
+                    property.SetValue(target, sourceValue);
+                }
+            }
         }
 
         /// <summary>
@@ -668,17 +860,32 @@ namespace MediaApi.Forms
 
         private void UpdateListOfMeta(FilmData jsonnn)
         {
+            //try
+            //{
+            //    activeJson = jsonnn;
+            //    listTitles.DataSource = activeJson.Results;
+            //    listTitles.DisplayMember = "Title";
+            //    listTitles.ValueMember = "Id";
+            //    lblTotalTitles.Text = jsonnn.Results.Count().ToString();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"An error occurred: {ex.Message}");
+            //}
+
             try
             {
                 activeJson = jsonnn;
-                listTitles.DataSource = activeJson.Results;
-                listTitles.DisplayMember = "Title";
-                listTitles.ValueMember = "Id";
+                lblTotalTitles.Text = activeJson.Results.Count().ToString();
+                dGVtitles.DataSource = activeJson.Results;
+                //dGVtitles.SelectAll();
+                dGVtitles.Refresh();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
+
         }
 
         /// <summary>
@@ -768,7 +975,7 @@ namespace MediaApi.Forms
             {
                 //Прописать логику добавления в excel и файл json
                 //savedJson.Results.Remove(activeJson.Results[listTitles.SelectedIndex]);
-                savedJson.Results.RemoveAt(listTitles.SelectedIndex);
+                savedJson.Results.RemoveAt(dGVtitles.CurrentRow.Index);
             }
             else
             {
@@ -779,6 +986,11 @@ namespace MediaApi.Forms
 
             HardTool.SaveJson(savedJson, "imdb");
             btnFromArchive_Click(sender, e);
+        }
+
+        private void prgProccess_VisibleChanged(object sender, EventArgs e)
+        {
+            prgProccess.Value = 0;
         }
     }
 }

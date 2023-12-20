@@ -151,7 +151,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnSearch.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>29</value>
   </data>
   <data name="txtBoxSearch.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -178,37 +178,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtBoxSearch.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>28</value>
   </data>
-  <data name="listTitles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Right</value>
-  </data>
-  <data name="listTitles.ItemHeight" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="listTitles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>422, 133</value>
-  </data>
-  <data name="listTitles.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>Yes</value>
-  </data>
-  <data name="listTitles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>410, 270</value>
-  </data>
-  <data name="listTitles.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;listTitles.Name" xml:space="preserve">
-    <value>listTitles</value>
-  </data>
-  <data name="&gt;&gt;listTitles.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;listTitles.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;listTitles.ZOrder" xml:space="preserve">
-    <value>25</value>
+  <data name="pictPoster.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="pictPoster.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 12</value>
@@ -242,10 +215,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictPoster.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>27</value>
   </data>
   <data name="lblInfo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="lblInfo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -284,7 +257,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblInfo.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>26</value>
   </data>
   <data name="btnAddTitle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -317,7 +290,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnAddTitle.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>25</value>
   </data>
   <data name="linkLabel1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -350,7 +323,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;linkLabel1.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>24</value>
   </data>
   <data name="btnFromArchive.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -383,7 +356,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnFromArchive.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>23</value>
   </data>
   <data name="lblSynopsis.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left</value>
@@ -425,7 +398,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblSynopsis.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>22</value>
   </data>
   <data name="btnExcelSave.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -458,7 +431,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnExcelSave.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>21</value>
   </data>
   <data name="ArchiveSearchCheckBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -491,7 +464,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ArchiveSearchCheckBox.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>20</value>
   </data>
   <data name="AllAddCheckBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -524,10 +497,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;AllAddCheckBox.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="OnlyNewCheckBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
+    <value>19</value>
   </data>
   <data name="OnlyNewCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -542,7 +512,7 @@
     <value>MiddleRight</value>
   </data>
   <data name="OnlyNewCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>309, 428</value>
+    <value>309, 436</value>
   </data>
   <data name="OnlyNewCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 19</value>
@@ -566,7 +536,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;OnlyNewCheckBox.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>18</value>
   </data>
   <data name="btnSearchExtension.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -599,7 +569,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnSearchExtension.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>16</value>
   </data>
   <data name="btnOpenArchive.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -635,7 +605,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnOpenArchive.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>14</value>
   </data>
   <data name="CmngSoonBtn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -668,7 +638,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CmngSoonBtn.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>11</value>
   </data>
   <data name="btnClearAchive.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -701,7 +671,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnClearAchive.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="btnSrchCountryDate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -737,7 +707,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnSrchCountryDate.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>17</value>
   </data>
   <data name="cmbCountry.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -761,7 +731,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cmbCountry.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>15</value>
   </data>
   <data name="lblCountry.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -797,7 +767,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblCountry.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>13</value>
   </data>
   <data name="lblReleaseDate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -833,7 +803,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblReleaseDate.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>12</value>
   </data>
   <data name="label6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -866,7 +836,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>10</value>
   </data>
   <data name="dateFrom.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -896,7 +866,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dateFrom.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>9</value>
   </data>
   <data name="dateTo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -926,7 +896,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dateTo.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="btnInCountryRls.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -959,7 +929,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnInCountryRls.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="lblDates.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -968,7 +938,7 @@
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
   <data name="lblDates.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 281</value>
+    <value>197, 280</value>
   </data>
   <data name="lblDates.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>215, 120</value>
@@ -995,7 +965,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblDates.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
   <data name="brtRemovettl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -1031,16 +1001,22 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;brtRemovettl.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
+  </data>
+  <data name="prgProccess.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
   <data name="prgProccess.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, -1</value>
+    <value>8, 0</value>
   </data>
   <data name="prgProccess.Size" type="System.Drawing.Size, System.Drawing">
-    <value>844, 10</value>
+    <value>825, 11</value>
   </data>
   <data name="prgProccess.TabIndex" type="System.Int32, mscorlib">
     <value>38</value>
+  </data>
+  <data name="prgProccess.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;prgProccess.Name" xml:space="preserve">
     <value>prgProccess</value>
@@ -1052,6 +1028,195 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;prgProccess.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblTotalTitles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="lblTotalTitles.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblTotalTitles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>720, 404</value>
+  </data>
+  <data name="lblTotalTitles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>10, 15</value>
+  </data>
+  <data name="lblTotalTitles.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <data name="lblTotalTitles.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="&gt;&gt;lblTotalTitles.Name" xml:space="preserve">
+    <value>lblTotalTitles</value>
+  </data>
+  <data name="&gt;&gt;lblTotalTitles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTotalTitles.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblTotalTitles.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="chBoxUpdDown.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chBoxUpdDown.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="chBoxUpdDown.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="chBoxUpdDown.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="chBoxUpdDown.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="chBoxUpdDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 417</value>
+  </data>
+  <data name="chBoxUpdDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 19</value>
+  </data>
+  <data name="chBoxUpdDown.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="chBoxUpdDown.Text" xml:space="preserve">
+    <value>Вниз от выбранного</value>
+  </data>
+  <data name="&gt;&gt;chBoxUpdDown.Name" xml:space="preserve">
+    <value>chBoxUpdDown</value>
+  </data>
+  <data name="&gt;&gt;chBoxUpdDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chBoxUpdDown.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chBoxUpdDown.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="idDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="idDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="titleDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="titleDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>54</value>
+  </data>
+  <data name="titleRusDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>TitleRus</value>
+  </data>
+  <data name="titleRusDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>73</value>
+  </data>
+  <data name="imageDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="descriptionDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="descriptionDataGridViewTextBoxColumn.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="runtimeStrDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>RuntimeStr</value>
+  </data>
+  <data name="runtimeStrDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>91</value>
+  </data>
+  <data name="genresDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Genres</value>
+  </data>
+  <data name="genresDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>68</value>
+  </data>
+  <data name="contentRatingDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>ContentRating</value>
+  </data>
+  <data name="iMDbRatingDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>IMDbRating</value>
+  </data>
+  <data name="plotDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Plot</value>
+  </data>
+  <data name="starsDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Stars</value>
+  </data>
+  <data name="locationSearchDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>LocationSearch</value>
+  </data>
+  <data name="typeDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="typeDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>56</value>
+  </data>
+  <data name="yearDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="yearDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>54</value>
+  </data>
+  <data name="releaseDateDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>ReleaseDate</value>
+  </data>
+  <data name="awardsDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Awards</value>
+  </data>
+  <data name="directorsDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Directors</value>
+  </data>
+  <data name="companiesDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Companies</value>
+  </data>
+  <data name="countriesDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Countries</value>
+  </data>
+  <data name="languagesDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Languages</value>
+  </data>
+  <data name="grossWorldDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>GrossWorld</value>
+  </data>
+  <data name="counrtyReleaseAllDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>CounrtyReleaseAll</value>
+  </data>
+  <data name="counrtyReleaseAllDataGridViewTextBoxColumn.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <metadata name="jsonDataBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="dGVtitles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="dGVtitles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>421, 133</value>
+  </data>
+  <data name="dGVtitles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>411, 267</value>
+  </data>
+  <data name="dGVtitles.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="&gt;&gt;dGVtitles.Name" xml:space="preserve">
+    <value>dGVtitles</value>
+  </data>
+  <data name="&gt;&gt;dGVtitles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dGVtitles.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dGVtitles.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -1068,6 +1233,144 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Поиск по IMDB</value>
+  </data>
+  <data name="&gt;&gt;idDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>idDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;idDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;titleDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>titleDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;titleDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;titleRusDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>titleRusDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;titleRusDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imageDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>imageDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;imageDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;descriptionDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>descriptionDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;descriptionDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;runtimeStrDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>runtimeStrDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;runtimeStrDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;genresDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>genresDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;genresDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;contentRatingDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>contentRatingDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;contentRatingDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;iMDbRatingDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>iMDbRatingDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;iMDbRatingDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plotDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>plotDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;plotDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;starsDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>starsDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;starsDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;locationSearchDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>locationSearchDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;locationSearchDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;typeDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>typeDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;typeDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;yearDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>yearDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;yearDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;releaseDateDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>releaseDateDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;releaseDateDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;awardsDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>awardsDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;awardsDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;directorsDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>directorsDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;directorsDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;companiesDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>companiesDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;companiesDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;countriesDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>countriesDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;countriesDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;languagesDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>languagesDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;languagesDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grossWorldDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>grossWorldDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;grossWorldDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;counrtyReleaseAllDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>counrtyReleaseAllDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;counrtyReleaseAllDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;jsonDataBindingSource.Name" xml:space="preserve">
+    <value>jsonDataBindingSource</value>
+  </data>
+  <data name="&gt;&gt;jsonDataBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>IMDbSearchForm</value>
