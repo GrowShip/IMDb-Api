@@ -969,7 +969,6 @@ namespace MediaApi.Forms
             if (AllAddCheckBox.Checked && sameJson)
             {
                 savedJson.Results.Clear();
-
             }
             else if (sameJson)
             {
