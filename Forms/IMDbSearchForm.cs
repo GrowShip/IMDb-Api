@@ -21,6 +21,8 @@ using System.Reflection;
 using System.Text;
 using System.Diagnostics;
 using System.Data;
+using RestSharp;
+using RequestSupport;
 
 namespace MediaApi.Forms
 {
@@ -63,6 +65,7 @@ namespace MediaApi.Forms
             tipsForm.SetToolTip(dGVtitles, "Поле для отображения информации поиска или архивных записей");
             tipsForm.SetToolTip(pictPoster, "Постер");
             tipsForm.SetToolTip(OnlyNewCheckBox, "Необходимо для получения excel файла с мета данными тайтлов этой сессии");
+            tipsForm.SetToolTip(chBoxUpdDown, "Для расширение файлов, находящихся НИЖЕ выбранного");
             tipsForm.SetToolTip(AllAddCheckBox, "Необходимо выделить чтобы добавить весь список найденных позиций в архив");
             tipsForm.SetToolTip(txtBoxSearch, "Наименование для поиска по IMDB");
             tipsForm.SetToolTip(cmbCountry, "Выбор страны для поиска новых релизов");
@@ -86,8 +89,9 @@ namespace MediaApi.Forms
         private Boolean sameJson;
         public Form activeForm2;
 
-        private string apiUrlForNew = $"https://imdb-api.com/API/AdvancedSearch/{KeysAccess.GetRandomValue()}/?";
-        private static string TitleUrl = $"https://imdb-api.com/en/API/Title/{KeysAccess.GetRandomValue()}/";
+        private string apiUrlForNew = $"https://tv-api.com/API/AdvancedSearch/{KeysAccess.GetRandomValue()}/?";
+        private static string TitleUrl = $"https://tv-api.com/en/API/Title/{KeysAccess.GetRandomValue()}/";
+        private static string ComingSoonnUrl = $"https://tv-api.com/en/API/ComingSoon/{KeysAccess.GetRandomValue()}";
 
         //private string UpComingUrl = $"https://imdb-api.com/en/API/ComingSoon/{KeysAccess.GetRandomValue()}";
         //private const string apiUrl = "https://imdb-api.com/ru/API/ComingSoon/k_yl5q767w";
@@ -106,6 +110,16 @@ namespace MediaApi.Forms
                     btn.FlatAppearance.BorderColor = ThemeColour.SecondaryColor;
                 }
             }
+            foreach (var lbls in this.Controls)
+            {
+                if (lbls.GetType() == typeof(CheckBox))
+                {
+                    CheckBox lbl = (CheckBox)lbls;
+                    lbl.ForeColor = ThemeColour.SecondaryColor;
+                    lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+                }
+            }
+
             ArchiveSearchCheckBox.ForeColor = ThemeColour.SecondaryColor;
             AllAddCheckBox.ForeColor = ThemeColour.SecondaryColor;
             lblCountry.ForeColor = ThemeColour.SecondaryColor;
@@ -502,6 +516,7 @@ namespace MediaApi.Forms
             {
                 sameJson = false;
                 var release = await ComingSoonAsync();
+
                 activeJson = Converter.NewMovieToData(release);
 
                 UpdateListOfMeta(activeJson);
@@ -681,6 +696,7 @@ namespace MediaApi.Forms
 
                 //listTitles_SelectedIndexChanged(sender, e);
                 UpdateListOfMeta(savedJson);
+                dGVtitles_SelectionChanged(sender, e);
                 waitForm.Hide();
             }
         }

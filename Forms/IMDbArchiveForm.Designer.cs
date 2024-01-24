@@ -41,7 +41,7 @@
             // 
             // btnReturn
             // 
-            btnReturn.Location = new Point(273, 518);
+            btnReturn.Location = new Point(259, 504);
             btnReturn.Name = "btnReturn";
             btnReturn.Size = new Size(108, 31);
             btnReturn.TabIndex = 0;

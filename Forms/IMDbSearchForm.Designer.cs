@@ -90,8 +90,8 @@
             // 
             // btnSearch
             // 
-            resources.ApplyResources(btnSearch, "btnSearch");
             btnSearch.BackColor = SystemColors.ActiveCaption;
+            resources.ApplyResources(btnSearch, "btnSearch");
             btnSearch.ForeColor = SystemColors.ButtonHighlight;
             btnSearch.Name = "btnSearch";
             btnSearch.UseVisualStyleBackColor = false;
@@ -222,8 +222,8 @@
             // 
             // cmbCountry
             // 
-            resources.ApplyResources(cmbCountry, "cmbCountry");
             cmbCountry.FormattingEnabled = true;
+            resources.ApplyResources(cmbCountry, "cmbCountry");
             cmbCountry.Name = "cmbCountry";
             // 
             // lblCountry
@@ -299,6 +299,7 @@
             // 
             dGVtitles.AllowUserToAddRows = false;
             dGVtitles.AllowUserToDeleteRows = false;
+            resources.ApplyResources(dGVtitles, "dGVtitles");
             dGVtitles.AutoGenerateColumns = false;
             dGVtitles.BackgroundColor = SystemColors.ButtonFace;
             dGVtitles.BorderStyle = BorderStyle.None;
@@ -307,7 +308,6 @@
             dGVtitles.Cursor = Cursors.Hand;
             dGVtitles.DataSource = jsonDataBindingSource;
             dGVtitles.GridColor = SystemColors.ButtonFace;
-            resources.ApplyResources(dGVtitles, "dGVtitles");
             dGVtitles.Name = "dGVtitles";
             dGVtitles.ReadOnly = true;
             dGVtitles.RowTemplate.Height = 25;

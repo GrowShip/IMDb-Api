@@ -45,9 +45,16 @@ namespace MediaApi
 
         private static void CreateDirectoriesIfNotExist(params string[] directories)
         {
+            string path = @"JSON";
+            if (!Directory.Exists(path))
+            {
+                DirectoryInfo di = Directory.CreateDirectory(path);
+                di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
+            }
+
             foreach (var directory in directories)
             {
-                string path = Path.Combine("JSON", directory);
+                path = Path.Combine("JSON", directory);
                 if (!Directory.Exists(path))
                 {
                     DirectoryInfo di = Directory.CreateDirectory(path);

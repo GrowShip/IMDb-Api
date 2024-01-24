@@ -118,9 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnSearch.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
   <data name="btnSearch.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -154,7 +151,7 @@
     <value>29</value>
   </data>
   <data name="txtBoxSearch.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+    <value>Top, Left, Right</value>
   </data>
   <data name="txtBoxSearch.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
@@ -269,7 +266,7 @@
     <value>Segoe UI, 9.5pt</value>
   </data>
   <data name="btnAddTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>752, 420</value>
+    <value>752, 430</value>
   </data>
   <data name="btnAddTitle.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 34</value>
@@ -296,7 +293,7 @@
     <value>True</value>
   </data>
   <data name="linkLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 398</value>
+    <value>9, 405</value>
   </data>
   <data name="linkLabel1.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 15</value>
@@ -335,7 +332,7 @@
     <value>Segoe UI, 9.5pt</value>
   </data>
   <data name="btnFromArchive.Location" type="System.Drawing.Point, System.Drawing">
-    <value>749, 42</value>
+    <value>750, 42</value>
   </data>
   <data name="btnFromArchive.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 38</value>
@@ -401,7 +398,7 @@
     <value>22</value>
   </data>
   <data name="btnExcelSave.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
+    <value>Bottom, Left</value>
   </data>
   <data name="btnExcelSave.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -410,7 +407,7 @@
     <value>Segoe UI, 9.5pt</value>
   </data>
   <data name="btnExcelSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>421, 420</value>
+    <value>204, 430</value>
   </data>
   <data name="btnExcelSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 34</value>
@@ -433,9 +430,6 @@
   <data name="&gt;&gt;btnExcelSave.ZOrder" xml:space="preserve">
     <value>21</value>
   </data>
-  <data name="ArchiveSearchCheckBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
   <data name="ArchiveSearchCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -443,7 +437,7 @@
     <value>Flat</value>
   </data>
   <data name="ArchiveSearchCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>519, 49</value>
+    <value>500, 51</value>
   </data>
   <data name="ArchiveSearchCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 19</value>
@@ -476,7 +470,7 @@
     <value>MiddleRight</value>
   </data>
   <data name="AllAddCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>700, 430</value>
+    <value>787, 407</value>
   </data>
   <data name="AllAddCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 19</value>
@@ -499,6 +493,9 @@
   <data name="&gt;&gt;AllAddCheckBox.ZOrder" xml:space="preserve">
     <value>19</value>
   </data>
+  <data name="OnlyNewCheckBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
   <data name="OnlyNewCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -512,7 +509,7 @@
     <value>MiddleRight</value>
   </data>
   <data name="OnlyNewCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>309, 436</value>
+    <value>509, 405</value>
   </data>
   <data name="OnlyNewCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 19</value>
@@ -548,7 +545,7 @@
     <value>Segoe UI, 9.5pt</value>
   </data>
   <data name="btnSearchExtension.Location" type="System.Drawing.Point, System.Drawing">
-    <value>612, 420</value>
+    <value>669, 430</value>
   </data>
   <data name="btnSearchExtension.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 34</value>
@@ -584,7 +581,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnOpenArchive.Location" type="System.Drawing.Point, System.Drawing">
-    <value>126, 420</value>
+    <value>121, 430</value>
   </data>
   <data name="btnOpenArchive.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 34</value>
@@ -617,7 +614,7 @@
     <value>Segoe UI, 9.5pt</value>
   </data>
   <data name="CmngSoonBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>644, 42</value>
+    <value>650, 42</value>
   </data>
   <data name="CmngSoonBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>99, 38</value>
@@ -650,7 +647,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="btnClearAchive.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 420</value>
+    <value>9, 430</value>
   </data>
   <data name="btnClearAchive.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 34</value>
@@ -686,7 +683,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnSrchCountryDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>644, 82</value>
+    <value>650, 82</value>
   </data>
   <data name="btnSrchCountryDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>99, 48</value>
@@ -709,11 +706,8 @@
   <data name="&gt;&gt;btnSrchCountryDate.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
-  <data name="cmbCountry.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
   <data name="cmbCountry.Location" type="System.Drawing.Point, System.Drawing">
-    <value>504, 80</value>
+    <value>519, 80</value>
   </data>
   <data name="cmbCountry.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 23</value>
@@ -733,9 +727,6 @@
   <data name="&gt;&gt;cmbCountry.ZOrder" xml:space="preserve">
     <value>15</value>
   </data>
-  <data name="lblCountry.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
   <data name="lblCountry.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -746,7 +737,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblCountry.Location" type="System.Drawing.Point, System.Drawing">
-    <value>449, 83</value>
+    <value>455, 83</value>
   </data>
   <data name="lblCountry.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 19</value>
@@ -769,9 +760,6 @@
   <data name="&gt;&gt;lblCountry.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
-  <data name="lblReleaseDate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
   <data name="lblReleaseDate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -782,7 +770,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblReleaseDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>417, 106</value>
+    <value>417, 107</value>
   </data>
   <data name="lblReleaseDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 19</value>
@@ -804,9 +792,6 @@
   </data>
   <data name="&gt;&gt;lblReleaseDate.ZOrder" xml:space="preserve">
     <value>12</value>
-  </data>
-  <data name="label6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -838,11 +823,8 @@
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="dateFrom.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
   <data name="dateFrom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>504, 104</value>
+    <value>504, 105</value>
   </data>
   <data name="dateFrom.Mask" xml:space="preserve">
     <value>00/00/0000</value>
@@ -868,11 +850,8 @@
   <data name="&gt;&gt;dateFrom.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="dateTo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
   <data name="dateTo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>575, 104</value>
+    <value>575, 105</value>
   </data>
   <data name="dateTo.Mask" xml:space="preserve">
     <value>00/00/0000</value>
@@ -908,7 +887,7 @@
     <value>Segoe UI, 9.5pt</value>
   </data>
   <data name="btnInCountryRls.Location" type="System.Drawing.Point, System.Drawing">
-    <value>749, 82</value>
+    <value>750, 82</value>
   </data>
   <data name="btnInCountryRls.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 48</value>
@@ -980,7 +959,7 @@
     <value>NoControl</value>
   </data>
   <data name="brtRemovettl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>517, 420</value>
+    <value>587, 430</value>
   </data>
   <data name="brtRemovettl.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 34</value>
@@ -1037,7 +1016,7 @@
     <value>True</value>
   </data>
   <data name="lblTotalTitles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>720, 404</value>
+    <value>421, 404</value>
   </data>
   <data name="lblTotalTitles.Size" type="System.Drawing.Size, System.Drawing">
     <value>10, 15</value>
@@ -1060,6 +1039,9 @@
   <data name="&gt;&gt;lblTotalTitles.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="chBoxUpdDown.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
   <data name="chBoxUpdDown.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1070,22 +1052,28 @@
     <value>Flat</value>
   </data>
   <data name="chBoxUpdDown.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
+    <value>Microsoft Sans Serif, 9pt</value>
   </data>
   <data name="chBoxUpdDown.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
   </data>
   <data name="chBoxUpdDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>274, 417</value>
+    <value>613, 405</value>
   </data>
   <data name="chBoxUpdDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 19</value>
+    <value>141, 19</value>
   </data>
   <data name="chBoxUpdDown.TabIndex" type="System.Int32, mscorlib">
     <value>40</value>
   </data>
   <data name="chBoxUpdDown.Text" xml:space="preserve">
     <value>Вниз от выбранного</value>
+  </data>
+  <data name="chBoxUpdDown.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="chBoxUpdDown.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>TextBeforeImage</value>
   </data>
   <data name="&gt;&gt;chBoxUpdDown.Name" xml:space="preserve">
     <value>chBoxUpdDown</value>
@@ -1098,6 +1086,9 @@
   </data>
   <data name="&gt;&gt;chBoxUpdDown.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="dGVtitles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="idDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>Id</value>
@@ -1201,8 +1192,11 @@
   <data name="dGVtitles.Location" type="System.Drawing.Point, System.Drawing">
     <value>421, 133</value>
   </data>
+  <data name="dGVtitles.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
   <data name="dGVtitles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>411, 267</value>
+    <value>411, 268</value>
   </data>
   <data name="dGVtitles.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
@@ -1226,7 +1220,7 @@
     <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>844, 461</value>
+    <value>844, 471</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

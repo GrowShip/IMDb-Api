@@ -303,28 +303,28 @@ namespace MediaApi.Structure
                     switch (item.node.country.id.ToLower())
                     {
                         case ("us"):
-                            a = ChechAvailCountry(ref data, item, "United States", notes);
+                            a = CheckAvailCountry(ref data, item, "United States", notes);
                             break;
                         case ("de"):
-                            a = ChechAvailCountry(ref data, item, "Germany", notes);
+                            a = CheckAvailCountry(ref data, item, "Germany", notes);
                             break;
                         case ("it"):
-                            a = ChechAvailCountry(ref data, item, "Italy", notes);
+                            a = CheckAvailCountry(ref data, item, "Italy", notes);
                             break;
                         case ("es"):
-                            a = ChechAvailCountry(ref data, item, "Spain", notes);
+                            a = CheckAvailCountry(ref data, item, "Spain", notes);
                             break;
                         case ("gb"):
-                            a = ChechAvailCountry(ref data, item, "United Kingdom", notes);
+                            a = CheckAvailCountry(ref data, item, "United Kingdom", notes);
                             break;
                         case ("fr"):
-                            a = ChechAvailCountry(ref data, item, "France", notes);
+                            a = CheckAvailCountry(ref data, item, "France", notes);
                             break;
                         case ("cn"):
-                            a = ChechAvailCountry(ref data, item, "China", notes);
+                            a = CheckAvailCountry(ref data, item, "China", notes);
                             break;
                         case ("ru"):
-                            a = ChechAvailCountry(ref data, item, "Russia", notes);
+                            a = CheckAvailCountry(ref data, item, "Russia", notes);
                             if (calendar.data.title.akas.edges is not null)
                                 data.TitleRus = calendar.data.title.akas.edges.Find(f => f.node.country.id == "RU").node.displayableProperty.value.plainText;   
                             break;
@@ -336,7 +336,7 @@ namespace MediaApi.Structure
             return data;
         }
 
-        static private bool ChechAvailCountry(ref JsonData data, Edge element, string country, string noteIn)
+        static private bool CheckAvailCountry(ref JsonData data, Edge element, string country, string noteIn)
         {
             if (!data.CounrtyReleaseAll.ContainsKey(element.node.country.id))
             {
